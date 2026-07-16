@@ -3826,7 +3826,7 @@
     "#": "",
     "Banda": "Athena XIX",
     "Disco": "Everflow Part 1: ...",
-    "Genero": "Progresivo, "Kamelot"",
+    "Genero": "Progresivo, \"Kamelot\"",
     "Registro": "",
     "Emision Disco": "",
     "Estado": "---",
@@ -3934,7 +3934,7 @@
     "Registro": "",
     "Emision Disco": "",
     "Estado": "---",
-    "Comentarios": "single "Around The Sun"",
+    "Comentarios": "single \"Around The Sun\"",
     "Puntuacion": "0",
     "__PowerAppsId__": "d1b93b26-6688-4990-8652-c018a3336c29"
   },
@@ -4389,7 +4389,7 @@
     "Registro": "",
     "Emision Disco": "",
     "Estado": "---",
-    "Comentarios": "Disco debut en 2024, single "directions"",
+    "Comentarios": "Disco debut en 2024, single \"directions\"",
     "Puntuacion": "3",
     "__PowerAppsId__": "3c2fdf9f-7a9e-4120-9791-5678ac7fbffc"
   },
