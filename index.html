@@ -175,24 +175,85 @@
         font-size: 0.75rem;
     }
 
-    @media (max-width: 480px) {
-        .grid {
-            grid-template-columns: 1fr !important;
-        }
-        .card {
-            padding: 1rem;
-            border-radius: 10px;
-        }
-        .card-title {
-            font-size: 1rem;
-        }
-        .card-subtitle {
-            font-size: 0.8rem;
-        }
-        .card-body {
-            font-size: 0.85rem;
-        }
+    /* MÓVILES PEQUEÑOS */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 1.05rem; /* Aumenta todo el texto base */
     }
+
+    header {
+        padding: 1rem 1rem;
+    }
+
+    .filters input,
+    .filters select {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr !important; /* UNA TARJETA POR FILA */
+        gap: 1.5rem;
+    }
+
+    .card {
+        padding: 1.4rem;
+        border-radius: 14px;
+    }
+
+    .card-title {
+        font-size: 1.25rem; /* MÁS GRANDE */
+    }
+
+    .card-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .card-body {
+        font-size: 1.05rem;
+        line-height: 1.55rem;
+    }
+
+    .pill,
+    .pill-genero,
+    .pill-estado,
+    .pill-emision {
+        font-size: 0.95rem;
+        padding: 0.35rem 0.75rem; /* Pills más grandes */
+    }
+
+    .badge {
+        font-size: 0.95rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+/* MÓVILES MUY PEQUEÑOS (iPhone SE, Android compactos) */
+@media (max-width: 380px) {
+
+    body {
+        font-size: 1.15rem; /* TODAVÍA MÁS GRANDE */
+    }
+
+    .card {
+        padding: 1.6rem;
+    }
+
+    .card-title {
+        font-size: 1.35rem;
+    }
+
+    .card-body {
+        font-size: 1.15rem;
+    }
+
+    .pill {
+        font-size: 1rem;
+        padding: 0.45rem 0.85rem;
+    }
+}
+
 </style>
 </head>
 
