@@ -57,95 +57,23 @@ input, select {
 </head>
 <body>
 
-<h2>MP3H – Vista Tarjetas</h2>
 
-<div class="filters">
-  <input type="text" id="buscador" placeholder="Buscar...">
-  
-  <select id="filtroGenero">
-    <option value="">Filtrar por género</option>
-  </select>
-
-  <select id="filtroEstado">
-    <option value="">Filtrar por estado</option>
-  </select>
-</div>
-
-<div id="contenedor" class="grid"></div>
+<h2>Prueba lectura JSON</h2>
+<div id="resultado"></div>
 
 <script>
 fetch("data/new_mp3h.json")
   .then(r => r.json())
   .then(data => {
-
-    const contenedor = document.getElementById("contenedor");
-    const filtroGenero = document.getElementById("filtroGenero");
-    const filtroEstado = document.getElementById("filtroEstado");
-    const buscador = document.getElementById("buscador");
-
-    // Obtener listas únicas
-    const generos = [...new Set(data.map(x => x.genero).filter(x => x))];
-    const estados = [...new Set(data.map(x => x.estado).filter(x => x))];
-
-    generos.sort();
-    estados.sort();
-
-    generos.forEach(g => {
-      filtroGenero.innerHTML += `<option value="${g}">${g}</option>`;
+    let html = "<ul>";
+    data.forEach(item => {
+      html += `<li>${item.banda} - ${item.disco} (${item.genero})</li>`;
     });
-
-    estados.forEach(e => {
-      filtroEstado.innerHTML += `<option value="${e}">${e}</option>`;
-    });
-
-    function pintarTarjetas() {
-      const g = filtroGenero.value.toLowerCase();
-      const e = filtroEstado.value.toLowerCase();
-      const b = buscador.value.toLowerCase();
-
-      contenedor.innerHTML = "";
-
-      data
-        .filter(item => (!g || item.genero.toLowerCase() === g))
-        .filter(item => (!e || item.estado.toLowerCase() === e))
-        .filter(item =>
-          !b ||
-          item.banda.toLowerCase().includes(b) ||
-          item.disco.toLowerCase().includes(b) ||
-          item.genero.toLowerCase().includes(b) ||
-          item.estado.toLowerCase().includes(b) ||
-          (item.comentarios || "").toLowerCase().includes(b)
-        )
-        .forEach(item => {
-
-          let claseEstado = "";
-          const est = item.estado?.toLowerCase();
-
-          if (est === "disp") claseEstado = "estado-disp";
-          else if (est === "no") claseEstado = "estado-no";
-          else if (est === "pre-ok") claseEstado = "estado-preok";
-          else if (est === "ok") claseEstado = "estado-ok";
-
-          const card = `
-            <div class="card">
-              <h3>${item.banda}</h3>
-              <p><strong>Disco:</strong> ${item.disco}</p>
-              <p><strong>Género:</strong> ${item.genero}</p>
-              <p><strong>Emisión:</strong> ${item.emision || ""}</p>
-              <p><strong>Comentarios:</strong> ${item.comentarios || ""}</p>
-              <span class="estado ${claseEstado}">${item.estado}</span>
-            </div>
-          `;
-
-          contenedor.innerHTML += card;
-        });
-    }
-
-    filtroGenero.addEventListener("change", pintarTarjetas);
-    filtroEstado.addEventListener("change", pintarTarjetas);
-    buscador.addEventListener("input", pintarTarjetas);
-
-    pintarTarjetas();
+    html += "</ul>";
+    document.getElementById("resultado").innerHTML = html;
+  })
+  .catch(err => {
+    document.getElementById("resultado").innerHTML = "Error cargando JSON: " + err;
   });
 </script>
 
