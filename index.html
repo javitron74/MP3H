@@ -67,7 +67,7 @@ fetch("data/new_mp3h.json")
   .then(data => {
     let html = "<ul>";
     data.forEach(item => {
-      html += `<li>${item.banda} - ${item.disco} (${item.genero})</li>`;
+      html += `<li>${item.Banda} - ${item.Disco} (${item.Genero})</li>`;
     });
     html += "</ul>";
     document.getElementById("resultado").innerHTML = html;
