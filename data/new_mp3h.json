@@ -6521,7 +6521,7 @@
     "Registro": "",
     "Emision Disco": "2026-07-03",
     "Estado": "---",
-    "Comentarios": "Prueba",
+    "Comentarios": "",
     "Puntuacion": "",
     "__PowerAppsId__": "2b5f2eea-f5c6-4f56-af3d-05e20295d890"
   },
@@ -6534,8 +6534,8 @@
     "Registro": "",
     "Emision Disco": "2026-07-10",
     "Estado": "Pre-ok",
-    "Comentarios": "",
+    "Comentarios": "Prueba2",
     "Puntuacion": "",
-    "__PowerAppsId__": "38EEFD13-1B8A-437F-A376-18EC7A8A723C"
+    "__PowerAppsId__": "82A02853-3335-4E28-883E-AFE9340E2D9C"
   }
 ]
