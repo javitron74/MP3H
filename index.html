@@ -414,8 +414,8 @@ function render() {
                 ${
                     emision
                         ? noEmitido
-                            ? `<span class="pill-emision no">No emitido</span> (${emision})`
-                            : `<span class="pill-emision">Emitido</span> (${emision})`
+                            ? <span class="pill-emision no">No emitido</span> (${emision})
+                            : <span class="pill-emision">Emitido</span> (${emision})
                         : "<em>Sin fecha</em>"
                 }
                 <br><br>
@@ -456,6 +456,8 @@ fetch("data/new_mp3h.json")
     .then(r => r.json())
     .then(data => {
         datos = Array.isArray(data) ? data : [];
+		// ORDENACIÓN POR DEFECTO → Pos DESC
+        datos.sort((a, b) => Number(b.Pos) - Number(a.Pos));
         cargarFiltros();
         render();
     })
