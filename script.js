@@ -46,10 +46,10 @@ function render() {
             });
         }
 
-        else if (campo === "Emision") {
+        else if (campo === "Emision Disco") {
             filtrados.sort((a, b) => {
-                const A = a.Emision ? new Date(a.Emision) : new Date("1900-01-01");
-                const B = b.Emision ? new Date(b.Emision) : new Date("1900-01-01");
+                const A = a["Emision Disco"] ? new Date(a["Emision Disco"]) : new Date("1900-01-01");
+                const B = b["Emision Disco"] ? new Date(b["Emision Disco"]) : new Date("1900-01-01");
                 return dir === "asc" ? A - B : B - A;
             });
         }
@@ -79,7 +79,7 @@ function render() {
         const genero = item.Genero || "";
         const puntuacion = item.Puntuacion || "";
         const comentarios = item.Comentarios || "";
-        const emision = item.Emision || "";
+        const emision = item["Emision Disco"] || "";
 
         const fechaEmision = emision ? new Date(emision) : null;
         const hoy = new Date();
