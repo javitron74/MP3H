@@ -126,10 +126,44 @@ main {
 }
 
 .pill-estado {
-    background: #059669;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* --- (sin revisar) */
+.pill-estado--- {
+    background: #4b5563;
+    color: #e5e7eb;
+}
+
+/* Pre-ok (pendiente pero bien encaminado) */
+.pill-estado-preok {
+    background: #f59e0b;
+    color: #111827;
+}
+
+/* Ok (correcto) */
+.pill-estado-ok {
+    background: #10b981;
     color: #ecfdf5;
 }
 
+/* No (incorrecto / descartado) */
+.pill-estado-no {
+    background: #b91c1c;
+    color: #fee2e2;
+}
+
+/* Disp (disponible / por usar) */
+.pill-estado-disp {
+    background: #3b82f6;
+    color: #eff6ff;
+}
+
+/* OBSOLETO A Eliminar */
 .pill-estado.no {
     background: #b91c1c;
     color: #fee2e2;
