@@ -1,7 +1,29 @@
 let datos = [];
 
+// Normalizar texto para búsqueda
 function normalizar(t) {
     return (t || "").toString().toLowerCase();
+}
+
+// Convertir fecha dd/mm/yyyy → Date()
+function parseFecha(fecha) {
+    if (!fecha) return null;
+    const partes = fecha.split("/");
+    if (partes.length !== 3) return null;
+    const [d, m, y] = partes;
+    return new Date(`${y}-${m}-${d}`);
+}
+
+// Clase CSS según estado
+function claseEstado(estado) {
+    switch (estado) {
+        case "---":     return "pill-estado---";
+        case "Pre-ok":  return "pill-estado-preok";
+        case "Ok":      return "pill-estado-ok";
+        case "No":      return "pill-estado-no";
+        case "Disp":    return "pill-estado-disp";
+        default:        return "pill-estado---";
+    }
 }
 
 function render() {
@@ -38,6 +60,7 @@ function render() {
 
     if (campo) {
 
+        // Ordenación por Pos
         if (campo === "Pos") {
             filtrados.sort((a, b) => {
                 const A = Number(a.Pos);
@@ -46,14 +69,16 @@ function render() {
             });
         }
 
-        else if (campo === "Emision Disco") {
+        // Ordenación por fecha
+        else if (campo === "Emision") {
             filtrados.sort((a, b) => {
-                const A = a["Emision Disco"] ? new Date(a["Emision Disco"]) : new Date("1900-01-01");
-                const B = b["Emision Disco"] ? new Date(b["Emision Disco"]) : new Date("1900-01-01");
+                const A = parseFecha(a["Emision Disco"]);
+                const B = parseFecha(b["Emision Disco"]);
                 return dir === "asc" ? A - B : B - A;
             });
         }
 
+        // Ordenación general
         else {
             filtrados.sort((a, b) => {
                 let A = (a[campo] || "").toString().toLowerCase();
@@ -75,13 +100,14 @@ function render() {
 
     grid.innerHTML = "";
     filtrados.forEach(item => {
+
         const estado = (item.Estado || "").toString();
         const genero = item.Genero || "";
         const puntuacion = item.Puntuacion || "";
         const comentarios = item.Comentarios || "";
         const emision = item["Emision Disco"] || "";
 
-        const fechaEmision = emision ? new Date(emision) : null;
+        const fechaEmision = parseFecha(emision);
         const hoy = new Date();
         const noEmitido = fechaEmision && fechaEmision > hoy;
 
@@ -96,8 +122,8 @@ function render() {
                 </div>
                 <div>
                     <span class="pill pill-genero">${genero}</span>
-                    <span class="pill pill-estado ${estado === "No" ? "no" : ""}">
-                        ${estado === "Si" ? "Emitido" : "No emitido"}
+                    <span class="pill ${claseEstado(estado)}">
+                        ${estado || "---"}
                     </span>
                 </div>
             </div>
@@ -139,12 +165,14 @@ function cargarFiltros() {
     });
 }
 
+// EVENTOS
 document.getElementById("search").addEventListener("input", render);
 document.getElementById("filterGenero").addEventListener("change", render);
 document.getElementById("filterEstado").addEventListener("change", render);
 document.getElementById("sortField").addEventListener("change", render);
 document.getElementById("sortDir").addEventListener("change", render);
 
+// CARGA DEL JSON
 fetch("data/new_mp3h.json")
     .then(r => r.json())
     .then(data => {
