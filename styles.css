@@ -1,0 +1,227 @@
+:root {
+    --bg: #0f0f10;
+    --panel: #1a1b1e;
+    --panel-light: #232428;
+    --text: #e5e7eb;
+    --text-dim: #9ca3af;
+    --accent: #6366f1;
+    --accent2: #3b82f6;
+    --radius: 12px;
+    --shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 1rem;
+}
+
+header {
+    padding: 1.5rem 2rem;
+    background: var(--panel);
+    border-bottom: 1px solid #2c2d31;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.filters input,
+.filters select {
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--radius);
+    border: 1px solid #3a3b3f;
+    background: var(--panel-light);
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+.filters input:focus,
+.filters select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(99,102,241,0.3);
+}
+
+main {
+    padding: 1.5rem 2rem;
+}
+
+#count {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.card {
+    background: var(--panel-light);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    border: 1px solid #2f3034;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.pill {
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.pill-genero {
+    background: #4b5563;
+    color: #e5e7eb;
+}
+
+.pill-estado {
+    background: #059669;
+    color: #ecfdf5;
+}
+
+.pill-estado.no {
+    background: #b91c1c;
+    color: #fee2e2;
+}
+
+.pill-emision {
+    background: #3b82f6;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+}
+
+.pill-emision.no {
+    background: #b91c1c;
+}
+
+.card-body {
+    font-size: 0.9rem;
+    color: #d1d5db;
+    line-height: 1.35rem;
+}
+
+.card-footer {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid #4b5563;
+    font-size: 0.75rem;
+}
+
+/* MÓVIL */
+@media (max-width: 480px) {
+    body {
+        font-size: 1.15rem;
+    }
+
+    header {
+        padding: 1rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .filters input,
+    .filters select {
+        font-size: 1.2rem;
+        padding: 0.9rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+
+    .card {
+        padding: 1.6rem;
+        border-radius: 16px;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+    }
+
+    .card-subtitle {
+        font-size: 1.15rem;
+    }
+
+    .card-body {
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+    }
+
+    .pill,
+    .pill-genero,
+    .pill-estado,
+    .pill-emision {
+        font-size: 1.1rem;
+        padding: 0.45rem 0.9rem;
+    }
+
+    .badge {
+        font-size: 1.1rem;
+        padding: 0.4rem 0.7rem;
+    }
+}
