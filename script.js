@@ -138,8 +138,10 @@ function render() {
                 ${
                     emision
                         ? noEmitido
-                            ? `<span class="pill-emision no">No emitido</span> (${emision})`
-                            : `<span class="pill-emision">Emitido</span> (${emision})`
+                            //? `<span class="pill-emision no">No emitido</span> (${emision})`
+                            //: `<span class="pill-emision">Emitido</span> (${emision})`
+							? `<span class="pill-emision no">${emision}</span> `
+							: `<span class="pill-emision">${emision}</span> `
                         : "<em>Sin fecha</em>"
                 }
                 <br><br>
