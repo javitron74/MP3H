@@ -18,6 +18,11 @@ function parseFecha(fecha) {
     const [d, m, y] = partes;
     return new Date(`${y}-${m}-${d}`);
 }
+//Para que empiecen en la hora 0
+function normalizar(fecha) {
+    fecha.setHours(0, 0, 0, 0);
+    return fecha;
+}
 
 // Clase CSS según estado
 function claseEstado(estado) {
@@ -112,9 +117,15 @@ function render() {
         const comentarios = item.Comentarios || "";
         const emision = item["Emision Disco"] || "";
 
-        const fechaEmision = parseFecha(emision);
-        const hoy = new Date();
+//        const fechaEmision = parseFecha(emision);
+//        const hoy = new Date();
+//        const noEmitido = fechaEmision && fechaEmision > hoy;
+
+        
+        const hoy = normalizar(new Date());
+		const fechaEmision = emision ? normalizar(parseFecha(emision)) : null;
         const noEmitido = fechaEmision && fechaEmision > hoy;
+
 
         const card = document.createElement("div");
         card.className = "card";
