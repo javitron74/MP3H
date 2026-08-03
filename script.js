@@ -143,7 +143,7 @@ function render() {
 							? `<span class="pill-emision no">${emision}</span> `
 							: `<span class="pill-emision">${emision}</span> `
                         //: "<em>Sin fecha</em>"
-						: "<em></em>"
+						: `<em>${hoy}</em>`
                 }
                 <br><br>
                 ${comentarios || "<em>Sin comentarios</em>"}
