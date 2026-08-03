@@ -1,5 +1,10 @@
 let datos = [];
 
+if (!window.location.search.includes('v=')) {
+    const nuevaURL = window.location.pathname + '?v=' + Date.now();
+    window.location.replace(nuevaURL);
+}
+
 // Normalizar texto para búsqueda
 function normalizar(t) {
     return (t || "").toString().toLowerCase();
