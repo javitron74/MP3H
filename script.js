@@ -150,8 +150,7 @@ function render() {
                             //: `<span class="pill-emision">Emitido</span> (${emision})`
 							? `<span class="pill-emision no">${emision}</span> `
 							: `<span class="pill-emision">${emision}</span> `
-                        //: "<em>Sin fecha</em>"
-						: `<em>${hoy}</em>`
+                        : "<em>Sin fecha</em>"
                 }
 				<span class="pill ${claseEstado(estado)}">
 					${estado || "---"}
