@@ -138,14 +138,11 @@ function render() {
                 </div>
                 <div>
                     <span class="pill pill-genero">${genero}</span>
-                    <span class="pill ${claseEstado(estado)}">
-                        ${estado || "---"}
-                    </span>
+
                 </div>
             </div>
 
             <div class="card-body">
-                <strong>Emisión:</strong>
                 ${
                     emision
                         ? noEmitido
@@ -156,8 +153,11 @@ function render() {
                         //: "<em>Sin fecha</em>"
 						: `<em>${hoy}</em>`
                 }
+				<span class="pill ${claseEstado(estado)}">
+					${estado || "---"}
+				</span>
                 <br><br>
-                ${comentarios || "<em>Sin comentarios</em>"}
+                <span class="card-body-comment">${comentarios}</span>
             </div>
 
             <div class="card-footer">
