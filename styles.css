@@ -173,7 +173,7 @@ main {
 
 .card-body {
     font-size: 0.9rem;
-    color: #1e293b;
+    color: var(--text-dim);
     /*line-height: 1.35rem;*/
 }
 
@@ -251,8 +251,8 @@ main {
 }
 
 .pill-emision {
-    /*background: #3b82f6;
-    color: white;*/
+    /*background: #3b82f6;*/
+    color: var(--text-dim);
     padding: 0.2rem 0.5rem;
     border-radius: 999px;
     font-size: 0.75rem;
