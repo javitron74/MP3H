@@ -19,7 +19,7 @@ function parseFecha(fecha) {
     return new Date(`${y}-${m}-${d}`);
 }
 //Para que empiecen en la hora 0
-function normalizar(fecha) {
+function normalizarfecha(fecha) {
 	if (!(fecha instanceof Date)) return null;
     fecha.setHours(0, 0, 0, 0);
     return fecha;
@@ -122,8 +122,8 @@ function render() {
 //        const hoy = new Date();
 //        const noEmitido = fechaEmision && fechaEmision > hoy;
 
-		const fechaEmision = normalizar(parseFecha(emision));      
-        const hoy = normalizar(new Date());
+		const fechaEmision = normalizarfecha(parseFecha(emision));      
+        const hoy = normalizarfecha(new Date());
         const noEmitido = fechaEmision && fechaEmision > hoy;
 
 
