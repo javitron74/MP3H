@@ -117,16 +117,16 @@ function render() {
         const puntuacion = item.Puntuacion || "";
         const comentarios = item.Comentarios || "";
         const emision = item["Emision Disco"] || "";
-
+/*
         const fechaEmision = parseFecha(emision);
         const hoy = new Date();
         const noEmitido = fechaEmision && fechaEmision > hoy;
-/*		
+*/		
 		const fechaEmision = normalizarfecha(parseFecha(emision));      
         const hoy = normalizarfecha(new Date());
 		const fechaHoy = new Date(`${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`);
         const noEmitido = fechaEmision && fechaEmision > fechaHoy;
-*/
+
 
         const card = document.createElement("div");
         card.className = "card";
