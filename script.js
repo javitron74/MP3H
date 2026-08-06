@@ -124,7 +124,7 @@ function render() {
 */		
 		const [anio, mes, dia]=emision.split('-');
 		const fechaEmision = new Date(anio, mes - 1, dia);
-		const fechaEmisionFormato = fechaEmision.toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'});
+		//const fechaEmisionFormato = fechaEmision.toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'});
         const hoy = new Date();
 		const fechaHoy = new Date(`${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`);
         const noEmitido = fechaEmision && fechaEmision > fechaHoy;
@@ -151,8 +151,8 @@ function render() {
                         ? noEmitido
                             //? `<span class="pill-emision no">No emitido</span> (${emision})`
                             //: `<span class="pill-emision">Emitido</span> (${emision})`
-							? `<span class="pill-emision no">${fechaEmisionFormato}</span> `
-							: `<span class="pill-emision">${fechaEmisionFormato}</span> `
+							? `<span class="pill-emision no">${emision}</span> `
+							: `<span class="pill-emision">${emision}</span> `
                         : "<em>Sin fecha</em>"
                 }
 				<span class="pill ${claseEstado(estado)}">
