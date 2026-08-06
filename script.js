@@ -157,9 +157,7 @@ function render() {
 				<span class="pill ${claseEstado(estado)}">
 					${estado || "---"}
 				</span>
-                <br>Emision2: ${fechaEmision}<br>
-				<br>Emision3: ${fechaHoy}<br>
-				${noEmitido}
+                <br><br>
                 <span class="card-body-comment">${comentarios}</span>
             </div>
 
