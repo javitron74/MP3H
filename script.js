@@ -122,7 +122,7 @@ function render() {
         const hoy = new Date();
         const noEmitido = fechaEmision && fechaEmision > hoy;
 */		
-		const fechaEmision = parseFecha(emision);      
+		const fechaEmision = emision;      
         const hoy = new Date();
 		const fechaHoy = new Date(`${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`);
         const noEmitido = fechaEmision && fechaEmision > fechaHoy;
