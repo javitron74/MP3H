@@ -124,7 +124,7 @@ function render() {
 		
 		const fechaEmision = normalizarfecha(parseFecha(emision));      
         const hoy = normalizarfecha(new Date());
-		const fechaHoy = new Date(`${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`
+		const fechaHoy = new Date(`${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`);
         const noEmitido = fechaEmision && fechaEmision > fechaHoy;
 
 
