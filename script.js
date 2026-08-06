@@ -158,6 +158,7 @@ function render() {
 					${estado || "---"}
 				</span>
                 <br>Emision2: ${fechaEmision}<br>
+				<br>Emision3: ${fechaHoy}<br>
 				${noEmitido}
                 <span class="card-body-comment">${comentarios}</span>
             </div>
