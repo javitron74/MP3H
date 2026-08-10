@@ -204,7 +204,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Marcar visualmente los que están preseleccionados
         if (estadosSeleccionados.includes(value)) {
             pill.classList.add("selected");
-        
+        }
+		
 		// Eventos de clic
         pill.addEventListener("click", () => {
             //const value = pill.dataset.value;
