@@ -191,24 +191,24 @@ main {
 }
 
 /* Borde dinámico según estado */
-.card.estado--- {
+/*.card.estado--- {
     border: 2px solid #4b5563;
-}
+}*/
 
 .card.estado-preok {
-    border: 2px solid #f59e0b;
+    border: 2px solid #0284C7;
 }
 
 .card.estado-ok {
-    border: 2px solid #10b981;
+    border: 2px solid #7C3AED;
 }
 
 .card.estado-no {
-    border: 2px solid #b91c1c;
+    border: 2px solid #DC2626;
 }
 
 .card.estado-disp {
-    border: 2px solid #3b82f6;
+    border: 2px solid #16A34A;
 }
 
 
