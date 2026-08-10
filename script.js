@@ -43,7 +43,7 @@ function render() {
 
     const q = normalizar(document.getElementById("search").value);
     const g = document.getElementById("filterGenero").value;
-    const e = document.getElementById("filterEstado").value;
+    //const e = document.getElementById("filterEstado").value;
 
     let filtrados = datos.filter(item => {
         const banda = normalizar(item.Banda);
@@ -60,8 +60,13 @@ function render() {
             comentarios.includes(q);
 
         const coincideGenero = !g || genero === normalizar(g);
-        const coincideEstado = !e || estado === e;
-
+        //const coincideEstado = !e || estado === e;
+		
+		//MULTIFILTRO Estado 7/08/2026, eliminado la e
+		const coincideEstado =
+			estadosSeleccionados.length === 0 ||
+			estadosSeleccionados.map(normalizar).includes(estado);
+			
         return coincideTexto && coincideGenero && coincideEstado;
     });
 
@@ -185,6 +190,31 @@ function cargarFiltros() {
         selectGenero.appendChild(opt);
     });
 }
+
+// MULTIFILTRO Estado 7/08/2026
+// --- MULTISELECT ESTADO ---
+document.addEventListener("DOMContentLoaded", () => {
+
+    const estadoPills = document.querySelectorAll("#filterEstado .pill");
+    window.estadosSeleccionados = []; // global
+
+    estadoPills.forEach(pill => {
+        pill.addEventListener("click", () => {
+            const value = pill.dataset.value;
+
+            if (estadosSeleccionados.includes(value)) {
+                estadosSeleccionados = estadosSeleccionados.filter(v => v !== value);
+                pill.classList.remove("selected");
+            } else {
+                estadosSeleccionados.push(value);
+                pill.classList.add("selected");
+            }
+
+            render();
+        });
+    });
+
+});
 
 // EVENTOS
 document.getElementById("search").addEventListener("input", render);
