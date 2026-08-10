@@ -197,18 +197,22 @@ main {
 
 .card.estado-preok {
     border: 2px solid #0284C7;
+	background: #0284C71a;
 }
 
 .card.estado-ok {
     border: 2px solid #7C3AED;
+	background: #7C3AED1a;
 }
 
 .card.estado-no {
     border: 2px solid #DC2626;
+	background: #DC26261a;
 }
 
 .card.estado-disp {
     border: 2px solid #16A34A;
+	background: #16A34A1a;
 }
 
 
@@ -282,6 +286,7 @@ main {
 
 .pill-emision.no {
     background: #f59e0b/*#b91c1c*/;
+	color: #1e293b;
 }
 
 .badge {
