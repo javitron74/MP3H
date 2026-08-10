@@ -65,7 +65,7 @@ function render() {
 		//MULTIFILTRO Estado 7/08/2026, eliminado la e
 		const coincideEstado =
 			estadosSeleccionados.length === 0 ||
-			estadosSeleccionados.map(normalizar).includes(estado);
+			estadosSeleccionados.includes(estado);
 			
         return coincideTexto && coincideGenero && coincideEstado;
     });
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     estadoPills.forEach(pill => {
         pill.addEventListener("click", () => {
-            const value = normalizar(pill.dataset.value);
+            const value = pill.dataset.value;
 
             if (estadosSeleccionados.includes(value)) {
                 estadosSeleccionados = estadosSeleccionados.filter(v => v !== value);
