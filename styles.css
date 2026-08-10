@@ -190,6 +190,28 @@ main {
     align-items: center;
 }
 
+/* Borde dinámico según estado */
+.card.estado--- {
+    border: 2px solid #4b5563;
+}
+
+.card.estado-preok {
+    border: 2px solid #f59e0b;
+}
+
+.card.estado-ok {
+    border: 2px solid #10b981;
+}
+
+.card.estado-no {
+    border: 2px solid #b91c1c;
+}
+
+.card.estado-disp {
+    border: 2px solid #3b82f6;
+}
+
+
 /* =========================================================
    PILLS / BADGES
    ========================================================= */
