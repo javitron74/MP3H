@@ -196,11 +196,18 @@ function cargarFiltros() {
 document.addEventListener("DOMContentLoaded", () => {
 
     const estadoPills = document.querySelectorAll("#filterEstado .pill");
-    window.estadosSeleccionados = []; // global
+    window.estadosSeleccionados = ["---", "Pre-ok", "Ok"]; // global
 
     estadoPills.forEach(pill => {
+		const value = pill.dataset.value;
+
+        // Marcar visualmente los que están preseleccionados
+        if (estadosSeleccionados.includes(value)) {
+            pill.classList.add("selected");
+        
+		// Eventos de clic
         pill.addEventListener("click", () => {
-            const value = pill.dataset.value;
+            //const value = pill.dataset.value;
 
             if (estadosSeleccionados.includes(value)) {
                 estadosSeleccionados = estadosSeleccionados.filter(v => v !== value);
