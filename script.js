@@ -50,7 +50,7 @@ function render() {
         const disco = normalizar(item.Disco);
         const genero = normalizar(item.Genero);
         const comentarios = normalizar(item.Comentarios);
-        const estado = (item.Estado || "").toString();
+        const estado = (item.Estado || "").trim();
 
         const coincideTexto =
             !q ||
