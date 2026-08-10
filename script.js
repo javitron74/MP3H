@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     estadoPills.forEach(pill => {
         pill.addEventListener("click", () => {
-            const value = pill.dataset.value;
+            const value = normalizar(pill.dataset.value);
 
             if (estadosSeleccionados.includes(value)) {
                 estadosSeleccionados = estadosSeleccionados.filter(v => v !== value);
