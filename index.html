@@ -20,15 +20,6 @@
             <option value="">Todos los géneros</option>
         </select>
 
-        <select id="filterEstado">
-            <option value="">Todos los estados</option>
-			<option value="---">---</option>
-			<option value="Pre-ok">Pre-ok</option>
-			<option value="Ok">Ok</option>
-			<option value="No">No</option>
-			<option value="Disp">Disp</option>
-        </select>
-
         <select id="sortField">
             <option value="">Ordenar por…</option>
             <option value="Pos">Item</option>
@@ -44,6 +35,14 @@
             <option value="asc">Ascendente</option>
             <option value="desc" selected>Descendente</option>
         </select>
+		
+		<div id="filterEstado" class="multi-select">
+			<span data-value="---" class="pill">---</span>
+			<span data-value="Pre-ok" class="pill">Pre-ok</span>
+			<span data-value="Ok" class="pill">Ok</span>
+			<span data-value="No" class="pill">No</span>
+			<span data-value="Disp" class="pill">Disp</span>
+		</div>
     </div>
 </header>
 
