@@ -138,6 +138,11 @@ function render() {
         const card = document.createElement("div");
         card.className = "card";
 
+		// Añadir clase de borde según estado
+		const clase = claseEstado(estado); // devuelve pill-estado-ok, pill-estado-no, etc.
+		if (clase) {
+			card.classList.add(clase.replace("pill-", "")); 
+		}
         card.innerHTML = `
             <div class="card-header">
                 <div>
