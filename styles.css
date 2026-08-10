@@ -268,7 +268,18 @@ main {
     border: 1px solid #4b5563;
     font-size: 0.75rem;
 }
+.multi-select .pill {
+	cursor: pointer;
+	opacity: 0.6;
+	transition: 0.2s;
+	border: 1px solid #4b5563;
+}
 
+.multi-select .pill.selected {
+	opacity: 1;
+	background:#6366f1;
+	color: #e5e7eb;
+}
 /* =========================================================
    TABLAS (por si usas table en vez de cards)
    ========================================================= */
