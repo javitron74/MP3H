@@ -19,7 +19,11 @@
         --accent: #3b82f6;
         --accent2: #6366f1;
         --shadow: 0 4px 18px rgba(0,0,0,0.12);
-    }
+		--estado-preok-bg:#0284C71a;
+		--estado-ok-bg: #7C3AED1a;
+		--estado-no-bg: #DC26261a;
+		--estado-disp-bg: #16A34A1a;
+	}
 }
 
 /* =========================================================
@@ -35,6 +39,10 @@
         --accent: #6366f1;
         --accent2: #3b82f6;
         --shadow: 0 8px 25px rgba(0,0,0,0.35);
+		--estado-preok-bg:#0284C732;
+		--estado-ok-bg: #7C3AED32;
+		--estado-no-bg: #DC262632;
+		--estado-disp-bg: #16A34A32;
     }
 }
 
@@ -193,26 +201,31 @@ main {
 /* Borde dinámico según estado */
 /*.card.estado--- {
     border: 2px solid #4b5563;
+
+		--estado-preok-bg:#0284C732;
+		--estado-ok-bg: #7C3AED32;
+		--estado-no-bg: #DC262632;
+		--estado-disp-bg: #16A34A32;
 }*/
 
 .card.estado-preok {
     border: 2px solid #0284C7;
-	background: #0284C71a;
+	background: var(--estado-preok-bg);
 }
 
 .card.estado-ok {
     border: 2px solid #7C3AED;
-	background: #7C3AED1a;
+	background: var(--estado-ok-bg);
 }
 
 .card.estado-no {
     border: 2px solid #DC2626;
-	background: #DC26261a;
+	background: var(--estado-no-bg);
 }
 
 .card.estado-disp {
     border: 2px solid #16A34A;
-	background: #16A34A1a;
+	background: var(--estado-disp-bg);
 }
 
 
