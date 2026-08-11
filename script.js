@@ -61,7 +61,10 @@ function render() {
 
         //const coincideGenero = !g || genero === normalizar(g);
 		const coincideGenero = !g || 
-			genero.split(",").map(x => x.trim()).includes(g);
+			genero
+				.split(",")
+				.map(x => normalizar(x).trim())
+				.includes(normalizar(g));
         //const coincideEstado = !e || estado === e;
 		
 		//MULTIFILTRO Estado 7/08/2026, eliminado la e
@@ -190,7 +193,7 @@ function cargarFiltros() {
         new Set(
 			datos
 				.flatMap(d => 
-					(d.Genero || "")
+					normalizar(d.Genero || "")
 						.split(",")
 						.map(g => g.trim())
 						.filter(g => g !== "")
