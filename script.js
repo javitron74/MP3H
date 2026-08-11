@@ -185,7 +185,15 @@ function cargarFiltros() {
     const selectGenero = document.getElementById("filterGenero");
 
     const generos = Array.from(
-        new Set(datos.map(d => (d.Genero || "").trim()).filter(g => g !== ""))
+        new Set(
+			datos
+				.flatMap(d => 
+					(d.Genero || "")
+						.split(",")
+						.map(g => g.trim())
+						.filter(g => g !== "")
+				)
+		)
     ).sort((a, b) => a.localeCompare(b, "es"));
 
     generos.forEach(g => {
