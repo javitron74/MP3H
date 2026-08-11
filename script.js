@@ -59,7 +59,9 @@ function render() {
             genero.includes(q) ||
             comentarios.includes(q);
 
-        const coincideGenero = !g || genero === normalizar(g);
+        //const coincideGenero = !g || genero === normalizar(g);
+		const coincideGenero = !g || 
+			genero.split(",").map(x => x.trim()).includes(g);
         //const coincideEstado = !e || estado === e;
 		
 		//MULTIFILTRO Estado 7/08/2026, eliminado la e
