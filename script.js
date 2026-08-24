@@ -95,7 +95,11 @@ function render() {
             filtrados.sort((a, b) => {
                 const A = parseFecha(a["Emision Disco"]);
                 const B = parseFecha(b["Emision Disco"]);
-                return dir === "asc" ? A - B : B - A;
+                //return dir === "asc" ? A - B : B - A;
+				const numA = A ? A.getTime() : Infinity;
+				const numB = B ? B.getTime() : Infinity;
+
+				return dir === "asc" ? numA - numB : numB - numA;
             });
         }
 
