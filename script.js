@@ -93,13 +93,15 @@ function render() {
         // Ordenación por fecha
         else if (campo === "Emision") {
             filtrados.sort((a, b) => {
-                const A = parseFecha(a["Emision Disco"]);
-                const B = parseFecha(b["Emision Disco"]);
+                //const A = parseFecha(a["Emision Disco"]);
+                //const B = parseFecha(b["Emision Disco"]);
                 //return dir === "asc" ? A - B : B - A;
-				const numA = A ? A.getTime() : Infinity;
-				const numB = B ? B.getTime() : Infinity;
+				const A = a["Emision Disco"] || "";
+				const B = b["Emision Disco"] || "";
 
-				return dir === "asc" ? numA - numB : numB - numA;
+				return dir === "asc"
+					? A.localeCompare(B)
+					: B.localeCompare
             });
         }
 
