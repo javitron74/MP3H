@@ -6627,7 +6627,7 @@
     "Estado": "---",
     "Comentarios": "",
     "Puntuacion": "",
-    "__PowerAppsId__": ""
+    "__PowerAppsId__": "F0478D91-146C-4224-8095-214B5A4F2FE5"
   },
   {
     "Pos": "519",
@@ -6637,9 +6637,48 @@
     "Genero": "Heavy",
     "Registro": "",
     "Emision Disco": "2026-08-21",
-    "Estado": "",
+    "Estado": "---",
     "Comentarios": "",
     "Puntuacion": "",
-    "__PowerAppsId__": ""
+    "__PowerAppsId__": "BC566CB5-08D5-4EE4-ABCC-161D43C12EC0"
+  },
+  {
+    "Pos": "520",
+    "#": "",
+    "Banda": "North Sea Echoes",
+    "Disco": "How to ..",
+    "Genero": "Ambiente",
+    "Registro": "",
+    "Emision Disco": "2026-07-24",
+    "Estado": "---",
+    "Comentarios": "",
+    "Puntuacion": "",
+    "__PowerAppsId__": "F00F2EF2-3089-405C-9F5C-BD6E14575E6A"
+  },
+  {
+    "Pos": "521",
+    "#": "",
+    "Banda": "The Night Eternal",
+    "Disco": "Cold Velvet",
+    "Genero": "Heavy",
+    "Registro": "",
+    "Emision Disco": "2026-08-21",
+    "Estado": "---",
+    "Comentarios": "",
+    "Puntuacion": "",
+    "__PowerAppsId__": "A612EEA3-B44A-4E6E-884F-82CB9EBBD231"
+  },
+  {
+    "Pos": "522",
+    "#": "",
+    "Banda": "Speed Stroke",
+    "Disco": "Damage Control",
+    "Genero": "Heavy, Hard rock",
+    "Registro": "",
+    "Emision Disco": "2026-08-21",
+    "Estado": "---",
+    "Comentarios": "",
+    "Puntuacion": "",
+    "__PowerAppsId__": "860222C5-396F-4FB7-B0FC-1B7F413E215D"
   }
 ]
