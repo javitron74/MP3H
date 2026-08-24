@@ -101,7 +101,7 @@ function render() {
 
 				return dir === "asc"
 					? A.localeCompare(B)
-					: B.localeCompare
+					: B.localeCompare (A);
             });
         }
 
