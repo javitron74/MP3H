@@ -320,6 +320,14 @@ main {
 	background:#6366f1;
 	color: #e5e7eb;
 }
+
+/* Sin Puntuación */
+.badge-score-none {
+    background: #4b5563;
+    color: #e5e7eb;
+    opacity: 0.5;
+}
+
 /* Puntuación normal (0–5) */
 .badge-score-low {
     background: #374151;
