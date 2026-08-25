@@ -36,6 +36,12 @@ function claseEstado(estado) {
         default:        return "pill-estado---";
     }
 }
+// Clase CSS según puntuacion
+function clasePuntuacion(p) {
+    if (p >= 8) return "badge-score-high";
+    if (p >= 6) return "badge-score-mid";
+    return "badge-score-low";
+}
 
 function render() {
     const grid = document.getElementById("grid");
@@ -130,7 +136,8 @@ function render() {
 
         const estado = (item.Estado || "").toString();
         const genero = item.Genero || "";
-        const puntuacion = item.Puntuacion || "";
+        //const puntuacion = item.Puntuacion || "";
+		const puntuacion = Number(item.Puntuacion) || 0;
         const comentarios = item.Comentarios || "";
         const emision = item["Emision Disco"] || "";
 /*
@@ -184,7 +191,7 @@ function render() {
             </div>
 
             <div class="card-footer">
-                <span class="badge">Puntuación: ${puntuacion || "-"}</span>
+                <span class="badge ${clasePuntuacion(puntuacion)}">Puntuación: ${puntuacion || "-"}</span>
             </div>
         `;
 
