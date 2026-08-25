@@ -321,7 +321,7 @@
     "Emision Disco": "2022-10-31",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "63b125d3-0342-465e-924d-a884b42bbf0c"
   },
   {
@@ -412,7 +412,7 @@
     "Emision Disco": "2021-08-06",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "4a27448e-60aa-4b53-9ca4-00e463d72aa2"
   },
   {
@@ -1010,7 +1010,7 @@
     "Emision Disco": "",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c5f23ec7-31a8-422d-a396-803593df2d64"
   },
   {
@@ -1231,7 +1231,7 @@
     "Emision Disco": "",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fdbd31a6-c2d1-40e0-bf1b-9b46c463e92b"
   },
   {
@@ -1309,7 +1309,7 @@
     "Emision Disco": "2022-12-16",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c72b4b12-d94a-4b5a-81db-ab08992e1290"
   },
   {
@@ -1348,7 +1348,7 @@
     "Emision Disco": "2023-09-08",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "95371cd0-1a91-4370-a335-2b2cbd53f250"
   },
   {
@@ -1361,7 +1361,7 @@
     "Emision Disco": "2023-10-20",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "5ad362ee-86cc-48ba-a919-531e39a26cd1"
   },
   {
@@ -1400,7 +1400,7 @@
     "Emision Disco": "2024-01-19",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "e82b7524-2eef-414d-8dbe-efb16e618a99"
   },
   {
@@ -1413,7 +1413,7 @@
     "Emision Disco": "2023-09-15",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "0a34290e-b117-4730-8f06-4ace25d89438"
   },
   {
@@ -1426,7 +1426,7 @@
     "Emision Disco": "2023-11-29",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "1887d7b6-aff6-4c86-b7ed-4ae48052a79c"
   },
   {
@@ -1439,7 +1439,7 @@
     "Emision Disco": "",
     "Estado": "No",
     "Comentarios": "Jeff scott soto band",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "6e3560b6-7ffb-46ec-9130-a1f210abd961"
   },
   {
@@ -1452,7 +1452,7 @@
     "Emision Disco": "2024-02-25",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "3def3bb2-dc68-4a24-8a6d-abc909357701"
   },
   {
@@ -1465,7 +1465,7 @@
     "Emision Disco": "2024-01-26",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "4aead4ba-2426-431b-80ed-eaf78dbdca2a"
   },
   {
@@ -1491,7 +1491,7 @@
     "Emision Disco": "2023-11-24",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "e5f62ff7-ab3a-460c-86ec-caf746c8dd5d"
   },
   {
@@ -1504,7 +1504,7 @@
     "Emision Disco": "2023-11-17",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "afa507b3-e90d-4371-9432-03ad450c85f0"
   },
   {
@@ -1530,7 +1530,7 @@
     "Emision Disco": "2024-03-01",
     "Estado": "Disp",
     "Comentarios": "Release 1-03-24",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "48231b20-4deb-497c-bcf3-e6319647f997"
   },
   {
@@ -1595,7 +1595,7 @@
     "Emision Disco": "2024-03-31",
     "Estado": "No",
     "Comentarios": "En dezeer ya disponible",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "284983fe-87fa-4d04-957c-cabe7abe2b72"
   },
   {
@@ -1608,7 +1608,7 @@
     "Emision Disco": "2023-10-27",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "555a1c0f-59b8-477d-9569-cb4a9b3e2ffa"
   },
   {
@@ -1621,7 +1621,7 @@
     "Emision Disco": "2024-03-08",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "5362be87-054e-47b7-bdc2-b3d463714277"
   },
   {
@@ -1634,7 +1634,7 @@
     "Emision Disco": "2023-06-09",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fb5531f5-7b19-479d-b6bb-09278d8374c6"
   },
   {
@@ -1647,7 +1647,7 @@
     "Emision Disco": "2024-02-09",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "84362281-40bf-43b1-9a56-c3c95dcf1e47"
   },
   {
@@ -1660,7 +1660,7 @@
     "Emision Disco": "2024-01-26",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "87f027d1-a97d-4837-ab53-7dfa7d5c8fd1"
   },
   {
@@ -1686,7 +1686,7 @@
     "Emision Disco": "2024-01-26",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "d55fa7b8-b699-4d80-a22f-d2ca9fc66813"
   },
   {
@@ -1699,7 +1699,7 @@
     "Emision Disco": "2023-11-11",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "93c27643-dd01-487c-ba7a-86fdd0b21214"
   },
   {
@@ -1712,7 +1712,7 @@
     "Emision Disco": "2021-07-28",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "f6541fab-2c5b-4f50-9c55-ee0450014fae"
   },
   {
@@ -1725,7 +1725,7 @@
     "Emision Disco": "",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "49d155dd-8f92-42a1-8fa6-a4d86edbd222"
   },
   {
@@ -1738,7 +1738,7 @@
     "Emision Disco": "2024-02-23",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "d9d0b840-75fa-4262-88d6-6364930a6bf1"
   },
   {
@@ -1751,7 +1751,7 @@
     "Emision Disco": "2024-03-15",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "511e9643-9675-4727-9a7d-e3335fcebc95"
   },
   {
@@ -1764,7 +1764,7 @@
     "Emision Disco": "",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "ab34e106-13d6-4946-b51d-948f78579789"
   },
   {
@@ -1777,7 +1777,7 @@
     "Emision Disco": "2024-05-17",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fc36f8aa-a676-48fe-975f-fc24a78be300"
   },
   {
@@ -1790,7 +1790,7 @@
     "Emision Disco": "2024-04-19",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c98bbd43-086d-42e6-931c-30ac2022fc85"
   },
   {
@@ -1803,7 +1803,7 @@
     "Emision Disco": "",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fd468d9a-d863-4b82-b880-81449929fc06"
   },
   {
@@ -1829,7 +1829,7 @@
     "Emision Disco": "2024-06-21",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "ef011298-300d-46e1-8f52-e192258504c1"
   },
   {
@@ -1842,7 +1842,7 @@
     "Emision Disco": "2024-06-28",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "af50f5a1-a934-47bf-95e4-bd92f062bb7e"
   },
   {
@@ -1881,7 +1881,7 @@
     "Emision Disco": "2024-07-02",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fabec293-8611-4ecd-9c2a-086df6c89c6e"
   },
   {
@@ -1907,7 +1907,7 @@
     "Emision Disco": "2024-09-20",
     "Estado": "No",
     "Comentarios": "Muy tipo ramones",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "545b9646-c137-4875-a8e4-1918d84787ef"
   },
   {
@@ -1920,7 +1920,7 @@
     "Emision Disco": "2024-10-18",
     "Estado": "No",
     "Comentarios": "Guitarrista de Alice in Chain",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "2c37097f-5b3b-4e5c-a78b-dcde2a43139a"
   },
   {
@@ -1933,7 +1933,7 @@
     "Emision Disco": "2024-09-20",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "aaf6bffb-d519-4de2-ab71-69ff1f582727"
   },
   {
@@ -1946,7 +1946,7 @@
     "Emision Disco": "2024-10-18",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "90e1d108-b831-482f-ae7a-f889d448dbc2"
   },
   {
@@ -1959,7 +1959,7 @@
     "Emision Disco": "2024-10-18",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c62b7f82-f29f-4e3a-a1a3-e625a02af32c"
   },
   {
@@ -1972,7 +1972,7 @@
     "Emision Disco": "2024-10-25",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "17b13f36-5b1f-4507-9593-db4a4c7cfb53"
   },
   {
@@ -1985,7 +1985,7 @@
     "Emision Disco": "2024-10-25",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "2166783c-4989-4b66-9554-f80d8b74ba34"
   },
   {
@@ -2024,7 +2024,7 @@
     "Emision Disco": "2024-11-15",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "0f067646-f11c-48a9-84cb-7003f2c7ea3e"
   },
   {
@@ -2037,7 +2037,7 @@
     "Emision Disco": "2025-02-14",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "80c821c9-5262-4a52-b71e-18ea19e0819c"
   },
   {
@@ -2050,7 +2050,7 @@
     "Emision Disco": "2025-01-10",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "77efedc2-885d-4ae4-9bc3-df6dfc8420e0"
   },
   {
@@ -2063,7 +2063,7 @@
     "Emision Disco": "2025-01-17",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "df820b22-2819-45c1-86a1-6717bd96aa7c"
   },
   {
@@ -2076,7 +2076,7 @@
     "Emision Disco": "2025-03-28",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fdcac206-18d0-42bc-9039-18039c34f0b7"
   },
   {
@@ -2089,7 +2089,7 @@
     "Emision Disco": "2025-03-21",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "bcc4548b-7b8e-40de-a96c-3263a1f96104"
   },
   {
@@ -2102,7 +2102,7 @@
     "Emision Disco": "2025-03-07",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "2f614448-caeb-450b-beed-e269c369d3a6"
   },
   {
@@ -2115,7 +2115,7 @@
     "Emision Disco": "2023-04-21",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "e8ec188c-f3f2-4011-87b5-adea617c2672"
   },
   {
@@ -2128,7 +2128,7 @@
     "Emision Disco": "2023-11-24",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "4373bb74-a3c2-4b09-8cc6-0342e4b4754f"
   },
   {
@@ -2141,7 +2141,7 @@
     "Emision Disco": "2023-02-17",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "4e7afa84-03ae-4df9-8b11-958caf2ab857"
   },
   {
@@ -2154,7 +2154,7 @@
     "Emision Disco": "2025-07-11",
     "Estado": "Disp",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "db19e922-a841-4425-a7ad-cd5da2df2cc3"
   },
   {
@@ -2180,7 +2180,7 @@
     "Emision Disco": "2025-08-22",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "27ca1296-3781-4ce5-8902-c945247ee5b4"
   },
   {
@@ -2219,7 +2219,7 @@
     "Emision Disco": "2025-10-22",
     "Estado": "No",
     "Comentarios": "Banda china con tendencias pop pero estribillos hard",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "174aa88c-4919-4c5e-b250-24a52940adab"
   },
   {
@@ -2258,7 +2258,7 @@
     "Emision Disco": "",
     "Estado": "Pre-ok",
     "Comentarios": "tipo Tool o Soen",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "317e7da3-d8c5-4e1c-9e31-7f6ef7cc1c8e"
   },
   {
@@ -2284,7 +2284,7 @@
     "Emision Disco": "2011-11-01",
     "Estado": "Ok",
     "Comentarios": "Cantante de Circus Maximus",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "73397076-bb0e-446b-bc9a-bd256eef9a16"
   },
   {
@@ -2310,7 +2310,7 @@
     "Emision Disco": "2026-01-30",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c26b3388-80b4-48bc-b5eb-aa6ffc7974d8"
   },
   {
@@ -2375,7 +2375,7 @@
     "Emision Disco": "2026-02-13",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "98813aa0-9b99-461a-9fd0-1081178491cb"
   },
   {
@@ -2388,7 +2388,7 @@
     "Emision Disco": "2026-02-27",
     "Estado": "Ok",
     "Comentarios": "Tipo HIM",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "cdba3583-2a18-4d36-8fc7-b91a751dbb45"
   },
   {
@@ -2401,7 +2401,7 @@
     "Emision Disco": "2026-03-06",
     "Estado": "Ok",
     "Comentarios": "Parecido advenged sevenfold",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "7de2b946-15dd-4395-9965-d9c1bb1ce7e0"
   },
   {
@@ -2414,7 +2414,7 @@
     "Emision Disco": "2026-03-06",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "b9a88f21-8fdd-43ce-853c-fa11bfb9cebd"
   },
   {
@@ -2492,7 +2492,7 @@
     "Emision Disco": "2026-02-13",
     "Estado": "Pre-ok",
     "Comentarios": "Rock americano",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "aa41aec7-8271-4e27-8685-9fe33ef3866e"
   },
   {
@@ -2505,7 +2505,7 @@
     "Emision Disco": "2025-04-25",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c3b1ec3f-ff08-4fd1-95e6-38ecd76cc250"
   },
   {
@@ -2518,7 +2518,7 @@
     "Emision Disco": "2025-02-07",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "ac287d9e-0aee-4e0b-861f-b8d3ccae1f49"
   },
   {
@@ -2531,7 +2531,7 @@
     "Emision Disco": "2025-10-17",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "e8bc41e4-8130-4b06-99fe-f9757d68ac29"
   },
   {
@@ -2544,7 +2544,7 @@
     "Emision Disco": "2026-02-27",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "8cce3828-5ad6-42cd-96e3-e1018cde9ab3"
   },
   {
@@ -2557,7 +2557,7 @@
     "Emision Disco": "",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "693ef78c-ae8f-496d-b15c-9952e6a9df52"
   },
   {
@@ -2570,7 +2570,7 @@
     "Emision Disco": "2025-10-31",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "e74a0cb4-8248-4a65-9c00-401ac4d725d1"
   },
   {
@@ -2583,7 +2583,7 @@
     "Emision Disco": "2025-11-21",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "878b37d6-17e4-42a8-beb5-9a19ba027ca1"
   },
   {
@@ -2596,7 +2596,7 @@
     "Emision Disco": "2025-10-24",
     "Estado": "---",
     "Comentarios": "Influencias Whitesnake, deep purple",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "74ad74ad-f127-4ba0-85bf-cbeeda403c55"
   },
   {
@@ -2609,7 +2609,7 @@
     "Emision Disco": "2025-11-28",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "50b77730-b50b-4ee2-8e88-8fc8fe969023"
   },
   {
@@ -2622,7 +2622,7 @@
     "Emision Disco": "2022-04-08",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "ce1aa767-bf58-41ac-bb0e-0d55a701d7e2"
   },
   {
@@ -2635,7 +2635,7 @@
     "Emision Disco": "",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "03a1853a-5eed-4c0e-b7e0-bbcb028af928"
   },
   {
@@ -2648,7 +2648,7 @@
     "Emision Disco": "2025-10-24",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "58468efa-757a-4bb5-9f66-e25e0dfe94f5"
   },
   {
@@ -2661,7 +2661,7 @@
     "Emision Disco": "2025-10-24",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "4f620364-8a11-41de-8865-8927c74ffbc5"
   },
   {
@@ -2674,7 +2674,7 @@
     "Emision Disco": "2025-11-14",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "b5118e62-886c-4af2-b68c-2f08e8f03b46"
   },
   {
@@ -2687,7 +2687,7 @@
     "Emision Disco": "2025-10-31",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "21a0c53b-f4b2-4d19-9e46-1b3ccc7c86d5"
   },
   {
@@ -2700,7 +2700,7 @@
     "Emision Disco": "2025-11-07",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "3e5ca7c9-83ab-4754-a9b3-5df80b5bc9a6"
   },
   {
@@ -2713,7 +2713,7 @@
     "Emision Disco": "2025-11-07",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "abdbcfd5-ec16-448a-9876-40520face3e2"
   },
   {
@@ -2726,7 +2726,7 @@
     "Emision Disco": "2025-11-14",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fe251c30-a22c-4ae5-a8dd-30c3b99be9d5"
   },
   {
@@ -2739,7 +2739,7 @@
     "Emision Disco": "2025-11-07",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "136e44b9-855b-44ee-abef-484ebdbf0753"
   },
   {
@@ -2752,7 +2752,7 @@
     "Emision Disco": "2025-03-14",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "ec214ac7-b4bc-4c27-8251-3875c2b160ec"
   },
   {
@@ -2765,7 +2765,7 @@
     "Emision Disco": "2025-10-31",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "7fa8f998-c22a-457c-92f1-c7a1c4d843ad"
   },
   {
@@ -2778,7 +2778,7 @@
     "Emision Disco": "2025-10-24",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "63b67d45-1729-4073-89ba-5859a9c8b1f2"
   },
   {
@@ -2856,7 +2856,7 @@
     "Emision Disco": "2025-08-29",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "3f4996ee-8345-4b12-91e5-8fb515aa83a0"
   },
   {
@@ -2895,7 +2895,7 @@
     "Emision Disco": "2025-08-15",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "005dedc2-80bb-413c-9a2d-3536eb24b941"
   },
   {
@@ -2908,7 +2908,7 @@
     "Emision Disco": "2025-08-15",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c3e74bd9-787d-4aae-a04d-aef2b7254884"
   },
   {
@@ -2921,7 +2921,7 @@
     "Emision Disco": "2025-08-01",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "1944fbcc-ffce-4375-a2bb-58169b6b7c60"
   },
   {
@@ -2934,7 +2934,7 @@
     "Emision Disco": "2025-09-12",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "eb154e19-7208-4140-8a8e-0e7f5cfb190c"
   },
   {
@@ -2947,7 +2947,7 @@
     "Emision Disco": "2025-07-18",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "1778bacb-5524-4776-99a6-d12568ad6323"
   },
   {
@@ -2986,7 +2986,7 @@
     "Emision Disco": "2025-03-28",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "9ffd0f4b-8e3a-49b1-bc03-05e5584de1a5"
   },
   {
@@ -3142,7 +3142,7 @@
     "Emision Disco": "2025-05-09",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "ad46dd77-8b5a-4f6d-ad4d-2901a541645c"
   },
   {
@@ -3155,7 +3155,7 @@
     "Emision Disco": "2025-05-16",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "b7d581c7-96e6-4572-8b56-5da391237805"
   },
   {
@@ -3168,7 +3168,7 @@
     "Emision Disco": "2025-05-16",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "470449e9-4135-4b62-9c3a-21e370c867cd"
   },
   {
@@ -3181,7 +3181,7 @@
     "Emision Disco": "2025-03-07",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "b036a820-73c7-4178-af95-eda11d4e3afd"
   },
   {
@@ -3194,7 +3194,7 @@
     "Emision Disco": "2025-03-28",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "9d80daf2-c535-4e09-9083-a0899f9f050b"
   },
   {
@@ -3207,7 +3207,7 @@
     "Emision Disco": "2025-03-07",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "2d57da98-716a-4a5f-adfc-eedf89d926fe"
   },
   {
@@ -3220,7 +3220,7 @@
     "Emision Disco": "2025-03-07",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "1538317c-d965-43b9-b107-beed1d678c92"
   },
   {
@@ -3233,7 +3233,7 @@
     "Emision Disco": "2025-03-28",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "a9965d50-0f00-4e06-aef0-3b8f542e1eb1"
   },
   {
@@ -3246,7 +3246,7 @@
     "Emision Disco": "2025-02-14",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "db101e3c-e97b-4c1d-b6f3-62683ac697f9"
   },
   {
@@ -3259,7 +3259,7 @@
     "Emision Disco": "2025-01-24",
     "Estado": "Pre-ok",
     "Comentarios": "Ronei Romero coantante",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "5df8cb42-473b-4840-b81f-db714f77d6df"
   },
   {
@@ -3272,7 +3272,7 @@
     "Emision Disco": "2025-02-28",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "f6bd6302-a0ff-429e-8dc6-43c2f3a96243"
   },
   {
@@ -3285,7 +3285,7 @@
     "Emision Disco": "2025-01-24",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "92590a68-83b4-42c6-8a1d-0536c4c06750"
   },
   {
@@ -3298,7 +3298,7 @@
     "Emision Disco": "2025-01-24",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "d1a30950-fef1-4639-919c-0c1922637b47"
   },
   {
@@ -3311,7 +3311,7 @@
     "Emision Disco": "2025-01-17",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "8498bb74-2265-4e22-ae23-43d7e6a4bfe0"
   },
   {
@@ -3324,7 +3324,7 @@
     "Emision Disco": "2025-02-28",
     "Estado": "---",
     "Comentarios": "Cantante MSG",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "600d4639-aa05-4c48-b4bb-17c42a7eb6ae"
   },
   {
@@ -3337,7 +3337,7 @@
     "Emision Disco": "2025-09-04",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "4eb3abb6-5053-4461-a423-9f9ed6e86227"
   },
   {
@@ -3350,7 +3350,7 @@
     "Emision Disco": "2024-12-13",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "dbf49e74-5ac9-46db-8db7-4e10996d73c9"
   },
   {
@@ -3363,7 +3363,7 @@
     "Emision Disco": "2024-12-20",
     "Estado": "---",
     "Comentarios": "Como dominum",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "e47ffd05-51ca-48a7-9dcf-2528db3bf146"
   },
   {
@@ -3376,7 +3376,7 @@
     "Emision Disco": "2025-02-14",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "68b6ac4b-a268-45cd-a554-5ac995aa32c8"
   },
   {
@@ -3389,7 +3389,7 @@
     "Emision Disco": "2025-02-07",
     "Estado": "Pre-ok",
     "Comentarios": "Teclista Nightwish",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fed90c3a-9a4a-4e08-8b23-6282074af3a3"
   },
   {
@@ -3402,7 +3402,7 @@
     "Emision Disco": "2024-11-15",
     "Estado": "Pre-ok",
     "Comentarios": "Parecido a HIM",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "868d82f2-146a-475c-98eb-cd8d396da88e"
   },
   {
@@ -3415,7 +3415,7 @@
     "Emision Disco": "2025-07-25",
     "Estado": "Ok",
     "Comentarios": "Grupo antiguo",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "936a09a2-ed04-4911-938a-a779e324d919"
   },
   {
@@ -3441,7 +3441,7 @@
     "Emision Disco": "2024-11-08",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "1b25543a-2780-4f53-b41c-4d296e583413"
   },
   {
@@ -3454,7 +3454,7 @@
     "Emision Disco": "2024-11-08",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "70208c8f-d4ab-4027-b5b3-9e46c450d3f5"
   },
   {
@@ -3467,7 +3467,7 @@
     "Emision Disco": "2024-11-08",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "2eba8e81-f5f6-4d91-a26b-8509ceb02f3e"
   },
   {
@@ -3480,7 +3480,7 @@
     "Emision Disco": "2023-10-13",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "75568131-6463-4f4f-a2f5-f1b2f60b38f7"
   },
   {
@@ -3506,7 +3506,7 @@
     "Emision Disco": "2024-12-27",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "a63b141c-e180-441d-a6d4-eaa8df784530"
   },
   {
@@ -3519,7 +3519,7 @@
     "Emision Disco": "2021-03-12",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "58ce464e-a928-42eb-91cb-9ed4f7c78dac"
   },
   {
@@ -3532,7 +3532,7 @@
     "Emision Disco": "2024-11-22",
     "Estado": "Ok",
     "Comentarios": "Cantante ronnie romero",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "a78c872c-4308-4259-ba91-e820d0dd28de"
   },
   {
@@ -3545,7 +3545,7 @@
     "Emision Disco": "2024-10-25",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "0e3bfb23-5c92-46eb-a20d-15c0e657a05d"
   },
   {
@@ -3558,7 +3558,7 @@
     "Emision Disco": "",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fc9fb8b9-319d-4c14-ac73-221265639d28"
   },
   {
@@ -3571,7 +3571,7 @@
     "Emision Disco": "",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "243eb2d4-a273-4d14-b866-6a06865b8384"
   },
   {
@@ -3584,7 +3584,7 @@
     "Emision Disco": "2023-09-29",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "55bfce72-5b03-47b6-bbe3-d111db86da20"
   },
   {
@@ -3597,7 +3597,7 @@
     "Emision Disco": "",
     "Estado": "---",
     "Comentarios": "Patricia tapia \"Legends never die\", Tipo evanescense",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "361efd29-1361-49db-ae00-598c59c47185"
   },
   {
@@ -3610,7 +3610,7 @@
     "Emision Disco": "2024-12-27",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "cb0d5801-7129-4b22-afa2-c01b4e67bbf2"
   },
   {
@@ -3623,7 +3623,7 @@
     "Emision Disco": "2024-09-27",
     "Estado": "---",
     "Comentarios": "Estilo HIM",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "4fa1ccaa-815e-4127-bd17-9bcd0f85a84e"
   },
   {
@@ -3636,7 +3636,7 @@
     "Emision Disco": "2021-05-24",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "1cd16c5e-0ff0-4372-8809-591b44069e3a"
   },
   {
@@ -3649,7 +3649,7 @@
     "Emision Disco": "2024-10-04",
     "Estado": "---",
     "Comentarios": "EL antigüo DAD",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "38f3f547-775d-48c8-a4c1-db4a3c07145e"
   },
   {
@@ -3753,7 +3753,7 @@
     "Emision Disco": "2024-10-25",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "e9478436-4b34-461e-be1b-87f855716638"
   },
   {
@@ -3779,7 +3779,7 @@
     "Emision Disco": "2024-10-04",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "37edb029-f873-475f-bcd4-47e4668be148"
   },
   {
@@ -3805,7 +3805,7 @@
     "Emision Disco": "2024-08-23",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "8d317955-54ab-42c0-8014-19c8bd1575dc"
   },
   {
@@ -3818,7 +3818,7 @@
     "Emision Disco": "2024-08-23",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "1307c4b9-e531-4f92-90cb-195cf3776b44"
   },
   {
@@ -3844,7 +3844,7 @@
     "Emision Disco": "2024-10-25",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "1996548b-96ab-4284-a2aa-dd567e342cc3"
   },
   {
@@ -3857,7 +3857,7 @@
     "Emision Disco": "2024-08-23",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "a7c39d48-feb6-4046-95a4-1ed434830f3c"
   },
   {
@@ -3883,7 +3883,7 @@
     "Emision Disco": "2024-10-11",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "5101db81-14fa-43ee-8067-0c99bbc02af4"
   },
   {
@@ -3909,7 +3909,7 @@
     "Emision Disco": "2024-05-10",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "38ec7fce-782f-40ca-9db4-030ef9eccebb"
   },
   {
@@ -3922,7 +3922,7 @@
     "Emision Disco": "",
     "Estado": "No",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "0921b28d-5e69-43f6-8444-2758a8ac9988"
   },
   {
@@ -3935,7 +3935,7 @@
     "Emision Disco": "2024-10-18",
     "Estado": "---",
     "Comentarios": "single \"Around The Sun\"",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "d1b93b26-6688-4990-8652-c018a3336c29"
   },
   {
@@ -3948,7 +3948,7 @@
     "Emision Disco": "2024-09-06",
     "Estado": "Pre-ok",
     "Comentarios": "Disco sin fechas. 2 sencillos",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "37b47956-257d-42bb-9bb8-9d26e5328052"
   },
   {
@@ -3987,7 +3987,7 @@
     "Emision Disco": "2024-08-30",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "e0c7bf15-8cd5-4860-9b09-1f80585d3fb3"
   },
   {
@@ -4039,7 +4039,7 @@
     "Emision Disco": "2024-07-05",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "d6b0658c-b27e-40f8-9aea-edc5dc9cdadf"
   },
   {
@@ -4104,7 +4104,7 @@
     "Emision Disco": "2020-02-21",
     "Estado": "---",
     "Comentarios": "Miembros Blind Guardian, Iced Earth. Disco 2020",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "637bf88d-2866-4fa8-a85a-ea07190f90b3"
   },
   {
@@ -4117,7 +4117,7 @@
     "Emision Disco": "2024-09-27",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "b97f3de6-3c0a-449b-8794-a6c866b88de0"
   },
   {
@@ -4130,7 +4130,7 @@
     "Emision Disco": "2024-05-24",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "59315471-edcf-4f4b-a6e7-0ed159b15336"
   },
   {
@@ -4143,7 +4143,7 @@
     "Emision Disco": "2023-12-02",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "bcd32eaf-beeb-4d73-847e-e9b6bc6a21fb"
   },
   {
@@ -4182,7 +4182,7 @@
     "Emision Disco": "2024-05-24",
     "Estado": "Ok",
     "Comentarios": "Single «Crying heart»",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "14df9856-5882-4719-b435-4aa8693a1f44"
   },
   {
@@ -4208,7 +4208,7 @@
     "Emision Disco": "",
     "Estado": "Pre-ok",
     "Comentarios": "Cantante living color, similar a ellos",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "015bcf96-c006-4838-abb7-3b517e2ddb3c"
   },
   {
@@ -4286,7 +4286,7 @@
     "Emision Disco": "2024-07-26",
     "Estado": "---",
     "Comentarios": "Estilo Anthrax",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "21aaebe5-5264-4880-8378-249cb3d9226c"
   },
   {
@@ -4312,7 +4312,7 @@
     "Emision Disco": "2024-07-12",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "8e3354ab-d3d5-4443-8dbc-92baaf1523cb"
   },
   {
@@ -4403,7 +4403,7 @@
     "Emision Disco": "2024-05-31",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "28a4348a-7acf-4a7e-ab3a-3c1775e5e898"
   },
   {
@@ -4416,7 +4416,7 @@
     "Emision Disco": "2024-02-16",
     "Estado": "Pre-ok",
     "Comentarios": "Banda de Jeff Scott Soto",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "6b3ce38f-fc76-46e6-836a-80bab7eb1bdb"
   },
   {
@@ -4429,7 +4429,7 @@
     "Emision Disco": "2023-09-29",
     "Estado": "Pre-ok",
     "Comentarios": "De Peru",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "7a7e80df-aad3-43e8-8e09-4541b3394cbc"
   },
   {
@@ -4468,7 +4468,7 @@
     "Emision Disco": "2024-03-15",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "bd5e6b46-e50f-4bce-b64e-d870d04fc73a"
   },
   {
@@ -4481,7 +4481,7 @@
     "Emision Disco": "2024-05-10",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fe08f5a7-d4aa-48ef-8677-28b5ffca6933"
   },
   {
@@ -4494,7 +4494,7 @@
     "Emision Disco": "2024-05-10",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "e0616fda-11c0-4c65-bba0-757b2e9957ba"
   },
   {
@@ -4507,7 +4507,7 @@
     "Emision Disco": "2024-07-05",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "5d7c9a57-6034-440b-a502-6445eedcd9da"
   },
   {
@@ -4520,7 +4520,7 @@
     "Emision Disco": "2024-03-08",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "0532e36b-da65-4054-8afa-231c5e563199"
   },
   {
@@ -4533,7 +4533,7 @@
     "Emision Disco": "2024-05-03",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "b03604ae-5b94-4a13-b755-82710b9962b8"
   },
   {
@@ -4559,7 +4559,7 @@
     "Emision Disco": "2024-03-01",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "1754f4f8-19ce-4619-8bfe-18693ca5df3d"
   },
   {
@@ -4624,7 +4624,7 @@
     "Emision Disco": "2023-05-19",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "7ff6d914-5e4a-4462-a705-69455b165c55"
   },
   {
@@ -4637,7 +4637,7 @@
     "Emision Disco": "2024-04-19",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "1938127b-4c98-45ae-bf63-853859efcb33"
   },
   {
@@ -4650,7 +4650,7 @@
     "Emision Disco": "2024-01-26",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "956beb00-8f13-4b5e-83db-27c7973de384"
   },
   {
@@ -4663,7 +4663,7 @@
     "Emision Disco": "2024-02-09",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "a762be0d-d9bb-47c8-9e38-ca114320d18b"
   },
   {
@@ -4676,7 +4676,7 @@
     "Emision Disco": "2024-02-09",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "b0ace936-a664-406c-bf2d-2ab8f117c9e2"
   },
   {
@@ -4689,7 +4689,7 @@
     "Emision Disco": "2024-05-10",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "8bb75308-204c-4c33-aa55-f6a66afb7ade"
   },
   {
@@ -4728,7 +4728,7 @@
     "Emision Disco": "2014-03-12",
     "Estado": "Pre-ok",
     "Comentarios": "Ya está disponible en Dezeer",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "4b62f574-aa05-431d-b020-b57cbbd5a73e"
   },
   {
@@ -4741,7 +4741,7 @@
     "Emision Disco": "2024-01-12",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "89ec740f-000d-4f5f-a605-cd44296f2370"
   },
   {
@@ -4754,7 +4754,7 @@
     "Emision Disco": "2022-10-28",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c7cc8db9-655b-4a4f-aa6c-df6e9be57095"
   },
   {
@@ -4767,7 +4767,7 @@
     "Emision Disco": "2024-02-23",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "83417bfe-fe88-404c-8746-cf59060cf026"
   },
   {
@@ -4780,7 +4780,7 @@
     "Emision Disco": "2024-02-23",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c8ab1696-904a-48ab-bb18-3db2b3132aef"
   },
   {
@@ -4793,7 +4793,7 @@
     "Emision Disco": "2024-01-12",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "b76ed8c1-0b9e-44af-bab1-219c2da1a211"
   },
   {
@@ -4806,7 +4806,7 @@
     "Emision Disco": "2024-03-01",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "e11fc08f-99c0-4530-a4cb-9c7b04c85a2d"
   },
   {
@@ -4832,7 +4832,7 @@
     "Emision Disco": "2024-02-23",
     "Estado": "Pre-ok",
     "Comentarios": "Miembros Fates Warnng. Open Book Es el single",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "0372d84f-0ee9-4595-b611-98ccf33d5fd2"
   },
   {
@@ -4845,7 +4845,7 @@
     "Emision Disco": "2024-04-12",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "38debe97-db18-4072-a146-ced8feee9d96"
   },
   {
@@ -4858,7 +4858,7 @@
     "Emision Disco": "2024-05-03",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "40aa5e02-3dff-4904-8ed3-c2caee295148"
   },
   {
@@ -4871,7 +4871,7 @@
     "Emision Disco": "2023-04-14",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c794122e-30d5-40b3-a67a-f938484143ca"
   },
   {
@@ -4910,7 +4910,7 @@
     "Emision Disco": "2024-02-02",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "8c05b56a-7693-4975-ba0c-e7daf267c4ac"
   },
   {
@@ -4923,7 +4923,7 @@
     "Emision Disco": "2024-02-16",
     "Estado": "Pre-ok",
     "Comentarios": "Release: 16/02/2024",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "24a210c7-7301-401b-bfb9-35d3852dd780"
   },
   {
@@ -4936,7 +4936,7 @@
     "Emision Disco": "2024-05-10",
     "Estado": "Pre-ok",
     "Comentarios": "Primer single 17-Ene-24",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c75afb7c-bf1a-424a-a766-009bb052ab3e"
   },
   {
@@ -4962,7 +4962,7 @@
     "Emision Disco": "2024-05-10",
     "Estado": "Pre-ok",
     "Comentarios": "release 16-02-24. Single editado",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "0c29a7df-b0fb-4233-90e2-5e882dd20112"
   },
   {
@@ -4988,7 +4988,7 @@
     "Emision Disco": "2024-02-23",
     "Estado": "---",
     "Comentarios": "Release 23/02/2024",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "77643cf9-1e4c-43cc-a324-e55378c7dc84"
   },
   {
@@ -5027,7 +5027,7 @@
     "Emision Disco": "2023-11-03",
     "Estado": "---",
     "Comentarios": "son singles",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "f3f9037e-0366-4fdb-8a71-d570917f513a"
   },
   {
@@ -5040,7 +5040,7 @@
     "Emision Disco": "",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "94a25910-975f-4b5d-8d30-47a0a4ce8691"
   },
   {
@@ -5053,7 +5053,7 @@
     "Emision Disco": "2024-01-12",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "4a77b0cc-fd2c-433b-88bf-65c8b1b569d2"
   },
   {
@@ -5092,7 +5092,7 @@
     "Emision Disco": "2018-10-12",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "7b55c812-3c85-4f5c-8c75-15e65eb2bb6e"
   },
   {
@@ -5105,7 +5105,7 @@
     "Emision Disco": "",
     "Estado": "---",
     "Comentarios": "Nuevo disco final 2023",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "fb03388a-592b-4e98-a12d-eeba9056f78e"
   },
   {
@@ -5131,7 +5131,7 @@
     "Emision Disco": "2024-09-27",
     "Estado": "Pre-ok",
     "Comentarios": "Saldrá en 2024 sin fechas; at last sencillo del disco",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "b89d2c80-1f16-493b-ab42-3e00204899c5"
   },
   {
@@ -5144,7 +5144,7 @@
     "Emision Disco": "2024-02-23",
     "Estado": "Pre-ok",
     "Comentarios": "ExMotley",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "46430b5c-2778-43b1-b060-f63bbf1d8bb4"
   },
   {
@@ -5196,7 +5196,7 @@
     "Emision Disco": "2023-05-26",
     "Estado": "Pre-ok",
     "Comentarios": "Barcelona",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "5692d095-2723-4333-8b14-eb6e9de3cea1"
   },
   {
@@ -5209,7 +5209,7 @@
     "Emision Disco": "2023-08-11",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c07f0f2e-793a-44bf-884b-2cfbfd04e156"
   },
   {
@@ -5235,7 +5235,7 @@
     "Emision Disco": "2021-07-16",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "b14b0f76-8a4d-42cb-a6c9-606fe0039979"
   },
   {
@@ -5287,7 +5287,7 @@
     "Emision Disco": "2023-10-06",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "6ff29cd5-c445-4a9e-9e39-b704d6c58617"
   },
   {
@@ -5365,7 +5365,7 @@
     "Emision Disco": "2016-02-26",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "2917f4ea-42e8-44f6-8d43-1f1a025511a2"
   },
   {
@@ -5443,7 +5443,7 @@
     "Emision Disco": "2023-08-11",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "dbb92203-defe-46c1-9475-10c4f8857f34"
   },
   {
@@ -5573,7 +5573,7 @@
     "Emision Disco": "2021-11-05",
     "Estado": "Ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "6809d7d2-f481-4096-9bd0-be5a3bd35dbb"
   },
   {
@@ -5638,7 +5638,7 @@
     "Emision Disco": "2023-07-14",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "20c2fb6d-7deb-4a66-8770-d93c162d07cd"
   },
   {
@@ -5703,7 +5703,7 @@
     "Emision Disco": "2023-07-07",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c254ed1f-de7c-4a35-963d-a2a73c3c5167"
   },
   {
@@ -5755,7 +5755,7 @@
     "Emision Disco": "2022-10-28",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "6a23ee1a-6e77-4862-91d1-320d649dae24"
   },
   {
@@ -5768,7 +5768,7 @@
     "Emision Disco": "2023-04-21",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "8790af18-4a4f-46a0-b23a-7f2df602d4b8"
   },
   {
@@ -5846,7 +5846,7 @@
     "Emision Disco": "",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "15b9b456-29d2-4d9c-b308-db87a250f8d4"
   },
   {
@@ -5872,7 +5872,7 @@
     "Emision Disco": "2023-05-19",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c2f3dab4-1bdb-451b-9cc2-014799b3931b"
   },
   {
@@ -5898,7 +5898,7 @@
     "Emision Disco": "2023-01-27",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "81f5fb9f-a82b-4bd8-a271-a6e3f0ac27bd"
   },
   {
@@ -5911,7 +5911,7 @@
     "Emision Disco": "",
     "Estado": "No",
     "Comentarios": "Single",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "c7d5bf4a-847e-4340-bc35-3ddd943ba523"
   },
   {
@@ -5963,7 +5963,7 @@
     "Emision Disco": "2021-04-09",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "2ebfe4de-470b-4b2b-8227-8fb82cfcba43"
   },
   {
@@ -5976,7 +5976,7 @@
     "Emision Disco": "2023-01-13",
     "Estado": "Ok",
     "Comentarios": "Similar a HIM",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "a732759f-7041-44ac-b2de-05247ef3a6a1"
   },
   {
@@ -6002,7 +6002,7 @@
     "Emision Disco": "2022-03-25",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "86b41cc1-3842-4fa9-a066-8ee4b6cfeeb2"
   },
   {
@@ -6015,7 +6015,7 @@
     "Emision Disco": "2022-10-14",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "68fbbf47-7db7-489d-9641-347ab6c0fb76"
   },
   {
@@ -6054,7 +6054,7 @@
     "Emision Disco": "2022-09-16",
     "Estado": "Pre-ok",
     "Comentarios": "",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "f2a25961-97a9-4138-b95c-a50cf33f9643"
   },
   {
@@ -6093,7 +6093,7 @@
     "Emision Disco": "2026-06-12",
     "Estado": "Pre-ok",
     "Comentarios": "Ex de king diamonds",
-    "Puntuacion": "0",
+    "Puntuacion": "",
     "__PowerAppsId__": "a17a0a58-287b-42e8-850f-8d4c0578b576"
   },
   {
@@ -6689,7 +6689,7 @@
     "Genero": "Progresivo",
     "Registro": "",
     "Emision Disco": "2026-08-21",
-    "Estado": "",
+    "Estado": "---",
     "Comentarios": "",
     "Puntuacion": "8",
     "__PowerAppsId__": ""
@@ -6702,7 +6702,7 @@
     "Genero": "Progresivo, Power",
     "Registro": "",
     "Emision Disco": "2026-08-28",
-    "Estado": "",
+    "Estado": "---",
     "Comentarios": "",
     "Puntuacion": "8,9",
     "__PowerAppsId__": ""
