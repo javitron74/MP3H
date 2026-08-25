@@ -38,9 +38,10 @@ function claseEstado(estado) {
 }
 // Clase CSS según puntuacion
 function clasePuntuacion(p) {
-    if (p >= 8) return "badge-score-high";
-    if (p >= 6) return "badge-score-mid";
-    return "badge-score-low";
+    if (p === null) return "badge-score-none";   // sin puntuación
+    if (p >= 8) return "badge-score-high";       // 8.0 – 10.0
+    if (p >= 6) return "badge-score-mid";        // 6.0 – 7.99
+    return "badge-score-low";                    // 0 – 5.99
 }
 
 function render() {
@@ -191,7 +192,7 @@ function render() {
             </div>
 
             <div class="card-footer">
-                <span class="badge ${clasePuntuacion(puntuacion)}">Puntuación: ${puntuacion || "-"}</span>
+                <span class="badge ${clasePuntuacion(puntuacion)}">Puntuación: ${puntuacion ?? "-"}</span>
             </div>
         `;
 
