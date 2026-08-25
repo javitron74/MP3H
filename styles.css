@@ -320,6 +320,26 @@ main {
 	background:#6366f1;
 	color: #e5e7eb;
 }
+/* Puntuación normal (0–5) */
+.badge-score-low {
+    background: #374151;
+    color: #e5e7eb;
+}
+
+/* Puntuación media (6–8) */
+.badge-score-mid {
+    background: #f59e0b;   /* ámbar */
+    color: #1a1b1e;
+    font-weight: bold;
+}
+
+/* Puntuación alta (8–10) */
+.badge-score-high {
+    background: #10b981;   /* verde */
+    color: #1a1b1e;
+    font-weight: bold;
+    box-shadow: 0 0 10px #10b98188;
+}
 /* =========================================================
    TABLAS (por si usas table en vez de cards)
    ========================================================= */
