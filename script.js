@@ -44,6 +44,16 @@ function clasePuntuacion(p) {
     return "badge-score-low";                    // 0 – 5.99
 }
 
+function parsePuntuacion(value) {
+    if (!value || value === "-") return null;
+
+    // Convertir coma decimal a punto
+    const normalizado = value.replace(",", ".");
+    const numero = Number(normalizado);
+
+    return isNaN(numero) ? null : numero;
+}
+
 function render() {
     const grid = document.getElementById("grid");
     const count = document.getElementById("count");
@@ -138,7 +148,7 @@ function render() {
         const estado = (item.Estado || "").toString();
         const genero = item.Genero || "";
         //const puntuacion = item.Puntuacion || "";
-		const puntuacion = Number(item.Puntuacion) || 0;
+		const puntuacion = parsePuntuacion(item.Puntuacion);
         const comentarios = item.Comentarios || "";
         const emision = item["Emision Disco"] || "";
 /*
