@@ -348,6 +348,35 @@ main {
     font-weight: bold;
     box-shadow: 0 0 10px #10b98188;
 }
+
+/* Estilo base */
+.score {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Bajo (0–5) */
+.score-low {
+    color: #9ca3af;
+}
+
+/* Medio (6–8) */
+.score-mid {
+    color: #f59e0b;
+}
+
+/* Alto (8–10) con glow */
+.score-high {
+    color: #10b981;
+    text-shadow: 0 0 6px #10b981aa, 0 0 12px #10b98155;
+}
+
+/* Sin puntuación */
+.score-none {
+    color: #6b7280;
+    opacity: 0.6;
+}
+
 /* =========================================================
    TABLAS (por si usas table en vez de cards)
    ========================================================= */
