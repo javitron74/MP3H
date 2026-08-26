@@ -202,7 +202,9 @@ function render() {
             </div>
 
             <div class="card-footer">
-                <span class="score ${clasePuntuacion(puntuacion)}"> ${puntuacion !== null ?? puntuacion : "-"}</span>
+                <span class="score ${clasePuntuacion(puntuacion)}"> 
+					${puntuacion !== null ? puntuacion : "-"}
+				</span>
             </div>
         `;
 
