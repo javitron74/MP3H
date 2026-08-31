@@ -151,6 +151,7 @@ function render() {
 		const puntuacion = parsePuntuacion(item.Puntuacion);
         const comentarios = item.Comentarios || "";
         const emision = item["Emision Disco"] || "";
+		const fuente = item["Fuente Puntuacion"] || "";
 /*
         const fechaEmision = parseFecha(emision);
         const hoy = new Date();
@@ -204,6 +205,9 @@ function render() {
             <div class="card-footer">
                 <span class="score ${clasePuntuacion(puntuacion)}"> 
 					${puntuacion !== null ? puntuacion : "-"}
+				</span>
+				<span> 
+					${puntuacion !== null ? fuente : ""}
 				</span>
             </div>
         `;
