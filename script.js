@@ -207,7 +207,7 @@ function render() {
 					${puntuacion !== null ? puntuacion : "-"}
 				</span>
 				<span class="score-source"> 
-					${fuente !== null ? `(${fuente})`: ""}
+					${fuente !== "" ? `(${fuente})`: ""}
 				</span>
             </div>
         `;
