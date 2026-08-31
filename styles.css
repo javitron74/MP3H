@@ -194,7 +194,8 @@ main {
     font-size: 0.8rem;
     color: var(--text-dim);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+	gap: 6px;
     align-items: center;
 }
 
@@ -376,7 +377,13 @@ main {
     color: #6b7280;
     opacity: 0.6;
 }
-
+/* Fuente de la puntuación */
+.score-source {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--text-dim);
+    opacity: 0.8;
+}
 /* =========================================================
    TABLAS (por si usas table en vez de cards)
    ========================================================= */
