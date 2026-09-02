@@ -7250,5 +7250,33 @@
     "Puntuacion": "9",
     "Fuente Puntuacion": "metallerium",
     "__PowerAppsId__": ""
+  },
+  {
+    "Pos": "527",
+    "#": "",
+    "Banda": "Green Lung",
+    "Disco": "",
+    "Genero": "Stoner, Doom",
+    "Registro": "",
+    "Emision Disco": "2026-09-04",
+    "Estado": "---",
+    "Comentarios": "",
+    "Puntuacion": "",
+    "Fuente Puntuacion": "",
+    "__PowerAppsId__": ""
+  },
+  {
+    "Pos": "528",
+    "#": "",
+    "Banda": "Airbourne",
+    "Disco": "Airbourne",
+    "Genero": "Heavy, Hard Rock",
+    "Registro": "",
+    "Emision Disco": "2026-09-04",
+    "Estado": "---",
+    "Comentarios": "",
+    "Puntuacion": "",
+    "Fuente Puntuacion": "",
+    "__PowerAppsId__": ""
   }
 ]
