@@ -6889,13 +6889,13 @@
   },
   {
     "Pos": "501",
-    "#": "J",
+    "#": "ê",
     "Banda": "Audrey Horne",
     "Disco": "Achilles",
     "Genero": "Hard rock",
     "Registro": "",
     "Emision Disco": "2026-09-04",
-    "Estado": "Pre-ok",
+    "Estado": "Ok",
     "Comentarios": "",
     "Puntuacion": "",
     "Fuente Puntuacion": "",
@@ -7015,13 +7015,13 @@
   },
   {
     "Pos": "510",
-    "#": "",
+    "#": "ê",
     "Banda": "Dominum",
     "Disco": "Night is ...",
     "Genero": "Hard Rock",
     "Registro": "",
     "Emision Disco": "2026-07-03",
-    "Estado": "---",
+    "Estado": "Ok",
     "Comentarios": "",
     "Puntuacion": "",
     "Fuente Puntuacion": "",
@@ -7261,8 +7261,8 @@
     "Emision Disco": "2026-09-11",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "",
-    "Fuente Puntuacion": "",
+    "Puntuacion": "9",
+    "Fuente Puntuacion": "metallerium",
     "__PowerAppsId__": ""
   },
   {
@@ -7275,8 +7275,8 @@
     "Emision Disco": "2026-09-04",
     "Estado": "---",
     "Comentarios": "",
-    "Puntuacion": "",
-    "Fuente Puntuacion": "",
+    "Puntuacion": "7.7",
+    "Fuente Puntuacion": "metallerium",
     "__PowerAppsId__": ""
   },
   {
