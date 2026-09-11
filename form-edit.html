@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Editar registro MP3H</title>
+<style>
+body { background:#111; color:#eee; font-family:Arial; padding:20px; }
+label { display:block; margin-top:10px; }
+input { width:100%; padding:6px; margin-top:4px; background:#222; color:#eee; border:1px solid #444; }
+button { margin-top:20px; padding:10px 20px; }
+</style>
+</head>
+<body>
+
+<h1>Editar registro</h1>
+
+<form id="form">
+  <label>Pos</label><input id="Pos">
+  <label>#</label><input id="Hash">
+  <label>Banda</label><input id="Banda">
+  <label>Disco</label><input id="Disco">
+  <label>Genero</label><input id="Genero">
+  <label>Registro</label><input id="Registro">
+  <label>Emision Disco</label><input id="Emision">
+  <label>Estado</label><input id="Estado">
+  <label>Comentarios</label><input id="Comentarios">
+  <label>Puntuacion</label><input id="Puntuacion">
+
+  <button type="button" onclick="guardar()">Guardar cambios</button>
+</form>
+
+<script>
+const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
+let datos = [];
+let idx = null;
+
+async function cargar() {
+  const params = new URLSearchParams(location.search);
+  idx = parseInt(params.get("id"));
+
+  const res = await fetch(WORKER + "/mp3h.json");
+  datos = await res.json();
+
+  const d = datos[idx];
+
+  Pos.value = d.Pos || "";
+  Hash.value = d["#"] || "";
+  Banda.value = d.Banda || "";
+  Disco.value = d.Disco || "";
+  Genero.value = d.Genero || "";
+  Registro.value = d.Registro || "";
+  Emision.value = d["Emision Disco"] || "";
+  Estado.value = d.Estado || "";
+  Comentarios.value = d.Comentarios || "";
+  Puntuacion.value = d.Puntuacion || "";
+}
+
+async function guardar() {
+  datos[idx] = {
+    Pos: Pos.value,
+    "#": Hash.value,
+    Banda: Banda.value,
+    Disco: Disco.value,
+    Genero: Genero.value,
+    Registro: Registro.value,
+    "Emision Disco": Emision.value,
+    Estado: Estado.value,
+    Comentarios: Comentarios.value,
+    Puntuacion: Puntuacion.value
+  };
+
+  const r = await fetch(WORKER + "/update", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(datos)
+  });
+
+  alert("Registro actualizado");
+}
+
+cargar();
+</script>
+
+</body>
+</html>
