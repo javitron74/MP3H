@@ -144,6 +144,7 @@ main {
     flex-direction: column;
     gap: 0.6rem;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
+	position:relative;
 }
 
 .card:hover {
@@ -430,6 +431,40 @@ button {
 
 button:hover {
     background: var(--accent2);
+}
+
+/* Botón contenedor */
+.edit-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    background: transparent;
+}
+
+/* Icono SVG */
+.edit-icon {
+    width: 18px;
+    height: 18px;
+    fill: var(--text-dim);
+    transition: 0.2s;
+}
+
+/* Hover */
+.edit-btn:hover {
+    background: var(--panel-light);
+}
+
+.edit-btn:hover .edit-icon {
+    fill: var(--accent);
+    transform: scale(1.15);
 }
 
 /* =========================================================
