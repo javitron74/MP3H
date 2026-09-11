@@ -209,7 +209,7 @@ function render() {
 				<span class="score-source"> 
 					${fuente !== "" ? `(${fuente})`: ""}
 				</span>
-				<!-- 🔥 BOTÓN EDITAR -->
+				<!-- BOTÓN EDITAR -->
 				<a href="form-edit.html?pos=${encodeURIComponent(item.Pos)}" class="btn-edit">
 					Editar
 				</a>
