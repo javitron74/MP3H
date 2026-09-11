@@ -158,21 +158,21 @@ function toggleMode() {
 
 async function cargar() {
   const params = new URLSearchParams(location.search);
-  idx = parseInt(params.get("id"));
+  const pos = params.get("pos");
 
   const res = await fetch(WORKER + "/mp3h.json");
   datos = await res.json();
 
-  const d = datos[idx];
+  const registro = datos.find(d => d.Pos == pos)
 
-  Pos.value = d.Pos || "";
-  Banda.value = d.Banda || "";
-  Disco.value = d.Disco || "";
-  Genero.value = d.Genero || "";
-  Emision.value = d["Emision Disco"] || "";
-  Estado.value = d.Estado || "";
-  Comentarios.value = d.Comentarios || "";
-  Puntuacion.value = d.Puntuacion || "";
+  Pos.value = registro.Pos || "";
+  Banda.value = registro.Banda || "";
+  Disco.value = registro.Disco || "";
+  Genero.value = registro.Genero || "";
+  Emision.value = registro["Emision Disco"] || "";
+  Estado.value = registro.Estado || "";
+  Comentarios.value = registro.Comentarios || "";
+  Puntuacion.value = registro.Puntuacion || "";
 }
 
 async function guardar() {
