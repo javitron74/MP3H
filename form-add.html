@@ -3,52 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <title>Añadir registro MP3H</title>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Formulario MP3H</title>
 
 <style>
 :root {
-  --bg: #0f0f10;
-  --panel: #1a1b1e;
-  --panel-light: #232428;
-  --text: #e5e7eb;
+  --bg-light: #f5f5f5;
+  --panel-light: #ffffff;
+  --text-light: #222;
   --accent: #6366f1;
+
+  --bg-dark: #0f0f10;
+  --panel-dark: #1a1b1e;
+  --text-dark: #e5e7eb;
+
   --radius: 12px;
   --shadow: 0 8px 25px rgba(0,0,0,0.35);
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
   padding: 20px;
+  font-family: "Segoe UI", Arial;
+  transition: 0.3s;
+}
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 .container {
   max-width: 600px;
   margin: auto;
-  background: var(--panel);
   padding: 25px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
-h1 {
-  margin-top: 0;
-  text-align: center;
-  font-size: 24px;
-  color: var(--accent);
+body.light .container {
+  background: var(--panel-light);
+}
+
+body.dark .container {
+  background: var(--panel-dark);
 }
 
 label {
   display: block;
   margin-top: 15px;
   font-size: 14px;
-  color: var(--text);
 }
 
 input, select, textarea {
@@ -57,15 +64,14 @@ input, select, textarea {
   margin-top: 6px;
   border-radius: var(--radius);
   border: 1px solid #333;
-  background: var(--panel-light);
-  color: var(--text);
+  background: #232428;
+  color: #e5e7eb;
   font-size: 14px;
-  transition: 0.2s;
 }
 
-input:focus, textarea:focus {
-  border-color: var(--accent);
-  outline: none;
+body.light input, body.light select, body.light textarea {
+  background: #f0f0f0;
+  color: #222;
 }
 
 button {
@@ -78,35 +84,26 @@ button {
   color: white;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.2s;
 }
 
-button:hover {
-  background: var(--accent2);
-}
-
-.back {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
+.toggle {
+  text-align: right;
+  margin-bottom: 10px;
+  cursor: pointer;
   color: var(--accent);
-  text-decoration: none;
 }
 </style>
 </head>
 
-<body>
+<body class="dark">
+
+<div class="toggle" onclick="toggleMode()">Cambiar modo</div>
 
 <div class="container">
-  <h1 id="titulo">Formulario MP3H</h1>
-
-  <input type="hidden" id="idx">
+  <h1>Añadir registro</h1>
 
   <label>Pos</label>
   <input id="Pos">
-
-  <label>#</label>
-  <input id="Hash">
 
   <label>Banda</label>
   <input id="Banda">
@@ -117,14 +114,17 @@ button:hover {
   <label>Genero</label>
   <input id="Genero">
 
-  <label>Registro</label>
-  <input id="Registro">
-
-  <label>Emisión Disco</label>
-  <input id="Emision">
+  <label>Emisión</label>
+  <input id="Emision" type="date">
 
   <label>Estado</label>
-  <input id="Estado">
+  <select id="Estado">
+    <option value="---">---</option>
+    <option value="Pre-ok">Pre-ok</option>
+    <option value="Ok">Ok</option>
+    <option value="No">No</option>
+    <option value="Disp">Disp</option>
+  </select>
 
   <label>Comentarios</label>
   <textarea id="Comentarios" rows="3"></textarea>
@@ -132,15 +132,17 @@ button:hover {
   <label>Puntuación</label>
   <input id="Puntuacion">
 
-  <button id="btnGuardar">Guardar</button>
-
-  <a href="index.html" class="back">Volver a la lista</a>
+  <button onclick="guardar()">Guardar</button>
 </div>
-
 
 <script>
 const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
 let datos = [];
+
+function toggleMode() {
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+}
 
 async function guardar() {
   const res = await fetch(WORKER + "/mp3h.json");
@@ -148,11 +150,9 @@ async function guardar() {
 
   const nuevo = {
     Pos: Pos.value,
-    "#": Hash.value,
     Banda: Banda.value,
     Disco: Disco.value,
     Genero: Genero.value,
-    Registro: Registro.value,
     "Emision Disco": Emision.value,
     Estado: Estado.value,
     Comentarios: Comentarios.value,
@@ -161,7 +161,7 @@ async function guardar() {
 
   datos.push(nuevo);
 
-  const r = await fetch(WORKER + "/update", {
+  await fetch(WORKER + "/update", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(datos)
