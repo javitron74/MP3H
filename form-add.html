@@ -3,31 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <title>Añadir registro MP3H</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Formulario MP3H</title>
+
 <style>
-body { background:#111; color:#eee; font-family:Arial; padding:20px; }
-label { display:block; margin-top:10px; }
-input { width:100%; padding:6px; margin-top:4px; background:#222; color:#eee; border:1px solid #444; }
-button { margin-top:20px; padding:10px 20px; }
+:root {
+  --bg: #0f0f10;
+  --panel: #1a1b1e;
+  --panel-light: #232428;
+  --text: #e5e7eb;
+  --accent: #6366f1;
+  --radius: 12px;
+  --shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: var(--panel);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 24px;
+  color: var(--accent);
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: var(--radius);
+  border: 1px solid #333;
+  background: var(--panel-light);
+  color: var(--text);
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 25px;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--accent2);
+}
+
+.back {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: var(--accent);
+  text-decoration: none;
+}
 </style>
 </head>
+
 <body>
 
-<h1>Añadir registro</h1>
+<div class="container">
+  <h1 id="titulo">Formulario MP3H</h1>
 
-<form id="form">
-  <label>Pos</label><input id="Pos">
-  <label>#</label><input id="Hash">
-  <label>Banda</label><input id="Banda">
-  <label>Disco</label><input id="Disco">
-  <label>Genero</label><input id="Genero">
-  <label>Registro</label><input id="Registro">
-  <label>Emision Disco</label><input id="Emision">
-  <label>Estado</label><input id="Estado">
-  <label>Comentarios</label><input id="Comentarios">
-  <label>Puntuacion</label><input id="Puntuacion">
+  <input type="hidden" id="idx">
 
-  <button type="button" onclick="guardar()">Guardar</button>
-</form>
+  <label>Pos</label>
+  <input id="Pos">
+
+  <label>#</label>
+  <input id="Hash">
+
+  <label>Banda</label>
+  <input id="Banda">
+
+  <label>Disco</label>
+  <input id="Disco">
+
+  <label>Genero</label>
+  <input id="Genero">
+
+  <label>Registro</label>
+  <input id="Registro">
+
+  <label>Emisión Disco</label>
+  <input id="Emision">
+
+  <label>Estado</label>
+  <input id="Estado">
+
+  <label>Comentarios</label>
+  <textarea id="Comentarios" rows="3"></textarea>
+
+  <label>Puntuación</label>
+  <input id="Puntuacion">
+
+  <button id="btnGuardar">Guardar</button>
+
+  <a href="index.html" class="back">Volver a la lista</a>
+</div>
+
 
 <script>
 const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
