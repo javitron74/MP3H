@@ -10,7 +10,11 @@
 <body>
 
     <div class="form-container">
-
+		
+		<div class="form-group">
+            <label>Pos</label>
+            <input id="pos" type="text">
+        </div>
         <div class="form-group">
             <label>Banda</label>
             <input id="banda" type="text">
@@ -86,26 +90,26 @@ async function cargar() {
         return;
     }
 
-  Pos.value = registro.Pos || "";
-  Banda.value = registro.Banda || "";
-  Disco.value = registro.Disco || "";
-  Genero.value = registro.Genero || "";
-  Emision.value = registro["Emision Disco"] || "";
-  Estado.value = registro.Estado || "";
-  Comentarios.value = registro.Comentarios || "";
-  Puntuacion.value = registro.Puntuacion || "";
+  pos.value = registro.Pos || "";
+  banda.value = registro.Banda || "";
+  disco.value = registro.Disco || "";
+  genero.value = registro.Genero || "";
+  emision.value = registro["Emision Disco"] || "";
+  estado.value = registro.Estado || "";
+  comentarios.value = registro.Comentarios || "";
+  puntuacion.value = registro.Puntuacion || "";
 }
 
 async function guardar() {
   datos[idx] = {
-    Pos: Pos.value,
-    Banda: Banda.value,
-    Disco: Disco.value,
-    Genero: Genero.value,
-    "Emision Disco": Emision.value,
-    Estado: Estado.value,
-    Comentarios: Comentarios.value,
-    Puntuacion: Puntuacion.value
+    Pos: pos.value,
+    Banda: banda.value,
+    Disco: disco.value,
+    Genero: genero.value,
+    "Emision Disco": emision.value,
+    Estado: estado.value,
+    Comentarios: comentarios.value,
+    Puntuacion: puntuacion.value
   };
 
   await fetch(WORKER + "/update", {
