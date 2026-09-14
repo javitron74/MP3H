@@ -106,7 +106,7 @@ async function cargar() {
   emision.value = registro["Emision Disco"] || "";
   estado.value = registro.Estado || "";
   comentarios.value = registro.Comentarios || "";
-  puntuacion.value = registro.Puntuacion || "";
+  puntuacion.value = registro.Puntuacion || 0;
   actualizarValorPuntuacion(registro.Puntuacion || 0);
 }
 
