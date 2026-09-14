@@ -87,7 +87,7 @@ async function cargar() {
   const res = await fetch(WORKER + "/mp3h.json");
   datos = await res.json();
 
-  const registro = datos.find(d => String(d.Pos).trim() == String(pos).trim());
+  const registro = datos.find(d => String(d.Pos).trim() === String(pos).trim());
 
   Pos.value = registro.Pos || "";
   Banda.value = registro.Banda || "";
