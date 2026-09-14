@@ -468,6 +468,48 @@ button:hover {
 }
 
 /* =========================================================
+   FORMULARIOS Y COMPONENTES
+   ========================================================= */
+.form-horizontal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 20px;
+    background: var(--panel);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 20px auto;
+    max-width: 900px;
+}
+.form-horizontal input,
+.form-horizontal select,
+.form-horizontal textarea {
+    background: var(--panel-light);
+    border: 1px solid #2d2e32;
+    border-radius: var(--radius);
+    padding: 8px 10px;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+.rating {
+    display: flex;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.rating span {
+    font-size: 1.4rem;
+    color: #4b5563;
+    transition: 0.2s;
+}
+
+.rating span.active {
+    color: var(--accent);
+}
+
+
+
+/* =========================================================
    LINKS
    ========================================================= */
 a {
