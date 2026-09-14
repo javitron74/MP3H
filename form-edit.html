@@ -103,44 +103,66 @@ button {
 </style>
 </head>
 
-<body class="dark">
+<body>
 
-<div class="toggle" onclick="toggleMode()">Cambiar modo</div>
+/*<div class="toggle" onclick="toggleMode()">Cambiar modo</div>*/
 
 <div class="container">
   <h1>Editar registro</h1>
 
-  <input type="hidden" id="idx">
+<div class="form-horizontal">
 
-  <label>Pos</label>
-  <input id="Pos">
+    <div>
+        <label>Banda</label>
+        <input id="banda" type="text">
+    </div>
 
-  <label>Banda</label>
-  <input id="Banda">
+    <div>
+        <label>Disco</label>
+        <input id="disco" type="text">
+    </div>
 
-  <label>Disco</label>
-  <input id="Disco">
+    <div>
+        <label>Género</label>
+        <input id="genero" type="text">
+    </div>
 
-  <label>Genero</label>
-  <input id="Genero">
+    <div>
+        <label>Emisión</label>
+        <input id="emision" type="date">
+    </div>
 
-  <label>Emisión</label>
-  <input id="Emision" type="date">
+    <div>
+        <label>Estado</label>
+        <div id="estadoPills">
+            <span class="pill-estado" data-value="Ok">Ok</span>
+            <span class="pill-estado" data-value="Pre-ok">Pre-ok</span>
+            <span class="pill-estado" data-value="Disp">Disp</span>
+            <span class="pill-estado" data-value="No">No</span>
+            <span class="pill-estado" data-value="---">---</span>
+        </div>
+    </div>
 
-  <label>Estado</label>
-  <select id="Estado">
-    <option value="---">---</option>
-    <option value="Pre-ok">Pre-ok</option>
-    <option value="Ok">Ok</option>
-    <option value="No">No</option>
-    <option value="Disp">Disp</option>
-  </select>
+    <div>
+        <label>Puntuación</label>
+        <div class="rating" id="rating">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
+        </div>
+    </div>
 
-  <label>Comentarios</label>
-  <textarea id="Comentarios" rows="3"></textarea>
+    <div style="grid-column: span 2;">
+        <label>Comentarios</label>
+        <textarea id="comentarios"></textarea>
+    </div>
 
-  <label>Puntuación</label>
-  <input id="Puntuacion">
+</div>
+
+<button class="btn-save" id="btnGuardar">Guardar</button>
+
 
   <button onclick="guardar()">Guardar cambios</button>
   <a href="index.html" class="back">Volver a la lista</a>
