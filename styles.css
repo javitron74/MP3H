@@ -470,6 +470,99 @@ button:hover {
 /* =========================================================
    FORMULARIOS Y COMPONENTES
    ========================================================= */
+
+/* FORMULARIO MP3H – DISEÑO COMPACTO Y RESPONSIVE */
+.form-container {
+    max-width: 700px;
+    margin: 30px auto;
+    background: var(--panel);
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* Cada grupo: label arriba, input largo */
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.form-group input[type="range"] {
+    background: var(--panel-light);
+    border: 1px solid #2d2e32;
+    border-radius: var(--radius);
+    padding: 10px;
+    color: var(--text);
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* Comentarios ocupa todo el ancho */
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Slider de puntuación */
+.range-value {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: var(--accent);
+}
+
+/* Botones */
+.btn-save, .btn-cancel {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn-save {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-save:hover {
+    background: var(--accent2);
+}
+
+.btn-cancel {
+    background: #374151;
+    color: var(--text);
+}
+
+.btn-cancel:hover {
+    background: #4b5563;
+}
+
+/* RESPONSIVE MÓVIL */
+@media (max-width: 480px) {
+    .form-container {
+        margin: 10px;
+        padding: 18px;
+    }
+
+    .btn-save, .btn-cancel {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+/*--------------------------------------*/
+
 .form-horizontal {
     display: grid;
     grid-template-columns: 1fr 1fr;
