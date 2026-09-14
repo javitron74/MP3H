@@ -72,6 +72,17 @@ function toggleMode() {
   document.body.classList.toggle("light");
 }
 
+function actualizarValorPuntuacion(v) {
+    document.getElementById("rangeValue").textContent = v;
+}
+const slider = document.getElementById("puntuacion");
+
+if (slider) {
+    slider.addEventListener("input", () => {
+        actualizarValorPuntuacion(slider.value);
+    });
+}
+
 async function cargar() {
   const params = new URLSearchParams(location.search);
   const pos = params.get("pos");
@@ -96,6 +107,7 @@ async function cargar() {
   estado.value = registro.Estado || "";
   comentarios.value = registro.Comentarios || "";
   puntuacion.value = registro.Puntuacion || "";
+  actualizarValorPuntuacion(registro.Puntuacion || 0);
 }
 
 async function guardar() {
