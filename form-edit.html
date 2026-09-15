@@ -102,14 +102,19 @@
 		  const res = await fetch(WORKER + "/mp3h.json");
 		  datos = await res.json();
 
-		  const registro = datos.find(d => String(d.Pos).trim() === String(pos).trim());
+		  //const registro = datos.find(d => String(d.Pos).trim() === String(pos).trim());
 		  
-		  if (!registro) {
+	// 🔥 AQUÍ ESTABA EL PROBLEMA: idx NO SE ASIGNABA
+		  idx = datos.findIndex(d => String(d.Pos).trim() === String(pos).trim());
+
+		  if (idx < 0) {
 				alert("Error: No se encontró el registro con Pos=" + pos);
 				console.log("Pos recibido:", pos);
 				console.log("Pos en datos:", datos.map(d => d.Pos));
 				return;
 			}
+
+		  const registro = datos[idx];
 
 		  Pos.value = registro.Pos || "";
 		  banda.value = registro.Banda || "";
@@ -139,7 +144,7 @@
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(datos)
 		  });
-
+			console.log("POs enviada", datos);
 		  alert("Registro actualizado");
 		}
 
