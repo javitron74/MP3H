@@ -1,4 +1,5 @@
 let datos = [];
+const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
 
 if (!window.location.search.includes('v=')) {
     const nuevaURL = window.location.pathname + '?v=' + Date.now();
@@ -52,6 +53,25 @@ function parsePuntuacion(value) {
     const numero = Number(normalizado);
 
     return isNaN(numero) ? null : numero;
+}
+
+// Cargar datos desde Cloudflare KV
+async function cargarDatos() {
+    try {
+        const res = await fetch(WORKER + "/mp3h.json");
+        const data = await res.json();
+
+        datos = Array.isArray(data) ? data : [];
+
+        // Ordenar por Pos numérico
+        datos.sort((a, b) => Number(a.Pos) - Number(b.Pos));
+
+        cargarFiltros();
+        render();
+    } catch (err) {
+        document.getElementById("count").textContent =
+            "Error cargando JSON: " + err;
+    }
 }
 
 function render() {
@@ -155,11 +175,7 @@ function render() {
         const comentarios = item.Comentarios || "";
         const emision = item["Emision Disco"] || "";
 		const fuente = item["Fuente Puntuacion"] || "";
-/*
-        const fechaEmision = parseFecha(emision);
-        const hoy = new Date();
-        const noEmitido = fechaEmision && fechaEmision > hoy;
-*/		
+		
 		const [anio, mes, dia]=emision.split('-');
 		const fechaEmision = new Date(anio, mes - 1, dia);
 		const fechaEmisionFormato = fechaEmision.toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'});
@@ -288,6 +304,7 @@ document.getElementById("filterEstado").addEventListener("change", render);
 document.getElementById("sortField").addEventListener("change", render);
 document.getElementById("sortDir").addEventListener("change", render);
 
+/*
 // CARGA DEL JSON
 fetch("data/new_mp3h.json")
     .then(r => r.json())
@@ -303,3 +320,6 @@ fetch("data/new_mp3h.json")
     .catch(err => {
         document.getElementById("count").textContent = "Error cargando JSON: " + err;
     });
+*/
+//INICIAR DESDE KV
+cargarDatos();
