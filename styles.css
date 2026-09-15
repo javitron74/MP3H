@@ -612,7 +612,16 @@ textarea {
     color: var(--accent);
 }
 
+/* --- VISIBILIDAD POR DEFECTO --- */
+.action-desktop {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
 
+.action-bar {
+    display: none; /* Oculta en escritorio */
+}
 
 /* =========================================================
    LINKS
@@ -690,7 +699,11 @@ a:hover {
         font-size: 0.95rem;
         padding: 0.4rem 0.8rem;
     }
+	.action-desktop {
+        display: none; /* Oculta en móvil */
+    }
 	.action-bar {
+		display: flex;
         position: fixed;
         bottom: 0;
         left: 0;
