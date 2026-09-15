@@ -61,13 +61,18 @@
             </div>
 
         </div>
-
-        <button class="btn-save" id="btnGuardar">Guardar</button>
-        <a href="index.html" class="back">Cancelar / Volver</a>
-
+		<!-- Escritorio: botones normales -->
+		<div class="action-desktop">
+			<button class="btn-save" id="btnGuardar">Guardar</button>
+			<a href="index.html" class="back">Cancelar / Volver</a>
+		</div>
     </div>
 
-
+	<!-- Móvil: barra fija -->
+	<div class="action-bar">
+		<button class="btn-save" id="btnGuardarMobile">Guardar</button>
+		<a href="index.html" class="back">Cancelar</a>
+	</div>
 
 	<script>
 		const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
