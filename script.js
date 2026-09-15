@@ -64,7 +64,7 @@ async function cargarDatos() {
         datos = Array.isArray(data) ? data : [];
 
         // Ordenar por Pos numérico
-        datos.sort((a, b) => Number(a.Pos) - Number(b.Pos));
+        datos.sort((a, b) => Number(b.Pos) - Number(a.Pos));
 
         cargarFiltros();
         render();
