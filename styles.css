@@ -207,16 +207,6 @@ main {
     align-items: center;
 }
 
-/* Borde dinámico según estado */
-/*.card.estado--- {
-    border: 2px solid #4b5563;
-
-		--estado-preok-bg:#0284C732;
-		--estado-ok-bg: #7C3AED32;
-		--estado-no-bg: #DC262632;
-		--estado-disp-bg: #16A34A32;
-}*/
-
 .card.estado-preok {
     border: 2px solid #0284C7;
 	background: var(--estado-preok-bg);
@@ -699,5 +689,28 @@ a:hover {
     .badge {
         font-size: 0.95rem;
         padding: 0.4rem 0.8rem;
+    }
+	.action-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: var(--panel);
+        padding: 12px 16px;
+        box-shadow: 0 -4px 12px rgba(0,0,0,0.4);
+        display: flex;
+        gap: 10px;
+        z-index: 999;
+    }
+
+    .action-bar .btn-save,
+    .action-bar .btn-cancel {
+        flex: 1;
+        text-align: center;
+    }
+
+    /* Evitar que el formulario quede oculto detrás de la barra */
+    .form-container {
+        padding-bottom: 90px;
     }
 }
