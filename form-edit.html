@@ -10,129 +10,131 @@
 <body>
 
     <div class="form-container">
-		
-		<div class="form-group">
-            <label>Pos</label>
-            <input id="Pos" type="text">
-        </div>
-        <div class="form-group">
-            <label>Banda</label>
-            <input id="banda" type="text">
-        </div>
 
-        <div class="form-group">
-            <label>Disco</label>
-            <input id="disco" type="text">
-        </div>
+        <div class="form-grid">
 
-        <div class="form-group">
-            <label>Género</label>
-            <input id="genero" type="text">
-        </div>
+            <div class="form-group">
+                <label>Banda</label>
+                <input id="banda" type="text">
+            </div>
 
-        <div class="form-group">
-            <label>Fecha de emisión</label>
-            <input id="emision" type="date">
-        </div>
+            <div class="form-group">
+                <label>Disco</label>
+                <input id="disco" type="text">
+            </div>
 
-        <div class="form-group">
-            <label>Estado</label>
-            <select id="estado">
-                <option value="---">---</option>
-                <option value="Ok">Ok</option>
-                <option value="Pre-ok">Pre-ok</option>
-                <option value="Disp">Disp</option>
-                <option value="No">No</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label>Género</label>
+                <input id="genero" type="text">
+            </div>
 
-        <div class="form-group">
-            <label>Puntuación (0–10)</label>
-            <input id="puntuacion" type="range" min="0" max="10" step="1">
-            <div class="range-value">Valor: <span id="rangeValue">0</span></div>
-        </div>
+            <div class="form-group">
+                <label>Fecha de emisión</label>
+                <input id="emision" type="date">
+            </div>
 
-        <div class="form-group">
-            <label>Comentarios</label>
-            <textarea id="comentarios"></textarea>
+            <div class="form-group">
+                <label>Estado</label>
+                <select id="estado">
+                    <option value="---">---</option>
+                    <option value="Ok">Ok</option>
+                    <option value="Pre-ok">Pre-ok</option>
+                    <option value="Disp">Disp</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Puntuación (0–10)</label>
+                <input id="puntuacion" type="range" min="0" max="10" step="1">
+                <div class="range-value">Valor: <span id="rangeValue">0</span></div>
+            </div>
+
+            <div class="form-group form-group-full">
+                <label>Comentarios</label>
+                <textarea id="comentarios"></textarea>
+            </div>
+
         </div>
 
         <button class="btn-save" id="btnGuardar">Guardar</button>
-        <a href="index.html" class="btn-cancel">Cancelar / Volver</a>
+        <a href="index.html" class="back">Cancelar / Volver</a>
 
     </div>
 
-<script>
-const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
-let datos = [];
-let idx = null;
 
-function toggleMode() {
-  document.body.classList.toggle("dark");
-  document.body.classList.toggle("light");
-}
 
-function actualizarValorPuntuacion(v) {
-    document.getElementById("rangeValue").textContent = v;
-}
-const slider = document.getElementById("puntuacion");
+	<script>
+		const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
+		let datos = [];
+		let idx = null;
 
-if (slider) {
-    slider.addEventListener("input", () => {
-        actualizarValorPuntuacion(slider.value);
-    });
-}
+		function toggleMode() {
+		  document.body.classList.toggle("dark");
+		  document.body.classList.toggle("light");
+		}
 
-async function cargar() {
-  const params = new URLSearchParams(location.search);
-  const pos = params.get("pos");
+		function actualizarValorPuntuacion(v) {
+			document.getElementById("rangeValue").textContent = v;
+		}
+		const slider = document.getElementById("puntuacion");
 
-  const res = await fetch(WORKER + "/mp3h.json");
-  datos = await res.json();
+		if (slider) {
+			slider.addEventListener("input", () => {
+				actualizarValorPuntuacion(slider.value);
+			});
+		}
 
-  const registro = datos.find(d => String(d.Pos).trim() === String(pos).trim());
-  
-  if (!registro) {
-        alert("Error: No se encontró el registro con Pos=" + pos);
-        console.log("Pos recibido:", pos);
-        console.log("Pos en datos:", datos.map(d => d.Pos));
-        return;
-    }
+		async function cargar() {
+		  const params = new URLSearchParams(location.search);
+		  const pos = params.get("pos");
 
-  Pos.value = registro.Pos || "";
-  banda.value = registro.Banda || "";
-  disco.value = registro.Disco || "";
-  genero.value = registro.Genero || "";
-  emision.value = registro["Emision Disco"] || "";
-  estado.value = registro.Estado || "";
-  comentarios.value = registro.Comentarios || "";
-  puntuacion.value = registro.Puntuacion || 0;
-  actualizarValorPuntuacion(registro.Puntuacion || 0);
-}
+		  const res = await fetch(WORKER + "/mp3h.json");
+		  datos = await res.json();
 
-async function guardar() {
-  datos[idx] = {
-    Pos: pos.value,
-    Banda: banda.value,
-    Disco: disco.value,
-    Genero: genero.value,
-    "Emision Disco": emision.value,
-    Estado: estado.value,
-    Comentarios: comentarios.value,
-    Puntuacion: puntuacion.value
-  };
+		  const registro = datos.find(d => String(d.Pos).trim() === String(pos).trim());
+		  
+		  if (!registro) {
+				alert("Error: No se encontró el registro con Pos=" + pos);
+				console.log("Pos recibido:", pos);
+				console.log("Pos en datos:", datos.map(d => d.Pos));
+				return;
+			}
 
-  await fetch(WORKER + "/update", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(datos)
-  });
+		  Pos.value = registro.Pos || "";
+		  banda.value = registro.Banda || "";
+		  disco.value = registro.Disco || "";
+		  genero.value = registro.Genero || "";
+		  emision.value = registro["Emision Disco"] || "";
+		  estado.value = registro.Estado || "";
+		  comentarios.value = registro.Comentarios || "";
+		  puntuacion.value = registro.Puntuacion || 0;
+		  actualizarValorPuntuacion(registro.Puntuacion || 0);
+		}
 
-  alert("Registro actualizado");
-}
+		async function guardar() {
+		  datos[idx] = {
+			Pos: pos.value,
+			Banda: banda.value,
+			Disco: disco.value,
+			Genero: genero.value,
+			"Emision Disco": emision.value,
+			Estado: estado.value,
+			Comentarios: comentarios.value,
+			Puntuacion: puntuacion.value
+		  };
 
-cargar();
-</script>
+		  await fetch(WORKER + "/update", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(datos)
+		  });
+
+		  alert("Registro actualizado");
+		}
+
+		cargar();
+	</script>
 
 </body>
 </html>
