@@ -56,6 +56,15 @@ function parsePuntuacion(value) {
 
     return isNaN(numero) ? null : numero;
 }
+//Mensaje toast
+function toast(msg) {
+    const t = document.createElement("div");
+    t.className = "toast";
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 3000);
+}
+
 //Resetear worker con JSON de github
 function resetWorker(){
 	fetch("https://mp3h-backend.josejaviertroncoso.workers.dev/import",{method:"POST"});
@@ -146,6 +155,10 @@ function iniciarFormulario(){
 			const nextPos = datos.length > 0
 				? Math.max(...posicionesValidas) + 1
 				: 1;
+			while (posicionesValidas.includes(nextPos)) {
+				nextPos++;
+			}
+			
 			document.getElementById("Pos").value = nextPos;
 			document.getElementById("estado").value = "---";
 			document.getElementById("puntuacion").value = 0;
@@ -162,7 +175,25 @@ function iniciarFormulario(){
 		const Estado = document.getElementById("estado").value;
 		const Comentarios = document.getElementById("comentarios").value;
 		const Puntuacion = document.getElementById("puntuacion").value;
-		
+
+		const nuevoPos = Number(Pos);
+
+		// Validar Pos
+		if (isNaN(nuevoPos) || nuevoPos <= 0) {
+			alert("El valor de Pos debe ser un número válido mayor que 0.");
+			return;
+		}
+
+		// Comprobar duplicados
+		const existe = datos.some((d, i) =>
+			Number(d.Pos) === nuevoPos && i !== idx
+		);
+
+		if (existe) {
+			alert("El valor de Pos ya existe. Elige otro número.");
+			return;
+		}
+
 		const registroNuevo = {
 			Pos: Pos,
 			Banda: Banda,
@@ -190,7 +221,8 @@ function iniciarFormulario(){
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(datos)
 		});
-		alert("Registro actualizado");
+		//alert("Registro actualizado");
+		toast("Registro actualizado");
 		location.href = "index.html"; 
 	}
 	//eventos del formulario
