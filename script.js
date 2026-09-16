@@ -1,5 +1,7 @@
 let datos = [];
 const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
+const esIndex = location.pathname.includes("index");
+const esFormulario = location.pathname.includes("form-edit");
 
 if (!window.location.search.includes('v=')) {
     const nuevaURL = window.location.pathname + '?v=' + Date.now();
@@ -77,7 +79,131 @@ async function cargarDatos() {
             "Error cargando JSON: " + err;
     }
 }
+function iniciarFormulario(){
+	const params = new URLSearchParams(location.search);
+    const pos = params.get("pos");
+	let idx = null;
+	let modo = pos ? "edit" : "add";
 
+
+	function actualizarValorPuntuacion(v) {
+		document.getElementById("rangeValue").textContent = v;
+	}
+	
+	const slider = document.getElementById("puntuacion");
+
+	if (slider) {
+		slider.addEventListener("input", () => {
+			actualizarValorPuntuacion(slider.value);
+		});
+	}
+	function cancelar(){
+		location.href = "index.html";
+	}
+
+	async function cargar() {
+		const params = new URLSearchParams(location.search);
+		const pos = params.get("pos");
+
+		const res = await fetch(WORKER + "/mp3h.json");
+		datos = await res.json();
+		
+		if (pos) {
+			// MODO EDICION
+			modo = "edit";
+			formTitle.textContent = "Editar MP3H";
+			
+			//const registro = datos.find(d => String(d.Pos).trim() === String(pos).trim());
+			idx = datos.findIndex(d => String(d.Pos).trim() === String(pos).trim());
+
+			if (idx < 0) {
+				alert("Error: No se encontró el registro con Pos=" + pos);
+				console.log("Pos recibido:", pos);
+				console.log("Pos en datos:", datos.map(d => d.Pos));
+				return;
+			}
+
+			const registro = datos[idx];
+
+			Pos.value = registro.Pos || "";
+			banda.value = registro.Banda || "";
+			disco.value = registro.Disco || "";
+			genero.value = registro.Genero || "";
+			emision.value = registro["Emision Disco"] || "";
+			estado.value = registro.Estado && registro.Estado.trim() !== "" ? registro.Estado : "---";
+			comentarios.value = registro.Comentarios || "";
+			puntuacion.value = registro.Puntuacion || 0;
+			actualizarValorPuntuacion(registro.Puntuacion || 0);
+		} else {
+		// MODO AÑADIR
+			modo = "add";
+			formTitle.textContent = "Añadir MP3H";
+			
+			const posicionesValidas = datos
+				.map(d => Number(String(d.Pos).trim()))
+				.filter(n => !isNaN(n));
+			
+			const nextPos = datos.length > 0
+				? Math.max(...posicionesValidas) + 1
+				: 1;
+			document.getElementById("Pos").value = nextPos;
+			document.getElementById("estado").value = "---";
+			document.getElementById("puntuacion").value = 0;
+			actualizarValorPuntuacion(0);
+		}					
+	}
+
+	async function guardar() {
+		const Pos = document.getElementById("Pos").value;
+		const Banda = document.getElementById("banda").value;
+		const Disco = document.getElementById("disco").value;
+		const Genero = document.getElementById("genero").value;
+		const Emision = document.getElementById("emision").value;
+		const Estado = document.getElementById("estado").value;
+		const Comentarios = document.getElementById("comentarios").value;
+		const Puntuacion = document.getElementById("puntuacion").value;
+		
+		const registroNuevo = {
+			Pos: Pos,
+			Banda: Banda,
+			Disco: Disco,
+			Genero: Genero,
+			"Emision Disco": Emision,
+			Estado: Estado.trim() !== "" ? Estado : "---",
+			Comentarios: Comentarios,
+			Puntuacion: Puntuacion
+		  };
+		
+		if(modo === "edit") {
+		
+			if (idx === null || idx < 0) {
+				alert("Error: idx no está definido");
+				return;
+			  }
+			datos[idx] = registroNuevo;
+		} else {
+			datos.push(registroNuevo);
+		}
+
+		await fetch(WORKER + "/update", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(datos)
+		});
+		alert("Registro actualizado");
+		location.href = "index.html"; 
+	}
+	//eventos del formulario
+	document.getElementById("btnGuardar").onclick = guardar;
+	document.getElementById("btnGuardarMobile").onclick = guardar;
+	
+	Puntuacion.addEventListener("input", e => {
+        actualizarValorPuntuacion(e.target.value);
+    });
+	
+	cargar();
+	
+}
 function render() {
     const grid = document.getElementById("grid");
     const count = document.getElementById("count");
@@ -346,4 +472,10 @@ fetch("data/new_mp3h.json")
     });
 */
 //INICIAR DESDE KV
-cargarDatos();
+if (esIndex) {
+    cargarDatos();
+}
+
+if (esFormulario) {
+    iniciarFormulario();
+}
