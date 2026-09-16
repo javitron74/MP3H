@@ -197,10 +197,10 @@ function iniciarFormulario(){
 	document.getElementById("btnGuardar").onclick = guardar;
 	document.getElementById("btnGuardarMobile").onclick = guardar;
 	
-	Puntuacion.addEventListener("input", e => {
+/*	Puntuacion.addEventListener("input", e => {
         actualizarValorPuntuacion(e.target.value);
     });
-	
+*/
 	cargar();
 	
 }
