@@ -140,8 +140,12 @@
 				modo = "add";
 				formTitle.textContent = "Añadir MP3H";
 				
+				const posicionesValidas )= datos
+					.map(d => Number(String(d.Pos).trim()))
+					.filter(n => !isNaN(n));
+				
 				const nextPos = datos.length > 0
-					? Math.max(...datos.map(d => Number(d.Pos) || 0)) + 1
+					? Math.max(...posicionesValidas) + 1
 					: 1;
 				document.getElementById("Pos").value = nextPos;
 				document.getElementById("estado").value = "---";
