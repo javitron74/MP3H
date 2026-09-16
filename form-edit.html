@@ -141,7 +141,7 @@
 				formTitle.textContent = "Añadir MP3H";
 				
 				const nextPos = datos.length > 0
-					? Math.max(datos.map(d => Number(d.Pos) || 0)) + 1
+					? Math.max(...datos.map(d => Number(d.Pos) || 0)) + 1
 					: 1;
 				document.getElementById("Pos").value = nextPos;
 				document.getElementById("estado").value = "---";
