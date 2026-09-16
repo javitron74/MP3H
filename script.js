@@ -73,15 +73,28 @@ function toast(msg) {
     setTimeout(() => t.remove(), 3000);
 }
 //Mensaje en el div dinamico
-function mostrarMensaje(texto) {
+function mostrarMensaje(texto, tipo = "info") {
     const msg = document.getElementById("mp3h-msg");
-    msg.textContent = texto;
+
+    msg.className = "mp3h-msg " + tipo;
+
+    // Iconos según tipo
+    const iconos = {
+        info: "ℹ️",
+        ok: "✔️",
+        warn: "⚠️",
+        error: "❌"
+    };
+
+    msg.textContent = iconos[tipo] + " " + texto;
+
     msg.classList.add("show");
 
     setTimeout(() => {
         msg.classList.remove("show");
     }, 3000);
 }
+
 
 //Resetear worker con JSON de github
 function resetWorker(){
