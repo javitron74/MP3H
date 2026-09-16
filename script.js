@@ -1,7 +1,7 @@
 let datos = [];
 const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
-const esIndex = location.pathname.includes("index");
 const esFormulario = location.pathname.includes("form-edit");
+const esIndex = !esFormulario;
 
 if (!window.location.search.includes('v=')) {
     const nuevaURL = window.location.pathname + '?v=' + Date.now();
