@@ -396,6 +396,27 @@ main {
     box-shadow: var(--shadow);
     animation: fadein 0.3s;
 }
+.mp3h-msg {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--panel-light);
+    color: var(--text);
+    padding: 12px 18px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.mp3h-msg.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* =========================================================
    TABLAS (por si usas table en vez de cards)
    ========================================================= */
