@@ -507,6 +507,7 @@ fetch("data/new_mp3h.json")
 //INICIAR DESDE KV
 if (esIndex) {
     cargarDatos();
+	iniciarEventosIndex();
 }
 
 if (esFormulario) {
