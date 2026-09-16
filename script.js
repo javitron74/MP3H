@@ -528,7 +528,7 @@ function iniciarEventosIndex() {
             try {
                 const res = await fetch(WORKER + "/import", { method: "POST" });
                 const txt = await res.text();
-                alert("KV reseteado:\n" + txt);
+                mostrarMensaje("KV reseteado:\n" + txt);
 
                 cargarDatos(); // solo en index
             } catch (err) {
