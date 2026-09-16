@@ -427,31 +427,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// EVENTOS
-document.getElementById("search").addEventListener("input", render);
-document.getElementById("filterGenero").addEventListener("change", render);
-document.getElementById("filterEstado").addEventListener("change", render);
-document.getElementById("sortField").addEventListener("change", render);
-document.getElementById("sortDir").addEventListener("change", render);
-document.getElementById("btnReset").onclick = async () => {
-    if (!confirm("¿Seguro que quieres reimportar el JSON desde GitHub?\nEsto sobrescribirá todos los datos del KV.")) {
-        return;
+// INICIAR EVENTOS INDEX
+	/*document.getElementById("search").addEventListener("input", render);
+	document.getElementById("filterGenero").addEventListener("change", render);
+	document.getElementById("filterEstado").addEventListener("change", render);
+	document.getElementById("sortField").addEventListener("change", render);
+	document.getElementById("sortDir").addEventListener("change", render);
+	document.getElementById("btnReset").onclick = async () => {
+		if (!confirm("¿Seguro que quieres reimportar el JSON desde GitHub?\nEsto sobrescribirá todos los datos del KV.")) {
+			return;
+		}
+
+		try {
+			const res = await fetch(WORKER + "/import", {
+				method: "POST"
+			});
+
+			const txt = await res.text();
+			alert("KV reseteado:\n" + txt);
+
+			// Recargar la página para ver los datos nuevos
+			cargarDatos();
+		} catch (err) {
+			alert("Error al importar JSON: " + err);
+		}
+	};
+	*/
+function iniciarEventosIndex() {
+    const search = document.getElementById("search");
+    const filterGenero = document.getElementById("filterGenero");
+    const filterEstado = document.getElementById("filterEstado");
+    const sortField = document.getElementById("sortField");
+    const sortDir = document.getElementById("sortDir");
+    const btnReset = document.getElementById("btnReset");
+
+    if (search) search.addEventListener("input", render);
+    if (filterGenero) filterGenero.addEventListener("change", render);
+    if (filterEstado) filterEstado.addEventListener("change", render);
+    if (sortField) sortField.addEventListener("change", render);
+    if (sortDir) sortDir.addEventListener("change", render);
+
+    if (btnReset) {
+        btnReset.onclick = async () => {
+            if (!confirm("¿Seguro que quieres reimportar el JSON desde GitHub?\nEsto sobrescribirá todos los datos del KV.")) {
+                return;
+            }
+
+            try {
+                const res = await fetch(WORKER + "/import", { method: "POST" });
+                const txt = await res.text();
+                alert("KV reseteado:\n" + txt);
+
+                cargarDatos(); // solo en index
+            } catch (err) {
+                alert("Error al importar JSON: " + err);
+            }
+        };
     }
-
-    try {
-        const res = await fetch(WORKER + "/import", {
-            method: "POST"
-        });
-
-        const txt = await res.text();
-        alert("KV reseteado:\n" + txt);
-
-        // Recargar la página para ver los datos nuevos
-        cargarDatos();
-    } catch (err) {
-        alert("Error al importar JSON: " + err);
-    }
-};
+}
 
 
 /*
