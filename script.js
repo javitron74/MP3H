@@ -54,6 +54,10 @@ function parsePuntuacion(value) {
 
     return isNaN(numero) ? null : numero;
 }
+//Resetear worker con JSON de github
+function resetWorker(){
+	fetch("https://mp3h-backend.josejaviertroncoso.workers.dev/import",{method:"POST"});
+}
 
 // Cargar datos desde Cloudflare KV
 async function cargarDatos() {
@@ -303,6 +307,26 @@ document.getElementById("filterGenero").addEventListener("change", render);
 document.getElementById("filterEstado").addEventListener("change", render);
 document.getElementById("sortField").addEventListener("change", render);
 document.getElementById("sortDir").addEventListener("change", render);
+document.getElementById("btnReset").onclick = async () => {
+    if (!confirm("¿Seguro que quieres reimportar el JSON desde GitHub?\nEsto sobrescribirá todos los datos del KV.")) {
+        return;
+    }
+
+    try {
+        const res = await fetch(WORKER + "/import", {
+            method: "POST"
+        });
+
+        const txt = await res.text();
+        alert("KV reseteado:\n" + txt);
+
+        // Recargar la página para ver los datos nuevos
+        cargarDatos();
+    } catch (err) {
+        alert("Error al importar JSON: " + err);
+    }
+};
+
 
 /*
 // CARGA DEL JSON
