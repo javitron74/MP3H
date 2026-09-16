@@ -400,16 +400,43 @@ main {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: var(--panel-light);
-    color: var(--text);
-    padding: 12px 18px;
+    padding: 14px 20px;
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.3s ease;
-    pointer-events: none;
+    transition: all 0.35s ease;
     z-index: 9999;
+    pointer-events: none;
+}
+
+/* Tipos de mensaje */
+.mp3h-msg.info {
+    background: #2563eb; /* azul fuerte */
+    color: white;
+    box-shadow: 0 4px 18px rgba(37, 99, 235, 0.4);
+}
+
+.mp3h-msg.ok {
+    background: #16a34a; /* verde */
+    color: white;
+    box-shadow: 0 4px 18px rgba(22, 163, 74, 0.4);
+}
+
+.mp3h-msg.warn {
+    background: #d97706; /* naranja */
+    color: white;
+    box-shadow: 0 4px 18px rgba(217, 119, 6, 0.4);
+}
+
+.mp3h-msg.error {
+    background: #dc2626; /* rojo */
+    color: white;
+    box-shadow: 0 4px 18px rgba(220, 38, 38, 0.4);
 }
 
 .mp3h-msg.show {
