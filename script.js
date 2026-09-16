@@ -8,6 +8,14 @@ if (esIndex && !window.location.search.includes('v=')) {
     window.location.replace(nuevaURL);
 }
 
+// Crear el espacio para mensajes
+if (!document.getElementById("mp3h-msg")) {
+    const div = document.createElement("div");
+    div.id = "mp3h-msg";
+    div.className = "mp3h-msg";
+    document.body.appendChild(div);
+}
+
 // Normalizar texto para búsqueda
 function normalizar(t) {
     return (t || "").toString().toLowerCase();
@@ -63,6 +71,16 @@ function toast(msg) {
     t.textContent = msg;
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 3000);
+}
+//Mensaje en el div dinamico
+function mostrarMensaje(texto) {
+    const msg = document.getElementById("mp3h-msg");
+    msg.textContent = texto;
+    msg.classList.add("show");
+
+    setTimeout(() => {
+        msg.classList.remove("show");
+    }, 3000);
 }
 
 //Resetear worker con JSON de github
@@ -222,8 +240,10 @@ function iniciarFormulario(){
 			body: JSON.stringify(datos)
 		});
 		//alert("Registro actualizado");
-		toast("Registro actualizado");
-		location.href = "index.html"; 
+		mostrarMensaje("Registro actualizado");
+		setTimeout(() => {
+			location.href = "index.html";
+		}, 800);
 	}
 	//eventos del formulario
 	document.getElementById("btnGuardar").onclick = guardar;
