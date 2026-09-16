@@ -148,6 +148,13 @@
 					? Math.max(...posicionesValidas) + 1
 					: 1;
 				document.getElementById("Pos").value = nextPos;
+				const hoy = new Date();
+				const fechaHoy =
+					hoy.getFullYear() + "-" +
+					String(hoy.getMonth() + 1).padStart(2, "0") + "-" +
+					String(hoy.getDate()).padStart(2, "0");
+
+				document.getElementById("emision").value = fechaHoy;
 				document.getElementById("estado").value = "---";
 				document.getElementById("puntuacion").value = 0;
 				actualizarValorPuntuacion(0);
