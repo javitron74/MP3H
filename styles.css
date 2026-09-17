@@ -547,6 +547,28 @@ button:hover {
     color: white;
     transform: scale(1.1);
 }
+.btn-add {
+    display: inline-block;
+    padding: 10px 16px;
+    background: var(--accent);
+    color: white;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+
+.btn-add:hover {
+    background: var(--accent2);
+}
+
+/* Móvil: botón ancho completo */
+@media (max-width: 480px) {
+
+}
+
 
 /* =========================================================
    FORMULARIOS Y COMPONENTES
@@ -682,6 +704,17 @@ textarea {
     display: none; /* Oculta en escritorio */
 }
 
+.input-small {
+    width: 90px;
+    background: var(--panel-light);
+    border: 1px solid #2d2e32;
+    border-radius: var(--radius);
+    padding: 6px 8px;
+    color: var(--text);
+    font-size: 0.85rem;
+    font-family: inherit;
+}
+
 /* =========================================================
    LINKS
    ========================================================= */
@@ -785,5 +818,9 @@ a:hover {
     /* Evitar que el formulario quede oculto detrás de la barra */
     .form-container {
         padding-bottom: 90px;
+    }
+	.btn-add {
+        width: 100%;
+        text-align: center;
     }
 }
