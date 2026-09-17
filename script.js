@@ -173,6 +173,7 @@ function iniciarFormulario(){
 			estado.value = registro.Estado && registro.Estado.trim() !== "" ? registro.Estado : "---";
 			comentarios.value = registro.Comentarios || "";
 			puntuacion.value = registro.Puntuacion || 0;
+			fuentePuntuacion.value = registro["Fuente Puntuacion"] || "";
 			actualizarValorPuntuacion(registro.Puntuacion || 0);
 		} else {
 		// MODO AÑADIR
@@ -206,6 +207,7 @@ function iniciarFormulario(){
 		const Estado = document.getElementById("estado").value;
 		const Comentarios = document.getElementById("comentarios").value;
 		const Puntuacion = document.getElementById("puntuacion").value;
+		const FuentePuntuacion = document.getElementById("fuentePuntuacion").value;
 
 		const nuevoPos = Number(Pos);
 
@@ -233,7 +235,8 @@ function iniciarFormulario(){
 			"Emision Disco": Emision,
 			Estado: Estado.trim() !== "" ? Estado : "---",
 			Comentarios: Comentarios,
-			Puntuacion: Puntuacion
+			Puntuacion: Puntuacion,
+			"Fuente Puntuacion": FuentePuntuacion
 		  };
 		
 		if(modo === "edit") {
