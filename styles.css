@@ -633,6 +633,11 @@ textarea {
     font-size: 0.9rem;
     color: var(--accent);
 }
+.range-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
 /* Botones */
 .btn-save, .btn-cancel {
