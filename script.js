@@ -104,7 +104,11 @@ function resetWorker(){
 // Cargar datos desde Cloudflare KV
 async function cargarDatos() {
     try {
-        const res = await fetch(WORKER + "/mp3h.json", headers: { "X-API-Key": "TU_TOKEN_SECRETO" });
+        const res = await fetch(WORKER + "/mp3h.json",{
+			headers: {
+				"X-API-Key": "TU_TOKEN_SECRETO"
+			}
+		});
         const data = await res.json();
 
         datos = Array.isArray(data) ? data : [];
