@@ -581,3 +581,5 @@ if (esIndex) {
 if (esFormulario) {
     iniciarFormulario();
 }
+
+// Last.fm 17/09/2026 token:5f6b01cc979afc6c4a645038fdd3986b
