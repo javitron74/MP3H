@@ -223,6 +223,7 @@ function generarTabla(filtrados) {
                 <th>Puntuación</th>
                 <th>Fuente</th>
                 <th>Comentarios</th>
+				<th></th>
             </tr>
         </thead>
         <tbody>
