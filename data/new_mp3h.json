@@ -2151,12 +2151,12 @@
     "Pos": "188",
     "Banda": "Creye",
     "Disco": "IV Aftermath",
-    "Genero": "Hard roc, air metal",
+    "Genero": "Hard rock, air metal",
     "Emision Disco": "2026-04-24",
     "Estado": "Pre-ok",
     "Registro": "",
     "Comentarios": "",
-    "Puntuacion": "",
+    "Puntuacion": "0",
     "Fuente Puntuacion": ""
   },
   {
@@ -6322,5 +6322,29 @@
     "Comentarios": "Mas metal que rock progresivo",
     "Puntuacion": "8.5",
     "Fuente Puntuacion": ""
+  },
+  {
+    "Pos": "536",
+    "Banda": "Metalite",
+    "Disco": "Discovery",
+    "Genero": "Heavy, Hard rock",
+    "Emision Disco": "2026-09-25",
+    "Estado": "---",
+    "Registro": "",
+    "Comentarios": "Tiene parte sinfonico ",
+    "Puntuacion": "8",
+    "Fuente Puntuacion": "metallerium"
+  },
+  {
+    "Pos": "537",
+    "Banda": "Night Laser",
+    "Disco": "Rast in the ...",
+    "Genero": "Hardo rock, glam",
+    "Emision Disco": "2026-09-25",
+    "Estado": "---",
+    "Registro": "",
+    "Comentarios": "",
+    "Puntuacion": "6",
+    "Fuente Puntuacion": "metallerium"
   }
 ]
