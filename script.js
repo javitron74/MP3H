@@ -2,6 +2,7 @@ let datos = [];
 const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
 const esFormulario = location.pathname.includes("form-edit");
 const esIndex = !esFormulario;
+const API_KEY = "a92f6f0d-7f88-4681-a2de-2722e6a20410";
 
 if (esIndex && !window.location.search.includes('v=')) {
     const nuevaURL = window.location.pathname + '?v=' + Date.now();
@@ -115,7 +116,6 @@ async function cargarDatos() {
 
         // Ordenar por Pos numérico
         datos.sort((a, b) => Number(b.Pos) - Number(a.Pos));
-
         cargarFiltros();
         render();
     } catch (err) {
@@ -406,6 +406,12 @@ function render() {
 						<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
 					</svg>
 				</div>
+				<!-- ICONO ELIMINAR -->
+				<div class="delete-btn" onclick="eliminar('${item.Pos}')">
+					<svg viewBox="0 0 24 24" class="delete-icon">
+						<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
+					</svg>
+				</div>
                 <div>
                     <span class="pill pill-genero">${genero}</span>
                 </div>
@@ -585,5 +591,29 @@ if (esIndex) {
 if (esFormulario) {
     iniciarFormulario();
 }
+
+// =====================
+// 🔥 Función ELIMINAR
+// =====================
+async function eliminar(pos) {
+    if (!confirm("¿Seguro que quieres eliminar este disco?")) return;
+
+    // Filtrar el disco fuera del array
+    const nuevos = datos.filter(d => d.Pos != pos);
+
+    // Guardar en el Worker
+    await fetch(WORKER + "/update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(nuevos)
+    });
+
+    // Actualizar la variable global
+    datos = nuevos;
+
+    // Re-render sin recargar JSON
+    render();
+}
+
 
 // Last.fm 17/09/2026 token:5f6b01cc979afc6c4a645038fdd3986b
