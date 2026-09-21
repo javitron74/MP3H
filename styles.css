@@ -113,6 +113,11 @@ main {
     align-items: center;
     margin-bottom: 10px;
 }
+.right-group {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* separación entre contador e icono */
+}
 /* =========================================================
    FILTROS
    ========================================================= */
@@ -617,6 +622,32 @@ button:hover {
 .btn-add:hover {
     background: var(--accent2);
 }
+.vista-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--panel-light);
+    padding: 6px 10px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.vista-icon:hover {
+    background: var(--accent);
+}
+
+.vista-svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text);
+    transition: 0.2s;
+}
+
+.vista-icon:hover .vista-svg {
+    fill: white;
+    transform: scale(1.15);
+}
 
 /* =========================================================
    FORMULARIOS Y COMPONENTES
@@ -839,5 +870,14 @@ a:hover {
     .btn-save, .btn-cancel {
         width: 100%;
         margin-bottom: 10px;
+    }
+
+    .right-group {
+        justify-content: center;
+    }
+
+    .btn-add {
+        width: 100%;
+        text-align: center;
     }
 }
