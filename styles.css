@@ -91,7 +91,7 @@ main {
 }
 
 #count {
-    margin-bottom: 1rem;
+    /*margin-bottom: 1rem;*/
     font-size: 0.95rem;
     color: var(--text-dim);
 }
@@ -615,7 +615,7 @@ button:hover {
     text-decoration: none;
     font-size: 1rem;
     cursor: pointer;
-    margin-bottom: 20px;
+ /*   margin-bottom: 20px;*/
     transition: 0.2s;
 }
 
