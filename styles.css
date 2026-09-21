@@ -125,6 +125,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+	align-items: center;
 }
 
 .filters input,
@@ -484,7 +485,52 @@ td {
 tr:hover td {
     background: #e9ecf2;
 }
+.tabla-mp3h {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    color: var(--text);
+    font-size: 0.9rem;
+}
 
+.tabla-mp3h th {
+    background: var(--panel-light);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.tabla-mp3h td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #2a2b2f;
+    vertical-align: middle;
+}
+
+.tabla-mp3h tr:hover {
+    background: #1f2023;
+}
+
+/* Iconos de acciones */
+.tabla-mp3h .acciones {
+    display: flex;
+    gap: 10px;
+}
+
+.tabla-mp3h .acciones svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--text-dim);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tabla-mp3h .acciones svg:hover {
+    fill: var(--accent);
+}
 /* =========================================================
    BOTONES
    ========================================================= */
