@@ -499,7 +499,7 @@ button:hover {
 }
 
 /* Botón contenedor */
-.edit-btn {
+.edit-btn, .delete-btn {
     position: absolute;
     top: 8px;
     right: 10px;
@@ -514,8 +514,15 @@ button:hover {
     background: transparent;
 }
 
+.edit-btn{
+	right:40px;
+}
+.delete-btn{
+	right: 10px;
+}
+
 /* Icono SVG */
-.edit-icon {
+.edit-icon, .delete-icon {
     width: 18px;
     height: 18px;
     fill: var(--text-dim);
@@ -523,11 +530,11 @@ button:hover {
 }
 
 /* Hover */
-.edit-btn:hover {
+.edit-btn:hover, .delete-btn:hover {
     background: var(--panel-light);
 }
 
-.edit-btn:hover .edit-icon {
+.edit-btn:hover .edit-icon, .delete-btn:hover .delete-icon {
     fill: var(--accent);
     transform: scale(1.15);
 }
