@@ -1,4 +1,6 @@
 let datos = [];
+let modoVista = "cards"; // cards | table
+
 const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
 const esFormulario = location.pathname.includes("form-edit");
 const esIndex = !esFormulario;
@@ -96,7 +98,6 @@ function mostrarMensaje(texto, tipo = "info") {
     }, 3000);
 }
 
-
 //Resetear worker con JSON de github
 function resetWorker(){
 	fetch("https://mp3h-backend.josejaviertroncoso.workers.dev/import",{method:"POST"});
@@ -123,6 +124,136 @@ async function cargarDatos() {
             "Error cargando JSON: " + err;
     }
 }
+
+const grid = document.getElementById("grid");
+
+function generarTarjetas(filtrados) {
+    grid.innerHTML = "";
+	filtrados.forEach(item => {
+
+        const estado = (item.Estado || "").toString();
+        const genero = item.Genero || "";
+		const puntuacion = parsePuntuacion(item.Puntuacion);
+        const comentarios = item.Comentarios || "";
+        const emision = item["Emision Disco"] || "";
+		const fuente = item["Fuente Puntuacion"] || "";
+		
+		const [anio, mes, dia]=emision.split('-');
+		const fechaEmision = new Date(anio, mes - 1, dia);
+		const fechaEmisionFormato = fechaEmision.toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'});
+        const hoy = new Date();
+		const fechaHoy = new Date(`${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`);
+        const noEmitido = fechaEmision && fechaEmision > fechaHoy;
+
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+		// Añadir clase de borde según estado
+		const clase = claseEstado(estado); // devuelve pill-estado-ok, pill-estado-no, etc.
+		if (clase) {
+			card.classList.add(clase.replace("pill-", "")); 
+		}
+        card.innerHTML = `
+            <div class="card-header">
+                <div>
+                    <div class="card-title">#${item.Pos} · ${item.Banda}</div>
+                    <div class="card-subtitle">${item.Disco}</div>
+                </div>
+				<!-- ICONO EDITAR -->
+				<div class="edit-btn" onclick="location.href='form-edit.html?pos=${item.Pos}'">
+					<svg viewBox="0 0 24 24" class="edit-icon">
+						<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+					</svg>
+				</div>
+				<!-- ICONO ELIMINAR -->
+				<div class="delete-btn" onclick="eliminar('${item.Pos}')">
+					<svg viewBox="0 0 24 24" class="delete-icon">
+						<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
+					</svg>
+				</div>
+                <div>
+                    <span class="pill pill-genero">${genero}</span>
+                </div>
+
+            </div>
+
+            <div class="card-body">
+                ${
+                    emision
+                        ? noEmitido
+                            //? `<span class="pill-emision no">No emitido</span> (${emision})`
+                            //: `<span class="pill-emision">Emitido</span> (${emision})`
+							? `<span class="pill-emision no">${fechaEmisionFormato}</span> `
+							: `<span class="pill-emision">${fechaEmisionFormato}</span> `
+                        : "<em>Sin fecha</em>"
+                }
+				<span class="pill ${claseEstado(estado)}">
+					${estado || "---"}
+				</span>
+                <br><br>
+                <span class="card-body-comment">${comentarios}</span>
+            </div>
+
+            <div class="card-footer">
+                <span class="score ${clasePuntuacion(puntuacion)}"> 
+					${puntuacion !== null ? puntuacion : "-"}
+				</span>
+				<span class="score-source"> 
+					${fuente !== "" ? `(${fuente})`: ""}
+				</span>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+}
+
+function generarTabla(filtrados) {
+    let html = `
+    <table class="tabla-mp3h">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Banda</th>
+                <th>Disco</th>
+                <th>Género</th>
+                <th>Estado</th>
+                <th>Emisión</th>
+                <th>Puntuación</th>
+                <th>Fuente</th>
+                <th>Comentarios</th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+    filtrados.forEach(item => {
+        const estado = item.Estado || "";
+        const puntuacion = parsePuntuacion(item.Puntuacion);
+        const emision = item["Emision Disco"] || "";
+        const fuente = item["Fuente Puntuacion"] || "";
+
+        html += `
+        <tr class="${claseEstado(estado).replace("pill-", "")}">
+            <td>${item.Pos}</td>
+            <td>${item.Banda}</td>
+            <td>${item.Disco}</td>
+            <td>${item.Genero || "-"}</td>
+            <td>${estado}</td>
+            <td>${emision || "-"}</td>
+            <td>${puntuacion !== null ? puntuacion : "-"}</td>
+            <td>${fuente}</td>
+            <td>${item.Comentarios || ""}</td>
+        </tr>`;
+    });
+
+    html += "</tbody></table>";
+
+    grid.innerHTML = html;
+}
+
+
 function iniciarFormulario(){
 	const params = new URLSearchParams(location.search);
     const pos = params.get("pos");
@@ -276,8 +407,9 @@ function iniciarFormulario(){
 	cargar();
 	
 }
+
 function render() {
-    const grid = document.getElementById("grid");
+    //const grid = document.getElementById("grid");
     const count = document.getElementById("count");
 
     const q = normalizar(document.getElementById("search").value);
@@ -368,6 +500,13 @@ function render() {
     count.textContent = `${filtrados.length} resultado(s)`;
 
     grid.innerHTML = "";
+	
+	if (modoVista === "cards") {
+        generarTarjetas(filtrados);
+    } else {
+        generarTabla(filtrados);
+    }
+/*	
     filtrados.forEach(item => {
 
         const estado = (item.Estado || "").toString();
@@ -447,6 +586,7 @@ function render() {
 
         grid.appendChild(card);
     });
+*/
 }
 
 function cargarFiltros() {
@@ -506,31 +646,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // INICIAR EVENTOS INDEX
-	/*document.getElementById("search").addEventListener("input", render);
-	document.getElementById("filterGenero").addEventListener("change", render);
-	document.getElementById("filterEstado").addEventListener("change", render);
-	document.getElementById("sortField").addEventListener("change", render);
-	document.getElementById("sortDir").addEventListener("change", render);
-	document.getElementById("btnReset").onclick = async () => {
-		if (!confirm("¿Seguro que quieres reimportar el JSON desde GitHub?\nEsto sobrescribirá todos los datos del KV.")) {
-			return;
-		}
-
-		try {
-			const res = await fetch(WORKER + "/import", {
-				method: "POST"
-			});
-
-			const txt = await res.text();
-			alert("KV reseteado:\n" + txt);
-
-			// Recargar la página para ver los datos nuevos
-			cargarDatos();
-		} catch (err) {
-			alert("Error al importar JSON: " + err);
-		}
-	};
-	*/
 function iniciarEventosIndex() {
     const search = document.getElementById("search");
     const filterGenero = document.getElementById("filterGenero");
@@ -538,6 +653,11 @@ function iniciarEventosIndex() {
     const sortField = document.getElementById("sortField");
     const sortDir = document.getElementById("sortDir");
     const btnReset = document.getElementById("btnReset");
+	
+	document.getElementById("toggleVista").addEventListener("click", () => {
+		modoVista = (modoVista === "cards") ? "table" : "cards";
+		render();
+	});
 
     if (search) search.addEventListener("input", render);
     if (filterGenero) filterGenero.addEventListener("change", render);
