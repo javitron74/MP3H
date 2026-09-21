@@ -479,11 +479,11 @@ th {
 td {
     padding: 10px;
     border-bottom: 1px solid #e3e4e8;
-    color: var(--text-dim);
+    /*color: var(--text-dim);*/
 }
 
 tr:hover td {
-    background: #e9ecf2;
+    /*background: #e9ecf2;*/
 }
 .tabla-mp3h {
     width: 100%;
