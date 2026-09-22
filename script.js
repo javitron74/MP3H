@@ -230,10 +230,19 @@ function generarTabla(filtrados) {
     `;
 
     filtrados.forEach(item => {
-        const estado = item.Estado || "";
-        const puntuacion = parsePuntuacion(item.Puntuacion);
+        const estado = (item.Estado || "").toString();
+        const genero = item.Genero || "";
+		const puntuacion = parsePuntuacion(item.Puntuacion);
+        const comentarios = item.Comentarios || "";
         const emision = item["Emision Disco"] || "";
-        const fuente = item["Fuente Puntuacion"] || "";
+		const fuente = item["Fuente Puntuacion"] || "";
+		
+		const [anio, mes, dia]=emision.split('-');
+		const fechaEmision = new Date(anio, mes - 1, dia);
+		const fechaEmisionFormato = fechaEmision.toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'});
+        const hoy = new Date();
+		const fechaHoy = new Date(`${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`);
+        const noEmitido = fechaEmision && fechaEmision > fechaHoy;
 
         html += `
         <tr class="${claseEstado(estado).replace("pill-", "")}">
@@ -244,7 +253,17 @@ function generarTabla(filtrados) {
             <td><span class="pill ${claseEstado(estado)}">
 					${estado || "---"}
 				</span></td>
-            <td>${emision || "-"}</td>
+            <td>
+				<span class="pill-emision">
+					${
+						emision
+							? noEmitido
+								? `<span class="pill-emision no">${fechaEmisionFormato}</span> `
+								: `<span class="pill-emision">${fechaEmisionFormato}</span> `
+							: "<em>Sin fecha</em>"
+					}
+				</span>
+			</td>
             <td>${puntuacion !== null ? puntuacion : "-"}</td>
             <td>${fuente}</td>
             <td>${item.Comentarios || ""}</td>
