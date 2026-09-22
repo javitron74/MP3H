@@ -529,6 +529,26 @@ td {
 .tabla-mp3h .acciones svg:hover {
     fill: var(--accent);
 }
+
+.row.estado-preok {
+    border: 2px solid #0284C7;
+	background: var(--estado-preok-bg);
+}
+
+.row.estado-ok {
+    border: 2px solid #7C3AED;
+	background: var(--estado-ok-bg);
+}
+
+.row.estado-no {
+    border: 2px solid #DC2626;
+	background: var(--estado-no-bg);
+}
+
+.row.estado-disp {
+    border: 2px solid #16A34A;
+	background: var(--estado-disp-bg);
+}
 /* =========================================================
    BOTONES
    ========================================================= */
