@@ -482,9 +482,6 @@ td {
     /*color: var(--text-dim);*/
 }
 
-tr:hover td {
-    /*background: #e9ecf2;*/
-}
 .tabla-mp3h {
     width: 100%;
     border-collapse: collapse;
@@ -511,7 +508,8 @@ tr:hover td {
 }
 
 .tabla-mp3h tr:hover {
-    background: #1f2023;
+    background: #e9ecf2;
+	color: var(--text-dim);
 }
 
 /* Iconos de acciones */
