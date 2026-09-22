@@ -268,7 +268,11 @@ function generarTabla(filtrados) {
 					}
 				</span>
 			</td>
-            <td><span class="score score-high">${puntuacion !== null ? puntuacion : "-"}</span></td>
+            <td>
+				<span class="score ${clasePuntuacion(puntuacion)}"> 
+					${puntuacion !== null ? puntuacion : "-"}
+				</span>
+			</td>
             <td><span class="score-source">${fuente}</span></td>
             <td><span class="card-body-comment">${item.Comentarios || ""}</span></td>
             <td>
