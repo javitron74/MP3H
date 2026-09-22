@@ -236,7 +236,7 @@ function generarTabla(filtrados) {
         const fuente = item["Fuente Puntuacion"] || "";
 
         html += `
-        <tr class=row ${claseEstado(estado).replace("pill-", "")}>
+        <tr class="row ${claseEstado(estado).replace("pill-", "")}">
             <td>${item.Pos}</td>
             <td>${item.Banda}</td>
             <td>${item.Disco}</td>
