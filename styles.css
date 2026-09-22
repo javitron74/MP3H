@@ -529,6 +529,15 @@ td {
 .tabla-mp3h .acciones svg:hover {
     fill: var(--accent);
 }
+.tabla-mp3h td .pill-estado-preok,
+.tabla-mp3h td .pill-estado-ok,
+.tabla-mp3h td .pill-estado-no,
+.tabla-mp3h td .pill-estado-disp,
+.tabla-mp3h td .pill-emision {
+    display: inline-block;
+    min-width: 90px;     /* 🔥 ancho mínimo */
+    text-align: center;  /* 🔥 centrado */
+}
 
 .row.estado-preok {
     border: 2px solid #0284C7;
