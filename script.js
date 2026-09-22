@@ -220,8 +220,8 @@ function generarTabla(filtrados) {
                 <th>Género</th>
                 <th>Estado</th>
                 <th>Emisión</th>
-                <th>Puntuación</th>
-                <th>Fuente</th>
+                <th>Punt</th>
+                <th></th>
                 <th>Comentarios</th>
 				<th></th>
             </tr>
