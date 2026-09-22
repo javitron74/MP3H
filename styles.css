@@ -543,6 +543,19 @@ td {
     text-align: center;
     display: inline-block;
 }
+.puntuacion-col {
+    width: 40px;          /* 🔥 súper compacto */
+    text-align: center;
+}
+
+.estrella-head {
+    width: 14px;
+    height: 14px;
+    fill: var(--text-dim);
+    display: inline-block;
+}
+
+
 
 .row.estado-preok {
     border: 2px solid #0284C7;
