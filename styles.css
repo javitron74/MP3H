@@ -538,6 +538,11 @@ td {
     min-width: 90px;     /* 🔥 ancho mínimo */
     text-align: center;  /* 🔥 centrado */
 }
+.tabla-mp3h td .pill-emision {
+    min-width: 110px;
+    text-align: center;
+    display: inline-block;
+}
 
 .row.estado-preok {
     border: 2px solid #0284C7;
