@@ -32,6 +32,7 @@ function parseFecha(fecha) {
     const [d, m, y] = partes;
     return new Date(`${y}-${m}-${d}`);
 }
+
 //Para que empiecen en la hora 0
 function normalizarfecha(fecha) {
 	if (!(fecha instanceof Date)) return null;
@@ -298,7 +299,6 @@ function generarTabla(filtrados) {
 
     grid.innerHTML = html;
 }
-
 
 function iniciarFormulario(){
 	const params = new URLSearchParams(location.search);
