@@ -775,6 +775,7 @@ button:hover {
 
 .form-group input,
 .form-group textarea,
+.form-group select,
 .form-group input[type="range"] {
     background: var(--panel-light);
     border: 1px solid #2d2e32;
@@ -784,16 +785,6 @@ button:hover {
     font-size: 1rem;
     width: 100%;
 	max-width: 100%;
-}
-
-.form-group select {
-    background: var(--panel);
-    border: 1px solid #3b3c40;
-    border-radius: var(--radius);
-    padding: 8px 10px;
-    color: var(--text);
-    appearance: none;
-    cursor: pointer;
 }
 
 /* Comentarios ocupa todo el ancho */
