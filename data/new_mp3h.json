@@ -2717,10 +2717,10 @@
     "Disco": "Heather ...",
     "Genero": "Rock n Roll, progresivo",
     "Emision Disco": "2025-07-18",
-    "Estado": "---",
+    "Estado": "Ok",
     "Registro": "",
     "Comentarios": "",
-    "Puntuacion": "",
+    "Puntuacion": "0",
     "Fuente Puntuacion": ""
   },
   {
@@ -6053,10 +6053,10 @@
     "Disco": "2084: ..",
     "Genero": "Progresivo, Alternativo",
     "Emision Disco": "2026-06-06",
-    "Estado": "---",
+    "Estado": "No",
     "Registro": "",
     "Comentarios": "",
-    "Puntuacion": "",
+    "Puntuacion": "0",
     "Fuente Puntuacion": ""
   },
   {
@@ -6065,10 +6065,10 @@
     "Disco": "[humanised]",
     "Genero": "Progresivo, Alternativo",
     "Emision Disco": "2026-05-29",
-    "Estado": "---",
+    "Estado": "Pre-ok",
     "Registro": "",
     "Comentarios": "",
-    "Puntuacion": "",
+    "Puntuacion": "0",
     "Fuente Puntuacion": ""
   },
   {
@@ -6209,7 +6209,7 @@
     "Disco": "Oceans Above …",
     "Genero": "Progresivo, Power",
     "Emision Disco": "2026-08-28",
-    "Estado": "---",
+    "Estado": "Pre-ok",
     "Registro": "",
     "Comentarios": "",
     "Puntuacion": "9",
@@ -6305,7 +6305,7 @@
     "Disco": "Spirit Animal",
     "Genero": "Rock progresivo",
     "Emision Disco": "2026-09-18",
-    "Estado": "",
+    "Estado": "Pre-ok",
     "Registro": "",
     "Comentarios": "De Israel, mas que metal es rock",
     "Puntuacion": "8.7",
@@ -6346,5 +6346,17 @@
     "Comentarios": "",
     "Puntuacion": "6",
     "Fuente Puntuacion": "metallerium"
+  },
+  {
+    "Pos": "538",
+    "Banda": "Jaded Heart",
+    "Disco": "Toxic",
+    "Genero": "Heavy, Hard Rock",
+    "Emision Disco": "2027-01-15",
+    "Estado": "---",
+    "Registro": "",
+    "Comentarios": "",
+    "Puntuacion": "",
+    "Fuente Puntuacion": ""
   }
 ]
