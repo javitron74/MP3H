@@ -487,6 +487,7 @@ td {
     border-collapse: collapse;
     background: var(--panel);
     border-radius: var(--radius);
+	border: 1px solid var(--panel-light);
     overflow: hidden;
     box-shadow: var(--shadow);
     color: var(--text);
@@ -503,7 +504,6 @@ td {
 
 .tabla-mp3h td {
     padding: 10px 12px;
-    border-bottom: 1px solid #2a2b2f;
     vertical-align: middle;
 }
 
@@ -830,6 +830,25 @@ textarea {
     color: var(--text);
     font-size: 0.85rem;
     font-family: inherit;
+}
+.puntuacion-check {
+    display: inline-flex;      /* NO bloque, NO 100% */
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    width: auto;               /* evita herencia del 100% */
+}
+
+.puntuacion-check input[type="checkbox"] {
+    width: auto;               /* evita herencia del input */
+    margin: 0;
+    padding: 0;
+}
+
+.puntuacion-check label {
+    color: var(--text);
+    font-size: 0.9rem;
+	margin:0;
 }
 
 /* =========================================================
