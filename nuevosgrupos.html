@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MP3H – Nuevos Grupos</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Nuevos Grupos</h1>
+
+    <div class="filters">
+        <input id="search" type="text" placeholder="Buscar banda, disco, comentarios…">
+
+        <select id="filterGenero">
+            <option value="">Todos los géneros</option>
+        </select>
+
+        <select id="sortField">
+            <option value="">Ordenar por…</option>
+            <option value="Pos">Item</option>
+            <option value="Banda">Banda</option>
+            <option value="Genero">Género</option>
+            <option value="Estado">Estado</option>
+        </select>
+
+        <select id="sortDir">
+            <option value="asc">Ascendente</option>
+            <option value="desc" selected>Descendente</option>
+        </select>
+		
+		<div id="filterEstado" class="multi-select">
+			<span data-value="---" class="pill">---</span>
+			<span data-value="Ok" class="pill">Ok</span>
+			<span data-value="No" class="pill">No</span>
+		</div>
+    </div>
+</header>
+
+<main>
+	<div class="top-bar">
+		<div id="add"><a href="form-edit.html" class="btn-add">Añadir nuevo</a></div>
+		<div class="right-group">
+			<span id="count">Cargando datos…</span>
+			<span id="toggleVista" class="vista-icon" title="Cambiar vista">
+				<svg viewBox="0 0 24 24" class="vista-svg">
+					<path d="M3 5h18v4H3V5zm0 7h18v4H3v-4zm0 7h18v4H3v-4z"/>
+				</svg>
+			</span>
+		</div>
+	</div>
+    <div id="grid" class="grid"></div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
+
