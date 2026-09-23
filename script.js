@@ -306,6 +306,19 @@ function iniciarFormulario(){
 	let idx = null;
 	let modo = pos ? "edit" : "add";
 
+	document.getElementById("puntuacionEnabled")
+		.addEventListener("change", actualizarEstadoPuntuacion);
+
+	function actualizarEstadoPuntuacion() {
+		const enabled = document.getElementById("puntuacionEnabled").checked;
+
+		document.getElementById("puntuacion").disabled = !enabled;
+		document.getElementById("fuentePuntuacion").disabled = !enabled;
+
+		if (!enabled) {
+			document.getElementById("rangeValue").textContent = "";
+		}
+	}
 
 	function actualizarValorPuntuacion(v) {
 		document.getElementById("rangeValue").textContent = v;
@@ -356,6 +369,17 @@ function iniciarFormulario(){
 			puntuacion.value = registro.Puntuacion || 0;
 			fuentePuntuacion.value = registro["Fuente Puntuacion"] || "";
 			actualizarValorPuntuacion(registro.Puntuacion || 0);
+			
+			const tienePuntuacion = registro.Puntuacion && registro.Puntuacion !== "";
+
+			puntuacionEnabled.checked = tienePuntuacion;
+
+			puntuacion.value = tienePuntuacion ? registro.Puntuacion : 0;
+			fuentePuntuacion.value = tienePuntuacion ? (registro["Fuente Puntuacion"] || "") : "";
+
+			actualizarValorPuntuacion(tienePuntuacion ? registro.Puntuacion : "");
+			actualizarEstadoPuntuacion();
+			
 		} else {
 		// MODO AÑADIR
 			modo = "add";
@@ -376,7 +400,12 @@ function iniciarFormulario(){
 			document.getElementById("estado").value = "---";
 			document.getElementById("puntuacion").value = 0;
 			actualizarValorPuntuacion(0);
-		}					
+			
+			puntuacionEnabled.checked = false;
+			document.getElementById("fuentePuntuacion").value = "";
+			actualizarEstadoPuntuacion();
+		}
+		
 	}
 
 	async function guardar() {
@@ -387,8 +416,9 @@ function iniciarFormulario(){
 		const Emision = document.getElementById("emision").value;
 		const Estado = document.getElementById("estado").value;
 		const Comentarios = document.getElementById("comentarios").value;
-		const Puntuacion = document.getElementById("puntuacion").value;
-		const FuentePuntuacion = document.getElementById("fuentePuntuacion").value;
+		const enabled = document.getElementById("puntuacionEnabled").checked;
+		const Puntuacion = enabled ? document.getElementById("puntuacion").value : "";
+		const FuentePuntuacion = enabled ? document.getElementById("fuentePuntuacion").value : "";
 
 		const nuevoPos = Number(Pos);
 
