@@ -339,10 +339,160 @@ function generarTarjetasNuevos(filtrados) {
     });
 }
 
+function generarTablaDiscos(filtrados) {
+    let html = `
+    <table class="tabla-mp3h">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Banda</th>
+                <th>Disco</th>
+                <th>Género</th>
+                <th>Estado</th>
+                <th>Emisión</th>
+                <th class="puntuacion-col">            
+					<svg class="estrella-head" viewBox="0 0 24 24">
+						<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+					</svg>
+				</th>
+                <th></th>
+                <th>Comentarios</th>
+				<th></th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+    filtrados.forEach(item => {
+        const estado = (item.Estado || "").toString();
+        const genero = item.Genero || "";
+		const puntuacion = parsePuntuacion(item.Puntuacion);
+        const comentarios = item.Comentarios || "";
+        const emision = item["Emision Disco"] || "";
+		const fuente = item["Fuente Puntuacion"] || "";
+		
+		const [anio, mes, dia]=emision.split('-');
+		const fechaEmision = new Date(anio, mes - 1, dia);
+		const fechaEmisionFormato = fechaEmision.toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit',year:'numeric'});
+        const hoy = new Date();
+		const fechaHoy = new Date(`${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`);
+        const noEmitido = fechaEmision && fechaEmision > fechaHoy;
+
+        html += `
+        <tr class="${claseEstado(estado).replace("pill-", "")}">
+            <td>${item.Pos}</td>
+            <td>${item.Banda}</td>
+            <td>${item.Disco}</td>
+            <td>${item.Genero || "-"}</td>
+            <td><span class="pill ${claseEstado(estado)}">
+					${estado || "---"}
+				</span></td>
+            <td>
+				<span class="pill-emision">
+					${
+						emision
+							? noEmitido
+								? `<span class="pill-emision no">${fechaEmisionFormato}</span> `
+								: `<span class="pill-emision">${fechaEmisionFormato}</span> `
+							: "<em>Sin fecha</em>"
+					}
+				</span>
+			</td>
+            <td>
+				<span class="score ${clasePuntuacion(puntuacion)}"> 
+					${puntuacion !== null ? puntuacion : "-"}
+				</span>
+			</td>
+            <td><span class="score-source">${fuente}</span></td>
+            <td><span class="card-body-comment">${item.Comentarios || ""}</span></td>
+            <td>
+				<div class="acciones">
+					<!-- Editar -->
+					<div onclick="location.href='form-edit.html?pos=${item.Pos}'">
+						<svg viewBox="0 0 24 24">
+							<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+						</svg>
+					</div>
+					<!-- Eliminar -->
+					<div onclick="eliminar('${item.Pos}')">
+						<svg viewBox="0 0 24 24">
+							<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
+						</svg>
+					</div>
+				</div>
+            </td>			
+        </tr>`;
+    });
+
+    html += "</tbody></table>";
+
+    grid.innerHTML = html;
+}
+
+function generarTablaNuevos(filtrados) {
+    let html = `
+    <table class="tabla-mp3h">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Banda</th>
+                <th>Género</th>
+                <th>Estado</th>
+                <th>Comentarios</th>
+				<th></th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+    filtrados.forEach(item => {
+        const estado = (item.Estado || "").toString();
+        const genero = item.Genero || "";
+        const comentarios = item.Comentarios || "";
+
+        html += `
+        <tr class="${claseEstado(estado).replace("pill-", "")}">
+            <td>${item.Pos}</td>
+            <td>${item.Banda}</td>
+            <td>${item.Genero || "-"}</td>
+            <td><span class="pill ${claseEstado(estado)}">
+					${estado || "---"}
+				</span>
+			</td>
+            <td><span class="card-body-comment">${item.Comentarios || ""}</span></td>
+            <td>
+				<div class="acciones">
+					<!-- Editar -->
+					<div onclick="location.href='form-edit.html?pos=${item.Pos}'">
+						<svg viewBox="0 0 24 24">
+							<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+						</svg>
+					</div>
+					<!-- Eliminar -->
+					<div onclick="eliminar('${item.Pos}')">
+						<svg viewBox="0 0 24 24">
+							<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
+						</svg>
+					</div>
+				</div>
+            </td>			
+        </tr>`;
+    });
+
+    html += "</tbody></table>";
+
+    grid.innerHTML = html;
+}
+
 const RENDERERS = {
-    discos: generarTarjetasDiscos,
-    nuevos: generarTarjetasNuevos
-    // futuro: artistas, etc.
+    discos: {
+        card: generarTarjetasDiscos,
+        table: generarTablaDiscos
+    },
+    nuevosgrupos: {
+        card: generarTarjetasNuevos,
+        table: generarTablaNuevos
+    }
 };
 
 // =====================
@@ -356,7 +506,7 @@ function render() {
 
     if (count) count.textContent = `${filtrados.length} resultado(s)`;
 
-    const renderer = RENDERERS[CFG.tipo] || generarTarjetasDiscos;
+    const renderer = RENDERERS[CFG.tipo][modoVista] || generarTarjetasDiscos;
     renderer(filtrados);
 }
 
