@@ -268,7 +268,7 @@ function generarTarjetasDiscos(filtrados) {
                     <div class="card-title">#${item.Pos} · ${item.Banda}</div>
                     <div class="card-subtitle">${item.Disco || ""}</div>
                 </div>
-                <div class="edit-btn" onclick="location.href='${CFG.formulario}?pos=${item.Pos}'">
+                <div class="edit-btn" onclick="location.href='${CFG.formulario}?pos=${item.Pos}&origen=${location.pathname}'">
                     <svg viewBox="0 0 24 24" class="edit-icon">
                         <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
                     </svg>
@@ -408,7 +408,7 @@ function generarTablaDiscos(filtrados) {
             <td>
 				<div class="acciones">
 					<!-- Editar -->
-					<div onclick="location.href='form-edit.html?pos=${item.Pos}'">
+					<div onclick="location.href='${CFG.formulario}?pos=${item.Pos}&origen=${location.pathname}'">
 						<svg viewBox="0 0 24 24">
 							<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
 						</svg>
@@ -463,7 +463,7 @@ function generarTablaNuevos(filtrados) {
             <td>
 				<div class="acciones">
 					<!-- Editar -->
-					<div onclick="location.href='form-nuevosgrupos.html?pos=${item.Pos}'">
+					<div onclick="location.href='${CFG.formulario}?pos=${item.Pos}&origen=${location.pathname}'">
 						<svg viewBox="0 0 24 24">
 							<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
 						</svg>
@@ -576,6 +576,7 @@ async function eliminar(pos) {
 async function iniciarFormulario() {
     const params = new URLSearchParams(location.search);
     const pos = params.get("pos");
+	const origen = params.get("origen") || "index.html";
 
     const dataset = MP3H_FORM.dataset;
     const campos = MP3H_FORM.campos;
@@ -732,7 +733,7 @@ async function iniciarFormulario() {
         mostrarMensaje("Registro guardado", "ok");
 
         setTimeout(() => {
-            location.href = "index.html";
+            location.href = origen;
         }, 800);
     }
 
