@@ -33,7 +33,17 @@ function normalizarId(campo) {
     // Caso especial: Pos mantiene mayúscula inicial
     if (campo === "Pos") return "Pos";
 
-    // Reemplazar espacios por guiones bajos y pasar a minúsculas
+    // Mapa de excepciones para campos que no siguen el patrón
+    const excepciones = {
+        "Emision Disco": "emision",
+        "Fuente Puntuacion": "fuentePuntuacion"
+    };
+
+    if (excepciones[campo]) {
+        return excepciones[campo];
+    }
+
+    // Normalización general
     return campo.toLowerCase().replace(/\s+/g, "_");
 }
 
