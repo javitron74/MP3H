@@ -446,7 +446,7 @@ async function iniciarFormulario() {
     const slider = document.getElementById("puntuacion");
     const sliderEnabled = document.getElementById("puntuacionEnabled");
     const sliderValue = document.getElementById("rangeValue");
-    const fuenteInput = document.getElementById("Fuente Puntuacion");
+    const fuenteInput = document.getElementById(normalizarId("Fuente Puntuacion"));
 
     function actualizarEstadoPuntuacion() {
         if (!slider || !sliderEnabled || !fuenteInput) return;
