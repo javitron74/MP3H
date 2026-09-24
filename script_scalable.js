@@ -582,6 +582,11 @@ async function iniciarFormulario() {
 // =====================
 
 document.addEventListener("DOMContentLoaded", () => {
+	// Si la página define MP3H_FORM → iniciar formulario
+    if (window.MP3H_FORM) {
+        iniciarFormulario();
+        return;
+    }
     cargarDatos();
     iniciarEventosIndex();
 });
