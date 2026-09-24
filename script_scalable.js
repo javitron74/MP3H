@@ -4,21 +4,23 @@
 // =====================
 
 let datos = [];
-let modoVista = "cards"; // cards | table
+//let modoVista = "cards"; // cards | table
 
 const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
 const CFG = window.MP3H_CONFIG || {
     tipo: "discos",
-    json: "mp3h.json",
-    update: "/update",
+    json: "get?dataset=mp3h",
+    update: "update?dataset=mp3h",
     formulario: "form-edit.html",
+    apiKey: "",
+	defaultModoVista: "card",
     campos: [
         "Pos","Banda","Disco","Genero",
         "Emision Disco","Estado","Comentarios",
         "Puntuacion","Fuente Puntuacion"
     ]
 };
-
+let modoVista = CFG.defaultModoVista // cards | table
 // =====================
 // Utilidades
 // =====================
@@ -399,6 +401,181 @@ async function eliminar(pos) {
     datos = nuevos;
     render();
 }
+
+// ===============================
+//  FORMULARIO ESCALABLE
+// ===============================
+async function iniciarFormulario() {
+    const params = new URLSearchParams(location.search);
+    const pos = params.get("pos");
+
+    const dataset = MP3H_FORM.dataset;
+    const campos = MP3H_FORM.campos;
+
+    // 1. Cargar datos del dataset
+    const res = await fetch(WORKER + "/get?dataset=" + dataset, {
+        headers: { "X-API-Key": CFG.apiKey }
+    });
+
+    datos = await res.json();
+
+    let modo = pos ? "edit" : "add";
+    let idx = -1;
+
+    // ===============================
+    //  SLIDER DE PUNTUACIÓN (si existe)
+    // ===============================
+    const slider = document.getElementById("puntuacion");
+    const sliderEnabled = document.getElementById("puntuacionEnabled");
+    const sliderValue = document.getElementById("rangeValue");
+    const fuenteInput = document.getElementById("Fuente Puntuacion");
+
+    function actualizarEstadoPuntuacion() {
+        if (!slider || !sliderEnabled || !fuenteInput) return;
+
+        const enabled = sliderEnabled.checked;
+
+        slider.disabled = !enabled;
+        fuenteInput.disabled = !enabled;
+
+        sliderValue.textContent = enabled ? slider.value : "";
+    }
+
+    function actualizarValorPuntuacion(v) {
+        if (sliderValue) sliderValue.textContent = v;
+    }
+
+    if (slider && sliderEnabled) {
+        slider.addEventListener("input", () => actualizarValorPuntuacion(slider.value));
+        sliderEnabled.addEventListener("change", actualizarEstadoPuntuacion);
+    }
+
+    // ===============================
+    //  MODO EDICIÓN
+    // ===============================
+    if (modo === "edit") {
+        idx = datos.findIndex(r => String(r.Pos) === String(pos));
+
+        if (idx < 0) {
+            alert("No se encontró el registro con Pos=" + pos);
+            return;
+        }
+
+        const registro = datos[idx];
+
+        // Rellenar campos dinámicamente
+        campos.forEach(campo => {
+            const input = document.getElementById(campo);
+            if (input) input.value = registro[campo] || "";
+        });
+
+        // Slider si existe
+        if (slider && sliderEnabled) {
+            const tienePuntuacion = registro.Puntuacion && registro.Puntuacion !== "";
+
+            sliderEnabled.checked = tienePuntuacion;
+            slider.value = tienePuntuacion ? registro.Puntuacion : 0;
+            fuenteInput.value = tienePuntuacion ? (registro["Fuente Puntuacion"] || "") : "";
+
+            actualizarValorPuntuacion(tienePuntuacion ? registro.Puntuacion : "");
+            actualizarEstadoPuntuacion();
+        }
+
+    } else {
+        // ===============================
+        //  MODO AÑADIR
+        // ===============================
+        const posiciones = datos.map(r => Number(r.Pos)).filter(n => !isNaN(n));
+        let nextPos = posiciones.length ? Math.max(...posiciones) + 1 : 1;
+        while (posiciones.includes(nextPos)) nextPos++;
+
+        const posInput = document.getElementById("Pos");
+        if (posInput) posInput.value = nextPos;
+
+        // Inicializar campos
+        campos.forEach(campo => {
+            const input = document.getElementById(campo);
+            if (!input) return;
+
+            if (campo === "Estado") input.value = "---";
+            else input.value = "";
+        });
+
+        // Slider si existe
+        if (slider && sliderEnabled) {
+            sliderEnabled.checked = false;
+            slider.value = 0;
+            actualizarValorPuntuacion(0);
+
+            if (fuenteInput) fuenteInput.value = "";
+            actualizarEstadoPuntuacion();
+        }
+    }
+
+    // ===============================
+    //  GUARDAR REGISTRO
+    // ===============================
+    async function guardar() {
+        const nuevo = {};
+
+        // Leer todos los campos dinámicamente
+        campos.forEach(campo => {
+            const input = document.getElementById(campo);
+            nuevo[campo] = input ? input.value : "";
+        });
+
+        // Manejo especial de puntuación si existe
+        if (slider && sliderEnabled) {
+            nuevo.Puntuacion = sliderEnabled.checked ? slider.value : "";
+            nuevo["Fuente Puntuacion"] = sliderEnabled.checked ? fuenteInput.value : "";
+        }
+
+        // Validar Pos
+        const nuevoPos = Number(nuevo.Pos);
+        if (isNaN(nuevoPos) || nuevoPos <= 0) {
+            alert("Pos debe ser un número válido");
+            return;
+        }
+
+        // Comprobar duplicados
+        const existe = datos.some((r, i) =>
+            Number(r.Pos) === nuevoPos && i !== idx
+        );
+
+        if (existe) {
+            alert("El valor de Pos ya existe");
+            return;
+        }
+
+        // Insertar o actualizar
+        if (modo === "edit") datos[idx] = nuevo;
+        else datos.push(nuevo);
+
+        // Guardar en KV
+        await fetch(WORKER + "/update?dataset=" + dataset, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-API-Key": CFG.apiKey
+            },
+            body: JSON.stringify(datos)
+        });
+
+        mostrarMensaje("Registro guardado", "ok");
+
+        setTimeout(() => {
+            location.href = "index.html";
+        }, 800);
+    }
+
+    // Eventos del formulario
+    const btnGuardar = document.getElementById("btnGuardar");
+    const btnGuardarMobile = document.getElementById("btnGuardarMobile");
+
+    if (btnGuardar) btnGuardar.onclick = guardar;
+    if (btnGuardarMobile) btnGuardarMobile.onclick = guardar;
+}
+
 
 // =====================
 // Inicio
