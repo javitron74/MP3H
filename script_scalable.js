@@ -29,6 +29,14 @@ function normalizar(t) {
     return (t || "").toString().toLowerCase();
 }
 
+function normalizarId(campo) {
+    // Caso especial: Pos mantiene mayúscula inicial
+    if (campo === "Pos") return "Pos";
+
+    // Reemplazar espacios por guiones bajos y pasar a minúsculas
+    return campo.toLowerCase().replace(/\s+/g, "_");
+}
+
 function parsePuntuacion(value) {
     if (!value || value === "-") return null;
     const normalizado = value.replace(",", ".");
@@ -465,7 +473,7 @@ async function iniciarFormulario() {
 
         // Rellenar campos dinámicamente
         campos.forEach(campo => {
-            const input = document.getElementById(campo);
+            const input = document.getElementById(normalizarId(campo));
             if (input) input.value = registro[campo] || "";
         });
 
@@ -520,7 +528,7 @@ async function iniciarFormulario() {
 
         // Leer todos los campos dinámicamente
         campos.forEach(campo => {
-            const input = document.getElementById(campo);
+            const input = document.getElementById(normalizarId(campo));
             nuevo[campo] = input ? input.value : "";
         });
 
