@@ -39,6 +39,7 @@
 			<span data-value="No" class="pill">No</span>
 		</div>
     </div>
+	<a href="index.html" class="back">Listado de grupos</a>
 </header>
 
 <main>
@@ -56,7 +57,22 @@
     <div id="grid" class="grid"></div>
 </main>
 
-<script src="script.js"></script>
+<script>
+window.MP3H_CONFIG = {
+    tipo: "discos",
+    json: "get?dataset=mp3h",
+    update: "update?dataset=mp3h",
+    formulario: "form-edit.html",
+    apiKey: "",
+	defaultModoVista: "table",
+    campos: [
+        "Pos","Banda","Genero",
+        "Estado","Comentarios"
+    ]
+};
+</script>
+
+<script src="script_scalable.js"></script>
 </body>
 </html>
 
