@@ -51,6 +51,7 @@ function claseEstado(estado) {
         default:        return "pill-estado---";
     }
 }
+
 // Clase CSS según puntuacion
 function clasePuntuacion(p) {
     if (p === null) return "score-none";   // sin puntuación
@@ -68,6 +69,7 @@ function parsePuntuacion(value) {
 
     return isNaN(numero) ? null : numero;
 }
+
 //Mensaje toast
 function toast(msg) {
     const t = document.createElement("div");
@@ -76,6 +78,7 @@ function toast(msg) {
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 3000);
 }
+
 //Mensaje en el div dinamico
 function mostrarMensaje(texto, tipo = "info") {
     const msg = document.getElementById("mp3h-msg");
