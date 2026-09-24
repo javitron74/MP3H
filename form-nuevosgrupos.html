@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nuevos grupos – Formulario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="form-container">
+		<div class="header">
+			<div class="title" id="formTitle">Grupo</div>
+		</div>
+        <div class="form-grid">
+		
+			<div class="form-group">
+                <label>Pos</label>
+                <input id="Pos" type="text">
+            </div>
+
+            <div class="form-group">
+                <label>Banda</label>
+                <input id="banda" type="text">
+            </div>
+
+
+            <div class="form-group">
+                <label>Género</label>
+                <input id="genero" type="text">
+            </div>
+
+            <div class="form-group">
+                <label>Estado</label>
+                <select id="estado">
+                    <option value="---">---</option>
+                    <option value="Ok">Ok</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="form-group form-group-full">
+                <label>Comentarios</label>
+                <textarea id="comentarios"></textarea>
+            </div>
+
+        </div>
+		<!-- Escritorio: botones normales -->
+		<div class="action-desktop">
+			<button class="btn-save" id="btnGuardar">Guardar</button>
+			<a href="nuevosgrupos.html" class="back">Cancelar / Volver</a>
+		</div>
+    </div>
+
+	<!-- Móvil: barra fija -->
+	<div class="action-bar">
+		<button class="btn-save" id="btnGuardarMobile">Guardar</button>
+		<a href="index.html" class="back">Cancelar</a>
+	</div>
+
+	<script>
+	window.MP3H_FORM = {
+		dataset: "nuevosgrupos",
+		campos: ["Pos","Banda","Genero","Estado","Comentarios"]
+	};
+	</script>
+
+	<script src="script_scalable.js"></script>
+
+</body>
+</html>
