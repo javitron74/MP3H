@@ -837,3 +837,23 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarDatos();
     iniciarEventosIndex();
 });
+
+// Panel deslizante de filtros
+const panel = document.getElementById("panelFiltros");
+const btnPanel = document.getElementById("btnPanel");
+
+btnPanel.addEventListener("click", () => {
+    panel.classList.toggle("open");
+    btnPanel.textContent = panel.classList.contains("open")
+        ? "Cerrar ▸"
+        : "Filtros ▸";
+});
+
+// Opcional: cerrar al hacer clic fuera del panel
+document.addEventListener("click", (e) => {
+    if (!panel.contains(e.target) && !btnPanel.contains(e.target)) {
+        panel.classList.remove("open");
+        btnPanel.textContent = "Filtros ▸";
+    }
+});
+
