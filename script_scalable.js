@@ -741,6 +741,8 @@ async function iniciarFormulario() {
         campos.forEach(campo => {
             const input = document.getElementById(campo);
             if (!input) return;
+			
+			if (campo === "Pos") return; //excepción
 
             if (campo === "Estado") input.value = "---";
             else input.value = "";
