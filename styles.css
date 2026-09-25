@@ -162,6 +162,55 @@ main {
     gap: 0.5rem;
 }
 
+/* HEADER GENERAL */
+.top-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+}
+
+/* Línea 1 */
+.header-title h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--text);
+}
+
+/* Línea 2 */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Iconos */
+.header-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--panel-light);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.header-icon:hover {
+    background: var(--accent);
+}
+
+.header-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text);
+    stroke-width: 2;
+    fill: none;
+}
 
 /* =========================================================
    FILTROS
