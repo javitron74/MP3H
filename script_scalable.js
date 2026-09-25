@@ -224,7 +224,7 @@ function ordenarGenerico(filtrados) {
 
     if (!campo) return filtrados;
     if (!CFG.campos.includes(campo)) return filtrados;
-
+/*
     if (campo === "Pos") {
         return filtrados.sort((a, b) => {
             const A = Number(a.Pos);
@@ -262,6 +262,43 @@ function ordenarGenerico(filtrados) {
         if (A > B) return dir === "asc" ? 1 : -1;
         return 0;
     });
+*/
+//----------------------------------------
+//     Opcion escalabe por tipo de datos
+//----------------------------------------
+	return filtrados.sort((a, b) => {
+
+        const A = a[campo];
+        const B = b[campo];
+
+        // 1. ORDENAR FECHAS AUTOMÁTICAMENTE
+        if (esFechaISO(A) && esFechaISO(B)) {
+            const fechaA = parseFechaISO(A);
+            const fechaB = parseFechaISO(B);
+
+            if (!fechaA && !fechaB) return 0;
+            if (!fechaA) return 1;
+            if (!fechaB) return -1;
+
+            return dir === "asc" ? fechaA - fechaB : fechaB - fechaA;
+        }
+
+        // 2. ORDENAR NÚMEROS AUTOMÁTICAMENTE
+        if (!isNaN(A) && !isNaN(B)) {
+            const numA = Number(A);
+            const numB = Number(B);
+            return dir === "asc" ? numA - numB : numB - numA;
+        }
+
+        // 3. ORDENAR TEXTO
+        const strA = (A || "").toString().toLowerCase();
+        const strB = (B || "").toString().toLowerCase();
+
+        if (strA < strB) return dir === "asc" ? -1 : 1;
+        if (strA > strB) return dir === "asc" ? 1 : -1;
+        return 0;
+    });
+
 }
 
 // =====================
