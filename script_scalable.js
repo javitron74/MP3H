@@ -88,6 +88,16 @@ function mostrarMensaje(texto, tipo = "info") {
     setTimeout(() => msg.classList.remove("show"), 3000);
 }
 
+function esFecha(valor) {
+    return /^\d{4}-\d{2}-\d{2}$/.test(valor);
+}
+
+function parseFechaISO(f) {
+    if (!esFecha(f)) return null;
+    const [anio, mes, dia] = f.split("-");
+    return new Date(anio, mes - 1, dia);
+}
+
 // =====================
 // Carga de datos
 // =====================
@@ -210,10 +220,26 @@ function ordenarGenerico(filtrados) {
         });
     }
 
+    // EXCEPCIÓN: Fecha (Emision Disco)
+    if (campo === "Emision Disco") {
+        return filtrados.sort((a, b) => {
+            const A = parseFechaISO(a["Emision Disco"]);
+            const B = parseFechaISO(b["Emision Disco"]);
+
+            // Fechas nulas al final
+            if (!A && !B) return 0;
+            if (!A) return 1;
+            if (!B) return -1;
+
+            return dir === "asc" ? A - B : B - A;
+        });
+    }
+	
     return filtrados.sort((a, b) => {
         let A = (a[campo] || "").toString().toLowerCase();
         let B = (b[campo] || "").toString().toLowerCase();
-
+		
+		// Si ambos son números → ordenar como números
         if (!isNaN(a[campo]) && !isNaN(b[campo])) {
             A = Number(a[campo]);
             B = Number(b[campo]);
