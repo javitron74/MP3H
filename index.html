@@ -15,38 +15,42 @@
 		⟳
 	</button>
     <h1>MP3H – Lista de discos</h1>
+	<button id="btnPanel" class="panel-toggle">Filtros ▸</button>
 
-    <div class="filters">
-        <input id="search" type="text" placeholder="Buscar banda, disco, comentarios…">
+	<div id="panelFiltros" class="panel-filtros">
+		<h3>Filtros y ordenación</h3>
+		<div class="filters">
+			<input id="search" type="text" placeholder="Buscar banda, disco, comentarios…">
 
-        <select id="filterGenero">
-            <option value="">Todos los géneros</option>
-        </select>
+			<select id="filterGenero">
+				<option value="">Todos los géneros</option>
+			</select>
 
-        <select id="sortField">
-            <option value="">Ordenar por…</option>
-            <option value="Pos">Item</option>
-            <option value="Banda">Banda</option>
-            <option value="Disco">Disco</option>
-            <option value="Genero">Género</option>
-            <option value="Estado">Estado</option>
-            <option value="Puntuacion">Puntuación</option>
-            <option value="Emision">Fecha de emisión</option>
-        </select>
+			<select id="sortField">
+				<option value="">Ordenar por…</option>
+				<option value="Pos">Item</option>
+				<option value="Banda">Banda</option>
+				<option value="Disco">Disco</option>
+				<option value="Genero">Género</option>
+				<option value="Estado">Estado</option>
+				<option value="Puntuacion">Puntuación</option>
+				<option value="Emision">Fecha de emisión</option>
+			</select>
 
-        <select id="sortDir">
-            <option value="asc">Ascendente</option>
-            <option value="desc" selected>Descendente</option>
-        </select>
-		
-		<div id="filterEstado" class="multi-select">
-			<span data-value="---" class="pill">---</span>
-			<span data-value="Pre-ok" class="pill">Pre-ok</span>
-			<span data-value="Ok" class="pill">Ok</span>
-			<span data-value="No" class="pill">No</span>
-			<span data-value="Disp" class="pill">Disp</span>
+			<select id="sortDir">
+				<option value="asc">Ascendente</option>
+				<option value="desc" selected>Descendente</option>
+			</select>
+			
+			<div id="filterEstado" class="multi-select">
+				<span data-value="---" class="pill">---</span>
+				<span data-value="Pre-ok" class="pill">Pre-ok</span>
+				<span data-value="Ok" class="pill">Ok</span>
+				<span data-value="No" class="pill">No</span>
+				<span data-value="Disp" class="pill">Disp</span>
+			</div>
 		</div>
-    </div>
+	</div>
 	<a href="nuevosgrupos.html" class="back">Listado de grupos</a>
 </header>
 
