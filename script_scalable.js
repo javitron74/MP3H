@@ -98,6 +98,18 @@ function parseFechaISO(f) {
     return new Date(anio, mes - 1, dia);
 }
 
+const MAPA_CAMPOS = {
+    Emision: "Emision Disco",
+    Estado: "Estado",
+    Genero: "Genero",
+    Puntuacion: "Puntuacion",
+    Fuente: "Fuente Puntuacion",
+    Comentarios: "Comentarios",
+    Pos: "Pos",
+    Banda: "Banda",
+    Disco: "Disco"
+};
+
 // =====================
 // Carga de datos
 // =====================
@@ -206,7 +218,8 @@ function filtrarGenerico() {
 }
 
 function ordenarGenerico(filtrados) {
-    const campo = document.getElementById("sortField")?.value || "";
+    const campoUI = document.getElementById("sortField")?.value || "";
+	const campo = MAPA_CAMPOS[campoUI] || campoUI;
     const dir = document.getElementById("sortDir")?.value || "asc";
 
     if (!campo) return filtrados;
