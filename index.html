@@ -10,12 +10,37 @@
 
 <body>
 
-<header>
-	<button id="btnReset" class="reset-btn" title="Reimportar JSON">
-		⟳
-	</button>
-    <h1>MP3H – Lista de discos</h1>
-	<button id="btnPanel" class="panel-toggle">Filtros ▸</button>
+<header class="top-header">
+    <!-- Línea 1: título -->
+    <div class="header-title">
+        <h1>MP3H – Lista de discos</h1>
+    </div>
+
+    <!-- Línea 2: iconos -->
+    <div class="header-actions">
+
+        <!-- Reset JSON -->
+        <span id="btnReset" class="header-icon" title="Reimportar JSON">
+            <svg viewBox="0 0 24 24">
+                <path d="M4 4v6h6M20 20v-6h-6M6.34 6.34A8 8 0 0117.66 6.34M6.34 17.66A8 8 0 0117.66 17.66" />
+            </svg>
+        </span>
+
+        <!-- Panel de filtros -->
+        <span id="btnPanel" class="header-icon" title="Filtros">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 5h18M6 12h12M10 19h4" />
+            </svg>
+        </span>
+
+        <!-- Ir a nuevos grupos -->
+        <a href="nuevosgrupos.html" class="header-icon" title="Listado de grupos">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 6a6 6 0 110 12 6 6 0 010-12zm7 0l3 3-3 3" />
+            </svg>
+        </a>
+
+    </div>
 
 	<div id="panelFiltros" class="panel-filtros">
 		<h3>Filtros y ordenación</h3>
