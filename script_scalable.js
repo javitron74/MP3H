@@ -272,7 +272,7 @@ function ordenarGenerico(filtrados) {
         const B = b[campo];
 
         // 1. ORDENAR FECHAS AUTOMÁTICAMENTE
-        if (esFechaISO(A) && esFechaISO(B)) {
+        if (esFecha(A) && esFecha(B)) {
             const fechaA = parseFechaISO(A);
             const fechaB = parseFechaISO(B);
 
