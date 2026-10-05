@@ -211,6 +211,9 @@ main {
     stroke-width: 2;
     fill: none;
 }
+.header-icon.active {
+    background: var(--accent);
+}
 
 /* =========================================================
    FILTROS
