@@ -840,18 +840,17 @@ document.addEventListener("DOMContentLoaded", () => {
 const panel = document.getElementById("panelFiltros");
 const btnPanel = document.getElementById("btnPanel");
 
-btnPanel.addEventListener("click", () => {
+btnPanel.addEventListener("click", (e) => {
+    e.stopPropagation(); // evita que el click cierre el panel inmediatamente
     panel.classList.toggle("open");
-    btnPanel.textContent = panel.classList.contains("open")
-        ? "Cerrar ▸"
-        : "Filtros ▸";
+    btnPanel.classList.toggle("active");
 });
 
-// Opcional: cerrar al hacer clic fuera del panel
+// Cerrar al hacer clic fuera
 document.addEventListener("click", (e) => {
     if (!panel.contains(e.target) && !btnPanel.contains(e.target)) {
         panel.classList.remove("open");
-        btnPanel.textContent = "Filtros ▸";
+        btnPanel.classList.remove("active");
     }
 });
 
