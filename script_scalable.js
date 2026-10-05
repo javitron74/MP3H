@@ -431,7 +431,6 @@ function generarTablaDiscos(filtrados) {
 						<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
 					</svg>
 				</th>
-                <th></th>
                 <th>Comentarios</th>
 				<th></th>
             </tr>
@@ -475,11 +474,10 @@ function generarTablaDiscos(filtrados) {
 				</span>
 			</td>
             <td>
-				<span class="score ${clasePuntuacion(puntuacion)}"> 
+				<div class="score ${clasePuntuacion(puntuacion)}"> 
 					${puntuacion !== null ? puntuacion : "-"}
-				</span>
-			</td>
-            <td><span class="score-source">${fuente}</span></td>
+				</div>
+				<div class="score-source">${fuente}</div></td>
             <td><span class="card-body-comment">${item.Comentarios || ""}</span></td>
             <td>
 				<div class="acciones">
