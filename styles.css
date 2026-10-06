@@ -215,6 +215,16 @@ main {
     background: var(--accent);
 }
 
+.header-search {
+    flex: 1;
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--radius);
+    border: 1px solid #3a3b3f;
+    background: var(--panel-light);
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
 /* =========================================================
    FILTROS
    ========================================================= */
