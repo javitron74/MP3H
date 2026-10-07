@@ -162,6 +162,10 @@ main {
     gap: 0.5rem;
 }
 
+#panelFiltros .multi-select {
+	flex-direction:column;
+}
+
 /* HEADER GENERAL */
 .top-header {
     display: flex;
