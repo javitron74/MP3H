@@ -156,16 +156,27 @@ main {
 }
 
 /* filterEstado se mantiene horizontal */
-#filterEstado.multi-select {
+#panelFiltros #filterEstado.multi-select {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
 
-#panelFiltros .multi-select {
-	flex-direction:column;
+#panelFiltros .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
+#panelFiltros .ordenacion-row {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+#panelFiltros .ordenacion-row select {
+    flex: 1;
+}
 /* HEADER GENERAL */
 .top-header {
     display: flex;
