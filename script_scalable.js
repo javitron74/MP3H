@@ -839,6 +839,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Panel deslizante de filtros
 const panel = document.getElementById("panelFiltros");
 const btnPanel = document.getElementById("btnPanel");
+const closePanel = document.getElementById("closePanel");
 
 btnPanel.addEventListener("click", (e) => {
     e.stopPropagation(); // evita que el click cierre el panel inmediatamente
@@ -853,4 +854,10 @@ document.addEventListener("click", (e) => {
         btnPanel.classList.remove("active");
     }
 });
+
+closePanel.addEventListener("click", () => {
+    panel.classList.remove("open");
+    btnPanel.classList.remove("active");
+});
+
 
