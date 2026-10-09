@@ -183,14 +183,24 @@ main {
     position: absolute;
     top: 12px;
     right: 12px;
-    background: none;        /* SIN FONDO */
-    border: none;            /* SIN BORDE */
-    padding: 0;              /* SIN PADDING */
+/* ELIMINAR ESTILO DEL NAVEGADOR */
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+
+    /* ESTILO DEL ICONO */
     cursor: pointer;
     z-index: 1001;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    /* Evitar highlight azul en móvil */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .panel-close-icon svg {
