@@ -201,6 +201,8 @@ main {
 
     /* Evitar highlight azul en móvil */
     -webkit-tap-highlight-color: transparent;
+	pointer-events: auto; /* asegura que hover solo afecta al SVG */
+	
 }
 
 .panel-close-icon svg {
@@ -215,6 +217,7 @@ main {
 .panel-close-icon:hover svg {
     stroke: var(--accent);
     transform: scale(1.1);
+	background: none !important; /* elimina el hover azul del button */
 }
 
 
