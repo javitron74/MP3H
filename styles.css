@@ -760,6 +760,7 @@ button {
 
 button:hover {
     background: var(--accent2);
+	color: var(--panel);
 }
 
 /* Botón contenedor */
@@ -880,6 +881,7 @@ button:hover {
 
 .btn-add:hover {
     background: var(--accent2);
+	color: var(--panel);
 }
 .vista-icon {
     display: flex;
