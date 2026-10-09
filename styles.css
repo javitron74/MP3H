@@ -183,35 +183,30 @@ main {
     position: absolute;
     top: 12px;
     right: 12px;
-    background: var(--panel-light);
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius);
+    background: none;        /* SIN FONDO */
+    border: none;            /* SIN BORDE */
+    padding: 0;              /* SIN PADDING */
+    cursor: pointer;
+    z-index: 1001;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: 0.2s;
-    z-index: 1001;
-}
-
-.panel-close-icon:hover {
-    background: var(--accent);
 }
 
 .panel-close-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
     stroke: var(--text);
-    stroke-width: 2;
+    stroke-width: 2.5;
     fill: none;
     transition: 0.2s;
 }
 
 .panel-close-icon:hover svg {
-    stroke: white;
+    stroke: var(--accent);
+    transform: scale(1.1);
 }
+
 
 
 /* HEADER GENERAL */
