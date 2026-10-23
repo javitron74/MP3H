@@ -6,6 +6,18 @@
 let datos = [];
 //let modoVista = "cards"; // cards | table
 
+//Control de entrada
+const admins = [
+    "josejaviertroncoso@gmail.com"
+];
+const userEmail = localStorage.getItem("email");
+
+if (!userEmail) {
+    window.location.href = "login.html";
+}
+const esAdmin = admins.includes(userEmail);
+
+//Datos
 const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
 const CFG = window.MP3H_CONFIG || {
     tipo: "discos",
