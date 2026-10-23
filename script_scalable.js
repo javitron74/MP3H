@@ -36,6 +36,10 @@ let modoVista = CFG.defaultModoVista // cards | table
 // =====================
 // Utilidades
 // =====================
+function logout() {
+    localStorage.removeItem("email");
+    window.location.href = "login.html";
+}
 
 function normalizar(t) {
     return (t || "").toString().toLowerCase();
@@ -677,6 +681,12 @@ async function iniciarFormulario() {
 
     const dataset = MP3H_FORM.dataset;
     const campos = MP3H_FORM.campos;
+	
+	if (!esAdmin) {
+    document.querySelectorAll("input, textarea, select")
+        .forEach(el => el.disabled = true);
+	}
+
 
     // 1. Cargar datos del dataset
     const res = await fetch(WORKER + "/get?dataset=" + dataset, {
