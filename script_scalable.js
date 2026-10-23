@@ -8,7 +8,6 @@ let datos = [];
 
 //Control de entrada
 const adminsEncoded = [
-    "josejaviertroncoso@gmail.com",
 	"am9zZWphdmllcnRyb25jb3NvQGdtYWlsLmNvbQ=="
 ];
 const admins = adminsEncoded.map(e => atob(e));
