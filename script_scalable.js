@@ -341,7 +341,7 @@ function generarTarjetasDiscos(filtrados) {
         card.innerHTML = `
             <div class="card-header">
                 <div>
-					<div class="card-subtitle">${item.Pos}  </div>
+					<div class="card-subtitle score-none">${item.Pos}  </div>
                     <div class="card-title">${item.Banda}</div>
                     <div class="card-subtitle">${item.Disco || ""}</div>
                 </div>
@@ -401,7 +401,7 @@ function generarTarjetasNuevos(filtrados) {
 
         card.innerHTML = `
             <div class="card-header">
-				<div class="card-subtitle">${item.Pos}  </div>
+				<div class="card-subtitle score-none">${item.Pos}  </div>
                 <div class="card-title">${item.Banda}</div>
                 <span class="pill pill-genero">${genero}</span>
             </div>
