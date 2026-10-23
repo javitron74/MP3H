@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>MP3H – Login</title>
+</head>
+<body>
+
+<h2>Iniciar sesión</h2>
+
+<input id="email" type="email" placeholder="Tu email">
+<button onclick="login()">Entrar</button>
+
+<script>
+function login() {
+    const email = document.getElementById("email").value.trim();
+
+    if (!email) {
+        alert("Introduce un email");
+        return;
+    }
+
+    localStorage.setItem("email", email);
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
