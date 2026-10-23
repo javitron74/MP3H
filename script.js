@@ -161,7 +161,8 @@ function generarTarjetas(filtrados) {
         card.innerHTML = `
             <div class="card-header">
                 <div>
-                    <div class="card-title">#${item.Pos} · ${item.Banda}</div>
+					<div class="card-subtitle">${item.Pos}</div>
+                    <div class="card-title">${item.Banda}</div>
                     <div class="card-subtitle">${item.Disco}</div>
                 </div>
 				<!-- ICONO EDITAR -->
