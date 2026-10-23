@@ -687,6 +687,14 @@ async function iniciarFormulario() {
         .forEach(el => el.disabled = true);
 	}
 
+	if (!esAdmin) {
+		const btnActualizar = document.getElementById("btnActualizar");
+		const btnEliminar = document.getElementById("btnEliminar");
+
+		if (btnActualizar) btnActualizar.style.display = "none";
+		if (btnEliminar) btnEliminar.style.display = "none";
+	}
+
 
     // 1. Cargar datos del dataset
     const res = await fetch(WORKER + "/get?dataset=" + dataset, {
@@ -850,8 +858,20 @@ async function iniciarFormulario() {
     const btnGuardar = document.getElementById("btnGuardar");
     const btnGuardarMobile = document.getElementById("btnGuardarMobile");
 
-    if (btnGuardar) btnGuardar.onclick = guardar;
-    if (btnGuardarMobile) btnGuardarMobile.onclick = guardar;
+    if (btnGuardar) btnGuardar.onclick = () => {
+		if (!esAdmin) return alert("No tienes permisos para guardar.");
+		guardar();
+	};
+    if (btnGuardarMobile) btnGuardarMobile.onclick = () => {
+		if (!esAdmin) return alert("No tienes permisos para guardar.");
+		guardar();
+	};
+	
+	if (!esAdmin) {
+
+		if (btnGuardar) btnGuardar.style.display = "none";
+		if (btnGuardarMobile) btnGuardarMobile.style.display = "none";
+	}
 }
 
 
