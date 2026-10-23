@@ -369,7 +369,8 @@ function generarTarjetasDiscos(filtrados) {
 							<svg viewBox="0 0 24 24" class="delete-icon">
 								<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
 							</svg>
-						</div>`
+						</div>
+						`
 				}	
                 <div>
                     <span class="pill pill-genero">${genero}</span>
