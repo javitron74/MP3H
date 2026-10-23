@@ -12,11 +12,16 @@ const adminsEncoded = [
 ];
 const admins = adminsEncoded.map(e => atob(e));
 const userEmail = localStorage.getItem("email");
+const esAdmin = admins.includes(userEmail);
 
-if (!userEmail) {
+const loginTime = parseInt(localStorage.getItem("loginTime"), 10);
+const THIRTY_DAYS = 1000 * 60 * 60 * 24 * 30;
+
+if (!userEmail || !loginTime || (Date.now() - loginTime) > THIRTY_DAYS) {
+    localStorage.removeItem("email");
+    localStorage.removeItem("loginTime");
     window.location.href = "login.html";
 }
-const esAdmin = admins.includes(userEmail);
 
 //Datos
 const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
