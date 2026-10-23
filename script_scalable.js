@@ -361,25 +361,23 @@ function generarTarjetasDiscos(filtrados) {
                     <div class="card-title">${item.Banda}</div>
                     <div class="card-subtitle">${item.Disco || ""}</div>
                 </div>
+					${
+						esAdmin
+							? `
+							<div class="edit-btn" onclick="location.href='${CFG.formulario}?pos=${item.Pos}&origen=${location.pathname}'">
+								<svg viewBox="0 0 24 24" class="edit-icon">
+									<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+								</svg>
+							</div>
 
-
-					        ${
-								esAdmin
-									? `
-									<div class="edit-btn" onclick="location.href='${CFG.formulario}?pos=${item.Pos}&origen=${location.pathname}'">
-										<svg viewBox="0 0 24 24" class="edit-icon">
-											<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
-										</svg>
-									</div>
-
-									<div class="delete-btn" onclick="eliminar('${item.Pos}')">
-										<svg viewBox="0 0 24 24" class="delete-icon">
-											<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
-										</svg>
-									</div>
-									`
-									: ""
-							}
+							<div class="delete-btn" onclick="eliminar('${item.Pos}')">
+								<svg viewBox="0 0 24 24" class="delete-icon">
+									<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
+								</svg>
+							</div>
+							`
+							: ""
+					}
                 <div>
                     <span class="pill pill-genero">${genero}</span>
                 </div>
@@ -428,6 +426,23 @@ function generarTarjetasNuevos(filtrados) {
             <div class="card-header">
 				<div class="card-subtitle score-none">${item.Pos}  </div>
                 <div class="card-title">${item.Banda}</div>
+				${
+					esAdmin
+						? `
+						<div class="edit-btn" onclick="location.href='${CFG.formulario}?pos=${item.Pos}&origen=${location.pathname}'">
+							<svg viewBox="0 0 24 24" class="edit-icon">
+								<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+							</svg>
+						</div>
+
+						<div class="delete-btn" onclick="eliminar('${item.Pos}')">
+							<svg viewBox="0 0 24 24" class="delete-icon">
+								<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
+							</svg>
+						</div>
+						`
+						: ""
+				}
                 <span class="pill pill-genero">${genero}</span>
             </div>
             <div class="card-body">
