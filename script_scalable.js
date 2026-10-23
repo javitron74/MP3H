@@ -341,7 +341,8 @@ function generarTarjetasDiscos(filtrados) {
         card.innerHTML = `
             <div class="card-header">
                 <div>
-                    <div class="card-title">#${item.Pos} · ${item.Banda}</div>
+					<div class="card-subtitle">${item.Pos}  </div>
+                    <div class="card-title">${item.Banda}</div>
                     <div class="card-subtitle">${item.Disco || ""}</div>
                 </div>
                 <div class="edit-btn" onclick="location.href='${CFG.formulario}?pos=${item.Pos}&origen=${location.pathname}'">
@@ -400,7 +401,8 @@ function generarTarjetasNuevos(filtrados) {
 
         card.innerHTML = `
             <div class="card-header">
-                <div class="card-title">#${item.Pos} · ${item.Banda}</div>
+				<div class="card-subtitle">${item.Pos}  </div>
+                <div class="card-title">${item.Banda}</div>
                 <span class="pill pill-genero">${genero}</span>
             </div>
             <div class="card-body">
