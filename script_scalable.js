@@ -7,9 +7,11 @@ let datos = [];
 //let modoVista = "cards"; // cards | table
 
 //Control de entrada
-const admins = [
-    "josejaviertroncoso@gmail.com"
+const adminsEncoded = [
+    "josejaviertroncoso@gmail.com",
+	"am9zZWphdmllcnRyb25jb3NvQGdtYWlsLmNvbQ=="
 ];
+const admins = adminsEncoded.map(e => atob(e));
 const userEmail = localStorage.getItem("email");
 
 if (!userEmail) {
