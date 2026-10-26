@@ -8,7 +8,7 @@ let datos = [];
 
 //Control de entrada
 const adminsEncoded = [
-	"am9zZWphdmllcnRyb25jb3NvQGdtYWlsLmNvbQ=="
+	"am9zZWphdmllcnRyb25jb3NvQGdtYWlsLmNvbQ==" //Base64
 ];
 const admins = adminsEncoded.map(e => atob(e));
 const userEmail = localStorage.getItem("email");
@@ -21,6 +21,16 @@ if (!userEmail || !loginTime || (Date.now() - loginTime) > THIRTY_DAYS) {
     localStorage.removeItem("email");
     localStorage.removeItem("loginTime");
     window.location.href = "login.html";
+}
+
+const btnReset = document.getElementById("btnReset");
+
+if (btnReset) {
+    if (esAdmin) {
+        btnReset.style.display = "flex";   // mostrar
+    } else {
+        btnReset.style.display = "none";   // ocultar
+    }
 }
 
 //Datos
