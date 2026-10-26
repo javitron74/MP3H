@@ -148,13 +148,13 @@ function actualizarIconoVista() {
 
     if (modoVista === "cards") {
         toggleVista.innerHTML = `
-            <svg viewBox="0 0 24 24" class="vista-tabla-icon">
+            <svg viewBox="0 0 24 24" class="vista-svg">
                 <path d="M0 1v15h16v-15h-16zM5 15h-4v-2h4v2zM5 12h-4v-2h4v2zM5 9h-4v-2h4v2zM5 6h-4v-2h4v2zM10 15h-4v-2h4v2zM10 12h-4v-2h4v2zM10 9h-4v-2h4v2zM10 6h-4v-2h4v2zM15 15h-4v-2h4v2zM15 12h-4v-2h4v2zM15 9h-4v-2h4v2zM15 6h-4v-2h4v2z"
                       stroke="var(--text)" fill="none" stroke-width="2"/>
             </svg>`;
     } else {
         toggleVista.innerHTML = `
-            <svg viewBox="0 0 24 24" class="vista-tabla-icon">
+            <svg viewBox="0 0 24 24" class="vista-svg">
 				<path 
 					d="M3 8V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2M3 8v6m0-6h6m12 0v6m0-6H9m12 6v4a2 2 0 0 1-2 2H9m12-6H9m-6 0v4a2 2 0 0 0 2 2h4m-6-6h6m0-6v6m0 0v6m6-12v12"
 					stroke="var(--text)"
