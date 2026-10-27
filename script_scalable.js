@@ -735,7 +735,7 @@ async function eliminar(pos) {
 
     const nuevos = datos.filter(d => d.Pos != pos);
 
-    await fetch(WORKER + CFG.update, {
+    await fetch(WORKER + "/" + CFG.update, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(nuevos)
