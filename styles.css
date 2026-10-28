@@ -292,6 +292,32 @@ main {
     font-size: 0.9rem;
 }
 
+.modal-ia {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1b1e;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    display: none;
+    z-index: 9999;
+}
+.btn-ia {
+    margin-top: 10px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
 /* =========================================================
    FILTROS
    ========================================================= */
