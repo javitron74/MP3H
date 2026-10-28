@@ -451,6 +451,20 @@ function generarTarjetasDiscos(filtrados) {
                 </span>
             </div>
         `;
+				// Botón IA
+		const btnIA = document.createElement("button");
+		btnIA.className = "btn-ia";
+		btnIA.textContent = "IA Info";
+
+		// Disparador: envía banda y disco
+		btnIA.onclick = () => {
+			cargarIA({
+				Banda: item.Banda,
+				Disco: item.Disco || null
+			});
+		};
+
+		card.appendChild(btnIA);
         grid.appendChild(card);
     });
 }
