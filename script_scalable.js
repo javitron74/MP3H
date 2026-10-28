@@ -987,4 +987,48 @@ closePanel.addEventListener("click", () => {
     btnPanel.classList.remove("active");
 });
 
+import { obtenerInfoDiscoGemini } from "./gemini.js";
+
+async function cargarIA(item) {
+    const banda = item.Banda;
+    const disco = item.Disco;
+
+    const modal = document.getElementById("modalIA");
+    modal.style.display = "block";
+    modal.innerHTML = "<p>Cargando información IA...</p>";
+
+    const info = await obtenerInfoDiscoGemini(banda, disco);
+
+    if (!info) {
+        modal.innerHTML = "<p>Error obteniendo datos IA</p>";
+        return;
+    }
+
+    modal.innerHTML = `
+        <h2>${info.banda} – ${info.disco}</h2>
+
+        <h3>Listado de canciones</h3>
+        <ul>
+            ${info.canciones.map(c => `<li>${c.num}. ${c.titulo}</li>`).join("")}
+        </ul>
+
+        <h3>Gira por España</h3>
+        <p><strong>¿Hay gira?</strong> ${info.gira_espana.hay_gira ? "Sí" : "No"}</p>
+
+        ${info.gira_espana.hay_gira ? `
+            <ul>
+                ${info.gira_espana.fechas.map(f => `
+                    <li>${f.fecha} – ${f.ciudad} (${f.recinto})</li>
+                `).join("")}
+            </ul>
+        ` : ""}
+
+        <p><em>${info.gira_espana.nota}</em></p>
+
+        <button onclick="document.getElementById('modalIA').style.display='none'">
+            Cerrar
+        </button>
+    `;
+}
+
 
