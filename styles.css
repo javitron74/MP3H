@@ -308,14 +308,37 @@ main {
     z-index: 9999;
 }
 .btn-ia {
-    margin-top: 10px;
-    background: #3b82f6;
-    color: white;
+	position:absolute;
+	bottom:10px;
+	right:10px;
+	width:24px;
+	height:24px;
     border: none;
-    padding: 8px 12px;
-    border-radius: 8px;
+    border-radius: 50%;
     cursor: pointer;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	font-size:14px;
+	opacity:0.65;
+	transition:0.2s;
+	background: #fde047;
+	box-sizing:border-box
+    line-height: 1; /* evita que el emoji deforme el círculo */
+    padding: 0;     /* evita que se agrande */
+    margin: 0;
+	color:#0f0f10;
 }
+.btn-ia:hover {
+    opacity: 1;
+	background: #fde047;
+	color:#0f0f10;
+}
+/* Emoji ℹ️ dentro del círculo */
+.btn-ia::before {
+    content: "\2139"; /* ℹ️ */
+}
+
 
 
 /* =========================================================
