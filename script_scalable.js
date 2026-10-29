@@ -454,7 +454,7 @@ function generarTarjetasDiscos(filtrados) {
 				// Botón IA
 		const btnIA = document.createElement("button");
 		btnIA.className = "btn-ia";
-		btnIA.textContent = "IA Info";
+		btnIA.textContent = "";
 
 		// Disparador: envía banda y disco
 		btnIA.onclick = () => {
