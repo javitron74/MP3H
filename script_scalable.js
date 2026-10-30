@@ -458,7 +458,7 @@ function generarTarjetasDiscos(filtrados) {
 
 		// Disparador: envía banda y disco
 		btnIA.onclick = () => {
-			cargarIA({
+			cargarIA_mp3h({
 				Banda: item.Banda,
 				Disco: item.Disco || null
 			});
@@ -1001,25 +1001,101 @@ closePanel.addEventListener("click", () => {
     btnPanel.classList.remove("active");
 });
 
-import { obtenerInfoDiscoGemini } from "./gemini.js";
+// =====================
+// Peticiones IA
+// =====================
 
-async function cargarIA(item) {
+async function enviarIA(prompt) {
+    try {
+        const response = await fetch("https://mp3h-backend.josejaviertroncoso.workers.dev/ia", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ prompt })
+        });
+
+        if (!response.ok) {
+            throw new Error("Error en la petición IA: " + response.status);
+        }
+
+        const data = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("Error IA:", error);
+        return { error: true, message: error.message };
+    }
+}
+async function cargarIA_mp3h(item) {
+
     const banda = item.Banda;
     const disco = item.Disco;
+
+    const prompt = `
+Eres un asistente que devuelve SIEMPRE JSON válido.
+Eres un experto musical.
+
+Quiero información sobre:
+- Banda: "${banda}"
+- Disco: "${disco}"
+
+Devuélveme:
+1) Listado de canciones del disco (si existe).
+2) Si la banda está de gira por España este año.
+3) Fechas y ciudades si las hay.
+4) Nivel de certeza de la información.
+
+Formato de salida SIEMPRE en JSON:
+
+{
+  "banda": "",
+  "disco": "",
+  "canciones": [
+      { "num": 1, "titulo": "" }
+  ],
+  "estilo": "",
+  "gira_espana": {
+      "hay_gira": true,
+      "fechas": [
+          { "fecha": "", "ciudad": "", "recinto": "" }
+      ],
+      "nota": ""
+  },
+  "certeza": ""
+}
+
+NO añadas texto fuera del JSON.
+`;
+
+    const data = await enviarIA(prompt);
+
+    const textoIA = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
     const modal = document.getElementById("modalIA");
     modal.style.display = "block";
     modal.innerHTML = "<p>Cargando información IA...</p>";
 
-    const info = await obtenerInfoDiscoGemini(banda, disco);
-
-    if (!info) {
+    if (!textoIA) {
         modal.innerHTML = "<p>Error obteniendo datos IA</p>";
+        return;
+    }
+
+    let info;
+
+    try {
+        info = JSON.parse(textoIA);
+    } catch (e) {
+        modal.innerHTML = "<p>Error: la IA no devolvió JSON válido.</p>";
+        console.error("JSON IA inválido:", textoIA);
         return;
     }
 
     modal.innerHTML = `
         <h2>${info.banda} – ${info.disco}</h2>
+
+        <h3>Estilo</h3>
+        <p>${info.estilo}</p>
 
         <h3>Listado de canciones</h3>
         <ul>
@@ -1039,10 +1115,11 @@ async function cargarIA(item) {
 
         <p><em>${info.gira_espana.nota}</em></p>
 
+        <h3>Nivel de certeza</h3>
+        <p>${info.certeza}</p>
+
         <button onclick="document.getElementById('modalIA').style.display='none'">
             Cerrar
         </button>
     `;
 }
-
-
