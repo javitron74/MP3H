@@ -1032,7 +1032,7 @@ async function cargarIA_mp3h(item) {
     const banda = item.Banda;
     const disco = item.Disco;
 
-    const prompt = `
+/*    const prompt = `
 Actúa exactamente como el asistente oficial de Gemini Web.
 
 Tu estilo debe ser:
@@ -1097,6 +1097,45 @@ Formato de salida SIEMPRE en JSON:
 
 NO añadas texto fuera del JSON.
 `;
+*/
+	const prompt = `
+Actúa exactamente como el asistente oficial de Gemini Web.
+
+Eres un asistente que devuelve SIEMPRE JSON válido.
+Eres un experto musical.
+
+Quiero información sobre:
+- Banda: "${banda}"
+- Disco: "${disco}"
+
+Devuélveme:
+1) Listado de canciones del disco (si existe).
+2) Si la banda está de gira por España este año.
+3) Fechas y ciudades si las hay.
+4) Nivel de certeza de la información.
+
+Formato de salida SIEMPRE en JSON:
+
+{
+  "banda": "",
+  "disco": "",
+  "canciones": [
+      { "num": 1, "titulo": "" }
+  ],
+  "estilo": "",
+  "gira_espana": {
+      "hay_gira": true,
+      "fechas": [
+          { "fecha": "", "ciudad": "", "recinto": "" }
+      ],
+      "nota": ""
+  },
+  "certeza": ""
+}
+
+NO añadas texto fuera del JSON.
+`;
+	
 
     const data = await enviarIA(prompt);
 
@@ -1107,7 +1146,9 @@ NO añadas texto fuera del JSON.
     modal.innerHTML = "<p>Cargando información IA...</p>";
 
     if (!textoIA) {
-        modal.innerHTML = "<p>Error obteniendo datos IA</p>";
+        modal.innerHTML = `<p>Error obteniendo datos IA</p><button onclick="document.getElementById('modalIA').style.display='none'">
+            Cerrar
+        </button>`;
         return;
     }
 
