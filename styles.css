@@ -227,6 +227,48 @@ main {
 .btn-icon:hover {
     background: none !important; /* 🔥 elimina el hover azul del button */
 }
+/*PANEL DESLIZANTE DE NOTIFICACION*/
+.panel-notify {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 340px;
+    height: 100vh;
+    background: var(--panel);
+    box-shadow: -4px 0 12px rgba(0,0,0,0.4);
+    padding: 1rem;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 2000;
+}
+
+.panel-notify.open {
+    transform: translateX(0);
+}
+
+.panel-notify-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--panel-light);
+    border: none;
+    color: var(--text);
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.panel-notify-close:hover {
+    background: var(--accent);
+    color: white;
+}
 
 
 /* HEADER GENERAL */
