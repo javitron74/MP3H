@@ -1165,8 +1165,13 @@ Formato de salida SIEMPRE en JSON:
 NO añadas texto fuera del JSON.
 `;
 	
-
-    const data = await enviarIA(prompt);
+	try{
+		const data = await enviarIA(prompt);
+	} catch (error) {
+		abrirPanelNotify("<p>Error al conectar con IA.</p>");
+        console.error("Error en cargarIA_mp3h:", error);
+        return;
+	}
 
     const textoIA = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
