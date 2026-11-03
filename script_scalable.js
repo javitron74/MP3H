@@ -1014,6 +1014,10 @@ closePanel.addEventListener("click", () => {
     btnPanel.classList.remove("active");
 });
 
+document.getElementById("panelNotifyClose").addEventListener("click", () => {
+    cerrarPanelNotify();
+});
+
 /*PANEL DE NOTIFICACION PULSAR FUERA*/
 document.addEventListener("click", (e) => {
     const panel = document.getElementById("panelNotify");
