@@ -1019,12 +1019,12 @@ document.getElementById("panelNotifyClose").addEventListener("click", () => {
 });
 
 /*PANEL DE NOTIFICACION PULSAR FUERA*/
-document.addEventListener("click", (e) => {
+/*document.addEventListener("click", (e) => {
     const panel = document.getElementById("panelNotify");
     if (!panel.contains(e.target) && panel.classList.contains("open")) {
         cerrarPanelNotify();
     }
-});
+});*/
 
 
 // =====================
