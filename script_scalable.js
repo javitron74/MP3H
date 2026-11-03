@@ -171,6 +171,19 @@ function actualizarIconoVista() {
     }
 }
 
+function abrirPanelNotify(html) {
+    const panel = document.getElementById("panelNotify");
+    const content = document.getElementById("panelNotifyContent");
+
+    content.innerHTML = html;
+    panel.classList.add("open");
+}
+
+function cerrarPanelNotify() {
+    document.getElementById("panelNotify").classList.remove("open");
+}
+
+
 
 // =====================
 // Carga de datos
@@ -1000,6 +1013,14 @@ closePanel.addEventListener("click", () => {
     panel.classList.remove("open");
     btnPanel.classList.remove("active");
 });
+/*PANEL DE NOTIFICACION PULSAR FUERA*/
+document.addEventListener("click", (e) => {
+    const panel = document.getElementById("panelNotify");
+    if (!panel.contains(e.target) && panel.classList.contains("open")) {
+        cerrarPanelNotify();
+    }
+});
+
 
 // =====================
 // Peticiones IA
@@ -1027,8 +1048,11 @@ async function enviarIA(prompt) {
         return { error: true, message: error.message };
     }
 }
-async function cargarIA_mp3h(item) {
 
+async function cargarIA_mp3h(item) {
+	
+	abrirPanelNotify("<p>Cargando información IA...</p>"
+	
     const banda = item.Banda;
     const disco = item.Disco;
 
@@ -1141,12 +1165,13 @@ NO añadas texto fuera del JSON.
 
     const textoIA = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
-    const modal = document.getElementById("modalIA");
+    /*const modal = document.getElementById("modalIA");
     modal.style.display = "block";
     modal.innerHTML = "<p>Cargando información IA...</p>";
+	*/
 
     if (!textoIA) {
-        modal.innerHTML = `<p>Error obteniendo datos IA</p><button onclick="document.getElementById('modalIA').style.display='none'">
+        abrirPanelNotify.innerHTML = `<p>Error obteniendo datos IA</p><button onclick="document.getElementById('modalIA').style.display='none'">
             Cerrar
         </button>`;
         return;
@@ -1157,12 +1182,12 @@ NO añadas texto fuera del JSON.
     try {
         info = JSON.parse(textoIA);
     } catch (e) {
-        modal.innerHTML = "<p>Error: la IA no devolvió JSON válido.</p>";
+        abrirPanelNotify.innerHTML = "<p>Error: la IA no devolvió JSON válido.</p>";
         console.error("JSON IA inválido:", textoIA);
         return;
     }
 
-    modal.innerHTML = `
+    abrirPanelNotify.innerHTML = `
         <h2>${info.banda} – ${info.disco}</h2>
 
         <h3>Estilo</h3>
