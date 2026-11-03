@@ -1056,12 +1056,17 @@ async function enviarIA(prompt) {
 
 async function cargarIA_mp3h(item) {
 	
-	abrirPanelNotify("<p>Cargando información IA...</p>");
+	abrirPanelNotify(`
+        <div style="text-align:center; padding-top:20px;">
+            <div class="spinner"></div>
+            <p>Cargando información IA...</p>
+        </div>
+    `);
 	
     const banda = item.Banda;
     const disco = item.Disco;
 
-/*    const prompt = `
+    const prompt = `
 Actúa exactamente como el asistente oficial de Gemini Web.
 
 Tu estilo debe ser:
@@ -1126,8 +1131,8 @@ Formato de salida SIEMPRE en JSON:
 
 NO añadas texto fuera del JSON.
 `;
-*/
-	const prompt = `
+
+/*	const prompt = `
 Actúa exactamente como el asistente oficial de Gemini Web.
 
 Eres un asistente que devuelve SIEMPRE JSON válido.
@@ -1164,15 +1169,9 @@ Formato de salida SIEMPRE en JSON:
 
 NO añadas texto fuera del JSON.
 `;
-
+*/
 	const data = await enviarIA(prompt);
-
     const textoIA = data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-    /*const modal = document.getElementById("modalIA");
-    modal.style.display = "block";
-    modal.innerHTML = "<p>Cargando información IA...</p>";
-	*/
 
     if (!textoIA) {
         abrirPanelNotify("<p>Error: la IA no devolvió JSON válido.</p>");
@@ -1216,8 +1215,5 @@ NO añadas texto fuera del JSON.
         <h3>Nivel de certeza</h3>
         <p>${info.certeza}</p>
 
-        <button onclick="document.getElementById('modalIA').style.display='none'">
-            Cerrar
-        </button>
     `);
 }
