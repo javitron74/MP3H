@@ -1170,7 +1170,14 @@ Formato de salida SIEMPRE en JSON:
 NO añadas texto fuera del JSON.
 `;
 */
+	console.log("Solicitando datos a IA ...");
+	
 	const data = await enviarIA(prompt);
+		
+	console.log("DATA COMPLETA:", data);
+	console.log("DATA.RESPONSE:", data?.response);
+	console.log("TIPO DATA:", typeof data)
+	
     const textoIA = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (!textoIA) {
