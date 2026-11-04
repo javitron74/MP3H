@@ -1065,6 +1065,7 @@ async function cargarIA_mp3h(item) {
 	
     const banda = item.Banda;
     const disco = item.Disco;
+	const anoActual = new Date().getFullYear();
 
     const prompt = `
 Actúa exactamente como el asistente oficial de Gemini Web.
@@ -1106,7 +1107,7 @@ Quiero información sobre:
 
 Devuélveme:
 1) Listado de canciones del disco (si existe).
-2) Si la banda está de gira por España este año.
+2) Si la banda está de gira por España en ${anoActual}.
 3) Fechas y ciudades si las hay.
 4) Nivel de certeza de la información.
 
