@@ -1110,6 +1110,10 @@ Devuélveme:
 2) Si la banda está de gira por España en ${anoActual}.
 3) Fechas y ciudades si las hay.
 4) Nivel de certeza de la información.
+5) Resumen breve de la banda (4–6 frases).
+6) Mejores discos de la banda (lista de 3–5 álbumes reales).
+7) Bandas similares (lista de 3–6 nombres con relación de estilo).
+8) Curiosidades sobre la banda (2–4 datos interesantes y relevantes).
 
 Formato de salida SIEMPRE en JSON:
 
@@ -1127,50 +1131,20 @@ Formato de salida SIEMPRE en JSON:
       ],
       "nota": ""
   },
-  "certeza": ""
+  "certeza": "",
+  "resumen_banda":"",
+  "mejores_discos": "",
+  "bandas_similares": "",
+  "curiosidades": ""
 }
 
-NO añadas texto fuera del JSON.
+Reglas:
+- Si no tienes datos fiables, usa valores como "No disponible" o listas vacías.
+- NO añadas texto fuera del JSON.
+- El JSON debe ser siempre válido.
 `;
 
-/*	const prompt = `
-Actúa exactamente como el asistente oficial de Gemini Web.
 
-Eres un asistente que devuelve SIEMPRE JSON válido.
-Eres un experto musical.
-
-Quiero información sobre:
-- Banda: "${banda}"
-- Disco: "${disco}"
-
-Devuélveme:
-1) Listado de canciones del disco (si existe).
-2) Si la banda está de gira por España este año.
-3) Fechas y ciudades si las hay.
-4) Nivel de certeza de la información.
-
-Formato de salida SIEMPRE en JSON:
-
-{
-  "banda": "",
-  "disco": "",
-  "canciones": [
-      { "num": 1, "titulo": "" }
-  ],
-  "estilo": "",
-  "gira_espana": {
-      "hay_gira": true,
-      "fechas": [
-          { "fecha": "", "ciudad": "", "recinto": "" }
-      ],
-      "nota": ""
-  },
-  "certeza": ""
-}
-
-NO añadas texto fuera del JSON.
-`;
-*/
 	console.log("Solicitando datos a IA ...");
 	
 	const data = await enviarIA(prompt);
@@ -1203,7 +1177,8 @@ NO añadas texto fuera del JSON.
 
     abrirPanelNotify(`
         <h2>${info.banda} – ${info.disco}</h2>
-
+		<p>${info.resumen_banda}</p>
+		
         <h3>Estilo</h3>
         <p>${info.estilo}</p>
 
@@ -1224,7 +1199,16 @@ NO añadas texto fuera del JSON.
         ` : ""}
 
         <p><em>${info.gira_espana.nota}</em></p>
+		
+		<h3>Mejores discos</h3>
+		<p>${info.mejores_discos}</p>
 
+		<h3>Bandas similares</h3>
+		<p>${info.bandas_similares}</p>
+
+		<h3>Curiosidades</h3>
+		<p>${info.curiosidades}</p>
+		
         <h3>Nivel de certeza</h3>
         <p>${info.certeza}</p>
 
