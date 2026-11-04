@@ -1107,7 +1107,7 @@ Quiero información sobre:
 
 Devuélveme:
 1) Listado de canciones del disco (si existe).
-2) Si la banda está de gira por España en ${anoActual}.
+2) Conciertos programados por España (Spain) en ${anoActual}.
 3) Fechas y ciudades si las hay.
 4) Nivel de certeza de la información.
 5) Resumen breve de la banda (4–6 frases).
