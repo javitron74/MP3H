@@ -1178,7 +1178,12 @@ NO añadas texto fuera del JSON.
 	console.log("DATA.RESPONSE:", data?.response);
 	console.log("TIPO DATA:", typeof data)
 	
-    const textoIA = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const textoIA =
+		data?.response ??
+		data?.result?.response ??
+		data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+	console.log("TEXTO IA:", textoIA);
 
     if (!textoIA) {
         abrirPanelNotify("<p>Error: la IA no devolvió JSON válido.</p>");
