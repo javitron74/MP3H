@@ -568,6 +568,8 @@ function generarTablaDiscos(filtrados) {
         const hoy = new Date();
 		const fechaHoy = new Date(`${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`);
         const noEmitido = fechaEmision && fechaEmision > fechaHoy;
+		
+		const info_ia = {Banda: item.Banda,Disco: item.Disco};
 
         html += `
         <tr class="${claseEstado(estado).replace("pill-", "")}">
@@ -613,7 +615,7 @@ function generarTablaDiscos(filtrados) {
 								</svg>
 							</div>
 							<!-- IA -->
-							<div onclick="cargarIA_mp3h({Banda: '${item.Banda}', Disco: '${item.Disco}'|| null})">
+							<div onclick="cargarIA_mp3h({ Banda: '${item.Banda}', Disco: '${item.Disco}'})">
 								<svg viewBox="0 0 24 24">
 									<path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z">
 									</path>
