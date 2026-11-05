@@ -464,20 +464,21 @@ function generarTarjetasDiscos(filtrados) {
                 </span>
             </div>
         `;
-				// Botón IA
-		const btnIA = document.createElement("button");
-		btnIA.className = "btn-ia";
-		btnIA.textContent = "";
+		if(esAdmin){
+			// Botón IA
+			const btnIA = document.createElement("button");
+			btnIA.className = "btn-ia";
+			btnIA.textContent = "";
 
-		// Disparador: envía banda y disco
-		btnIA.onclick = () => {
-			cargarIA_mp3h({
-				Banda: item.Banda,
-				Disco: item.Disco || null
-			});
+			// Disparador: envía banda y disco
+			btnIA.onclick = () => {
+				cargarIA_mp3h({
+					Banda: item.Banda,
+					Disco: item.Disco || null
+				});
+			};
+			card.appendChild(btnIA);
 		};
-
-		card.appendChild(btnIA);
         grid.appendChild(card);
     });
 }
@@ -609,6 +610,13 @@ function generarTablaDiscos(filtrados) {
 							<div onclick="eliminar('${item.Pos}')">
 								<svg viewBox="0 0 24 24">
 									<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
+								</svg>
+							</div>
+							<!-- IA -->
+							<div onclick="cargarIA_mp3h({Banda: ${item.Banda}, Disco: ${item.Disco}|| null})">
+								<svg viewBox="0 0 24 24">
+									<path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z">
+									</path>
 								</svg>
 							</div>
 							`
