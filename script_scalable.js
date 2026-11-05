@@ -183,8 +183,6 @@ function cerrarPanelNotify() {
     document.getElementById("panelNotify").classList.remove("open");
 }
 
-
-
 // =====================
 // Carga de datos
 // =====================
