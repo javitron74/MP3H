@@ -1147,6 +1147,7 @@ Formato de salida SIEMPRE en JSON:
 }
 
 Reglas:
+- Detras de una coma dejar siempre un espacio
 - Si no tienes datos fiables, usa valores como "No disponible" o listas vacías.
 - NO añadas texto fuera del JSON.
 - El JSON debe ser siempre válido.
