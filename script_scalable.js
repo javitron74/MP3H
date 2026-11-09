@@ -427,7 +427,7 @@ function generarTarjetasDiscos(filtrados) {
 								</svg>
 							</div>
 
-							<div class="delete-btn" onclick="eliminar('${item.Pos}')">
+							<div class="delete-btn accion-eliminar" data-pos="${item.pos}" onclick="eliminar('${item.Pos}')">
 								<svg viewBox="0 0 24 24" class="delete-icon">
 									<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
 								</svg>
@@ -507,7 +507,7 @@ function generarTarjetasNuevos(filtrados) {
 								</svg>
 							</div>
 
-							<div class="delete-btn" onclick="eliminar('${item.Pos}')">
+							<div class="delete-btn accion-eliminar" data-pos="${item.pos}">
 								<svg viewBox="0 0 24 24" class="delete-icon">
 									<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
 								</svg>
@@ -607,13 +607,13 @@ function generarTablaDiscos(filtrados) {
 								</svg>
 							</div>
 							<!-- Eliminar -->
-							<div onclick="eliminar('${item.Pos}')">
+							<div class="accion-eliminar" data-pos="${item.pos}">
 								<svg viewBox="0 0 24 24">
 									<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
 								</svg>
 							</div>
 							<!-- IA -->
-							<div onclick="cargarIA_mp3h({ Banda: '${item.Banda}', Disco: '${item.Disco}'})">
+							<div class="accion-ia" data-pos="${item.pos}" onclick="cargarIA_mp3h({ Banda: '${item.Banda}', Disco: '${item.Disco}'})">
 								<svg viewBox="0 0 24 24">
 									<path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z">
 									</path>
@@ -675,7 +675,7 @@ function generarTablaNuevos(filtrados) {
 								</svg>
 							</div>
 							<!-- Eliminar -->
-							<div onclick="eliminar('${item.Pos}')">
+							<div class="accion-eliminar" data-pos="${item.pos}"">
 								<svg viewBox="0 0 24 24">
 									<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
 								</svg>
@@ -730,6 +730,37 @@ function iniciarEventosIndex() {
     const sortDir = document.getElementById("sortDir");
     const btnReset = document.getElementById("btnReset");
     const toggleVista = document.getElementById("toggleVista");
+
+    // ==========================
+    // ACCIONES CARD / TABLE
+    // ==========================
+	if(grid){
+		grid.addEventListener("click", (e) =>{
+			//Eliminar
+			const btnEliminar = e.target.closest(".accion-eliminar");
+			if(btnEliminar){
+				eliminar(btnEliminar.dataset.pos);
+				return;
+			}
+			// IA
+			const btnIA = e.target.closet(".accion-ia");
+			if(btnIA){
+				const item = datos.find(
+					d => String(d.Pos) === String(btnIA.dataset.pos)
+				);
+				if(!item) return;
+				cargarIA_mp3h({
+                    Banda: item.Banda,
+                    Disco: item.Disco || null
+                });
+				return;
+			}
+		});
+	}
+
+    // ==========================
+    // CAMBIO DE VISTA
+    // ==========================
 
     if (toggleVista) {
         toggleVista.addEventListener("click", () => {
