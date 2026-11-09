@@ -731,6 +731,9 @@ function iniciarEventosIndex() {
     const sortDir = document.getElementById("sortDir");
     const btnReset = document.getElementById("btnReset");
     const toggleVista = document.getElementById("toggleVista");
+	//Para el menu navegacion
+	const btnNavMenu = document.getElementById("btnNavMenu");
+    const navDropdownMenu = document.getElementById("navDropdownMenu");
 
     // ==========================
     // ACCIONES CARD / TABLE
@@ -758,6 +761,34 @@ function iniciarEventosIndex() {
 			}
 		});
 	}
+
+    // ==========================
+    // Menu Navegacion
+    // ==========================	
+	    if (btnNavMenu && navDropdownMenu) {
+        // Abrir / cerrar menú al hacer clic en el icono
+        btnNavMenu.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isOpen = navDropdownMenu.classList.toggle("show");
+            btnNavMenu.classList.toggle("active", isOpen);
+        });
+
+        // Cerrar al hacer clic fuera del menú
+        window.addEventListener("click", (e) => {
+            if (!navDropdownMenu.contains(e.target) && !btnNavMenu.contains(e.target)) {
+                navDropdownMenu.classList.remove("show");
+                btnNavMenu.classList.remove("active");
+            }
+        });
+
+        // Cerrar al pulsar la tecla Escape
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                navDropdownMenu.classList.remove("show");
+                btnNavMenu.classList.remove("active");
+            }
+        });
+    }
 
     // ==========================
     // CAMBIO DE VISTA
