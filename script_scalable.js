@@ -743,7 +743,7 @@ function iniciarEventosIndex() {
 				return;
 			}
 			// IA
-			const btnIA = e.target.closet(".accion-ia");
+			const btnIA = e.target.closest(".accion-ia");
 			if(btnIA){
 				const item = datos.find(
 					d => String(d.Pos) === String(btnIA.dataset.pos)
