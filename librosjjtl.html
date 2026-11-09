@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MP3H – Nuevos Grupos</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="top-header">
+    <!-- Línea 1: título -->
+    <div class="header-title">
+        <h1>Libros</h1>
+    </div>
+
+    <!-- Línea 2: iconos -->
+    <div class="header-actions">
+	
+		<input id="search" class="header-search" type="text" placeholder="Buscar banda, disco, comentarios…">
+
+        <!-- Panel de filtros -->
+        <span id="btnPanel" class="header-icon" title="Filtros">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 6h18M6 12h12M10 18h4" stroke-linecap="round"/>
+            </svg>
+        </span>
+
+        <!-- Ir a nuevos grupos -->
+        <a href="index.html" class="header-icon" title="MP3H lista de discos">
+            <svg viewBox="0 0 24 24">
+				<path d="M15 4.582V12a3 3 0 1 1-2-2.83V2.05c5.053.501 9 4.765 9 9.95 0 5.523-4.477 10-10 10S2 17.523 2 
+				12c0-5.185 3.947-9.449 9-9.95v2.012A8.001 8.001 0 0 0 12 20a8 8 0 0 0 3-15.418z">
+				</path>
+            </svg>
+        </a>
+
+    </div>
+
+	<div id="panelFiltros" class="panel-filtros">
+		<button id="closePanel" class="panel-close-icon btn-icon">
+			<svg viewBox="0 0 24 24">
+				<path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/>
+			</svg>
+		</button>
+		<h3>Ordenación</h3>
+		<div class="ordenacion-row">
+			<select id="sortField">
+				<option value="">Ordenar por…</option>
+				<option value="Pos">Item</option>
+				<option value="Banda">Banda</option>
+				<option value="Genero">Género</option>
+				<option value="Estado">Estado</option>
+			</select>
+
+			<select id="sortDir">
+				<option value="asc">Ascendente</option>
+				<option value="desc" selected>Descendente</option>
+			</select>
+		</div>
+		<h3>Filtros</h3>
+		<div class="filters">
+			<h5 style="margin-top: 5px;margin-bottom: 5px;">Por genero</h5>
+			<select id="filterGenero">
+				<option value="">Todos los géneros</option>
+			</select>
+
+			<h5 style="margin-top: 5px;margin-bottom: 5px;">Por estado</h5>
+			<div id="filterEstado" class="multi-select">
+				<span data-value="---" class="pill">---</span>
+				<span data-value="Ok" class="pill">Leido</span>
+				<span data-value="No" class="pill">No</span>
+			</div>
+		</div>
+	</div>
+
+</header>
+
+
+<main>
+	<div class="top-bar">
+		<div id="add"><a href="form-librosjjtl.html?origen=/MP3H/librosjjtl.html" class="btn-add">Añadir nuevo</a></div>
+		<div class="right-group">
+			<span id="count">Cargando datos…</span>
+			<span id="toggleVista" class="vista-icon" title="Cambiar vista">
+				<svg viewBox="0 0 24 24" class="vista-svg">
+					<path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
+				</svg>`
+			</span>
+		</div>
+	</div>
+    <div id="grid" class="grid"></div>
+</main>
+
+<script>
+window.MP3H_CONFIG = {
+    tipo: "librosjjtl",
+    json: "get?dataset=librosjjtl",
+    update: "update?dataset=librosjjtl",
+    formulario: "form-librosjjtl.html",
+    apiKey: "",
+	defaultModoVista: "card",
+    campos: [
+        "Pos","Autor","Titulo",
+        "Estado","Comentarios"
+    ]
+};
+</script>
+
+<script type="module" src="script_scalable.js"></script>
+</body>
+</html>
+
