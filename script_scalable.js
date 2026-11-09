@@ -35,6 +35,7 @@ if (btnReset) {
 
 //Datos
 const WORKER = "https://mp3h-backend.josejaviertroncoso.workers.dev";
+
 const CFG = window.MP3H_CONFIG || {
     tipo: "discos",
     json: "get?dataset=mp3h",
@@ -781,7 +782,7 @@ function iniciarEventosIndex() {
                 return;
             }
             try {
-                const res = await fetch(WORKER + "/import", { method: "POST" });
+                const res = await fetch(WORKER + "/import?dataset=" + dataset, { method: "POST" });
                 const txt = await res.text();
                 mostrarMensaje("KV reseteado:\n" + txt);
                 cargarDatos();
