@@ -95,6 +95,96 @@ main {
     font-size: 0.95rem;
     color: var(--text-dim);
 }
+
+/* =========================================================
+   MENÚ DESPLEGABLE DE NAVEGACIÓN
+   ========================================================= */
+.nav-dropdown {
+    position: relative;
+    display: inline-flex;
+}
+
+/* Ajuste para que el botón herede exactamente el estilo de .header-icon */
+.nav-dropdown .header-icon {
+    background: var(--panel-light) !important;
+    border-radius: var(--radius);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.nav-dropdown .header-icon:hover,
+.nav-dropdown .header-icon.active {
+    background: var(--accent) !important;
+}
+
+.nav-dropdown .header-icon:hover svg,
+.nav-dropdown .header-icon.active svg {
+    stroke: #ffffff;
+}
+
+/* Caja desplegable */
+.nav-dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0; /* Cambia a 'right: 0;' si pones el botón en la esquina derecha */
+    min-width: 200px;
+    background: var(--panel);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 6px;
+    z-index: 1500;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-dropdown-content.show {
+    display: flex;
+    animation: fadeInDown 0.18s ease-out;
+}
+
+/* Enlaces internos */
+.nav-item {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.6rem 0.85rem;
+    border-radius: calc(var(--radius) - 4px);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.15s ease, color 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-item:hover {
+    background: var(--panel-light);
+    color: var(--accent);
+}
+
+/* Opcional: marcar la página actual */
+.nav-item.active {
+    background: var(--estado-preok-bg);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* =========================================================
    CONTENEDOR PRINCIPAL / PANELS
    ========================================================= */
