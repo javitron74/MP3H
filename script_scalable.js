@@ -95,6 +95,7 @@ function claseEstado(estado) {
         case "Ok":      return "pill-estado-ok";
         case "No":      return "pill-estado-no";
         case "Disp":    return "pill-estado-disp";
+		case "Leido":   return "pill-estado-ok";
         default:        return "pill-estado---";
     }
 }
