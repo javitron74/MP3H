@@ -735,14 +735,14 @@ function generarTarjetasLibros(filtrados) {
             </div>
             <div class="card-body">
 
-                <span>
+                <span class="pill ${claseEstado(estado)}">
                     ${estado || "---"}
                 </span>
                 <br><br>
                 <span class="card-body-comment">${item.Resumen}</span>
             </div>
             <div class="card-footer">
-                <span class="score ${clasePuntuacion(puntuacion)}">
+                <span>
                     ${item["Calificacion (1-5)"] !== null ? item["Calificacion (1-5)"] : "-"}
                 </span>
                 <span class="score-source">
