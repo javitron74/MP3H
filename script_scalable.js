@@ -735,7 +735,7 @@ function generarTarjetasLibros(filtrados) {
             </div>
             <div class="card-body">
 
-                <span class="pill ${claseEstado(estado)}">
+                <span>
                     ${estado || "---"}
                 </span>
                 <br><br>
