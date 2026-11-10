@@ -753,7 +753,7 @@ function generarTarjetasLibros(filtrados) {
 		if(esAdmin){
 			// Botón IA
 			const btnIA = document.createElement("button");
-			btnIA.className = "btn-ia";
+			btnIA.className = "btn-ia-libros";
 			btnIA.textContent = "";
 
 			// Disparador: envía banda y disco
@@ -836,6 +836,15 @@ function iniciarEventosIndex() {
                     Banda: item.Banda,
                     Disco: item.Disco || null
                 });
+				return;
+			}
+			const btnIAlibros = e.target.closest(".accion-ia-libros");
+			if(btnIAlibros){
+				const item = datos.find(
+					d => String(d.Pos) === String(btnIAlibros.dataset.pos)
+				);
+				if(!item) return;
+				cargarIA_libros(item);
 				return;
 			}
 		});
@@ -1359,6 +1368,132 @@ Reglas:
 
 		<h3>Curiosidades</h3>
 		<p>${info.curiosidades}</p>
+		
+        <h3>Nivel de certeza</h3>
+        <p>${info.certeza}</p>
+
+    `);
+}
+
+async function cargarIA_libros(item) {
+	
+	abrirPanelNotify(`
+        <div style="text-align:center; padding-top:20px;">
+            <div class="spinner"></div>
+            <p>Cargando información IA...</p>
+        </div>
+    `);
+	
+    const autor = item.Autor;
+    const titulo = item.Disco;
+
+    const prompt = `
+Actúa exactamente como el asistente oficial de Gemini Web.
+
+Tu estilo debe ser:
+- claro, ordenado y fácil de leer
+- conversacional pero profesional
+- explicativo sin ser redundante
+- estructurado en secciones cuando sea útil
+- con contexto adicional relevante
+- con ejemplos cuando mejoren la comprensión
+- evitando frases robóticas o demasiado técnicas
+- evitando respuestas excesivamente breves
+- evitando respuestas excesivamente largas
+- corrigiendo ambigüedades del usuario de forma natural
+- añadiendo detalles útiles aunque no se pidan explícitamente
+- manteniendo un tono amable, seguro y confiado
+
+IMPORTANTE:
+- Si el usuario pide datos, ofrécelos con claridad.
+- Si el usuario pide análisis, razona paso a paso.
+- Si el usuario pide opinión, ofrece una opinión equilibrada y razonada.
+- Si el usuario pide estructura, usa listas y subtítulos.
+- Si el usuario pide texto para mostrar en UI, devuélvelo limpio y sin ruido.
+- Si el usuario pide JSON, devuélvelo como JSON válido sin texto adicional.
+
+Nunca digas que eres un modelo de lenguaje.  
+Nunca digas que no tienes acceso a internet.  
+Nunca digas “como IA”.  
+Responde como Gemini Web: natural, útil y directo.
+
+Ahora responde a esta petición del usuario:
+Eres un asistente que devuelve SIEMPRE JSON válido.
+Eres un experto literario.
+
+Quiero información sobreel siguiente autor de libro y el titulo:
+- Autor: "${autor}"
+- Disco: "${titulo}"
+
+Devuélveme:
+1) Resumen breve del autor del libro (4-6 frases). Incluir genero preferido
+2) Mejores libros del autor indicando si hay algun libro premiado (lista de 3–5 libros u obras reales).
+3) Bandas similares (lista de 3–6 nombres con relación de estilo).
+4) Nivel de certeza de la información.
+5) Clasificacion o calificación del libro (de 1-10).
+6) Curiosidades sobre el autor o el libro(2–4 datos interesantes y relevantes).
+
+Formato de salida SIEMPRE en JSON:
+
+{
+  "autor": "",
+  "mejores_libros": "",
+  "autores_similares": "",
+  "estilo": "",
+  "certeza": "",
+  "clasificacion_libro":"",
+  "curiosidades": ""
+}
+
+Reglas:
+- Detras de una coma dejar siempre un espacio
+- Si no tienes datos fiables, usa valores como "No disponible" o listas vacías.
+- NO añadas texto fuera del JSON.
+- El JSON debe ser siempre válido.
+`;
+	
+	const data = await enviarIA(prompt);
+		
+    const textoIA =
+		data?.response ??
+		data?.result?.response ??
+		data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+	console.log("TEXTO IA:", textoIA);
+
+    if (!textoIA) {
+        abrirPanelNotify("<p>Error: la IA no devolvió JSON válido.</p>");
+        return;
+    }
+
+    let info;
+
+    try {
+        info = JSON.parse(textoIA);
+    } catch (e) {
+        abrirPanelNotify("<p>Error: la IA no devolvió JSON válido.</p>");
+        console.error("JSON IA inválido:", textoIA);
+        return;
+    }
+
+    abrirPanelNotify(`
+        <h2>${autor} – ${titulo}</h2>
+		<p>${info.autori}</p>
+		
+        <h3>Estilo</h3>
+        <p>${info.estilo}</p>
+		
+		<h3>Mejores libros</h3>
+		<p>${info.mejores_libros}</p>
+
+		<h3>Autores similares</h3>
+		<p>${info.autores_similares}</p>
+		
+		<h3>Calificación Libro</h3>
+		<p>${info.curiosidades}</p>
+		
+		<h3>Curiosidades</h3>
+		<p>${info.clasificacion_libro}</p>
 		
         <h3>Nivel de certeza</h3>
         <p>${info.certeza}</p>
