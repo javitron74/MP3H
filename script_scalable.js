@@ -694,6 +694,78 @@ function generarTablaNuevos(filtrados) {
     grid.innerHTML = html;
 }
 
+function generarTarjetasLibros(filtrados) {
+    grid.innerHTML = "";
+    filtrados.forEach(item => {
+        const estado = item.Estado || "---";
+        const genero = item.Genero || "";
+        //const comentarios = item.Comentarios || "";
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const clase = claseEstado(estado);
+        if (clase) card.classList.add(clase.replace("pill-", ""));
+
+                card.innerHTML = `
+            <div class="card-header">
+                <div>
+					<div class="card-subtitle score-none">${item.Pos}  </div>
+                    <div class="card-title">${item.Autor}</div>
+                    <div class="card-subtitle">${item.Titulo || ""}</div>
+                </div>
+					${
+						esAdmin
+							? `
+
+							<div class="delete-btn accion-eliminar" data-pos="${item.Pos}" onclick="eliminar('${item.Pos}')">
+								<svg viewBox="0 0 24 24" class="delete-icon">
+									<path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
+								</svg>
+							</div>
+							`
+							: ""
+					}
+                <div>
+                    <span class="pill pill-genero">${genero}</span>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <span class="pill ${claseEstado(estado)}">
+                    ${estado || "---"}
+                </span>
+                <br><br>
+                <span class="card-body-comment">${item.Resumen}</span>
+            </div>
+            <div class="card-footer">
+                <span class="score ${clasePuntuacion(puntuacion)}">
+                    ${item["Calificacion (1-5)"] !== null ? item["Calificacion (1-5)"] : "-"}
+                </span>
+                <span class="score-source">
+                    ${item.Saga}
+                </span>
+            </div>
+        `;
+		if(esAdmin){
+			// Botón IA
+			const btnIA = document.createElement("button");
+			btnIA.className = "btn-ia";
+			btnIA.textContent = "";
+
+			// Disparador: envía banda y disco
+			btnIA.onclick = () => {
+				cargarIA_mp3h({
+					Banda: item.Banda,
+					Disco: item.Disco || null
+				});
+			};
+			card.appendChild(btnIA);
+		};
+        grid.appendChild(card);
+    });
+}
+
 const RENDERERS = {
     discos: {
         card: generarTarjetasDiscos,
@@ -703,6 +775,10 @@ const RENDERERS = {
         card: generarTarjetasNuevos,
         table: generarTablaNuevos
     }
+	librosjjtl {
+		card: generarTarjetasLibros,
+        table: generarTarjetasLibros
+	}
 };
 
 // =====================
