@@ -49,6 +49,7 @@ const CFG = window.MP3H_CONFIG || {
         "Puntuacion","Fuente Puntuacion"
     ]
 };
+
 let modoVista = CFG.defaultModoVista // cards | table
 // =====================
 // Utilidades
@@ -210,7 +211,8 @@ async function cargarDatos() {
 // Filtros genéricos
 // =====================
 
-let estadosSeleccionados = ["---", "Pre-ok", "Ok"];
+let estadosSeleccionados = CFG.estadosSeleccionados // personalizado por pagina
+//let estadosSeleccionados = ["---", "Pre-ok", "Ok"];
 
 function cargarFiltrosGenericos() {
     const selectGenero = document.getElementById("filterGenero");
