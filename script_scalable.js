@@ -775,7 +775,7 @@ const RENDERERS = {
         card: generarTarjetasNuevos,
         table: generarTablaNuevos
     },
-	librosjjtl {
+	librosjjtl: {
 		card: generarTarjetasLibros,
         table: generarTarjetasLibros
 	}
