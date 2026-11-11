@@ -439,7 +439,7 @@ main {
     display: none;
     z-index: 9999;
 }
-.btn-ia {
+.btn-ia, .btn-ia-libros {
 	position:absolute;
 	bottom:10px;
 	right:10px;
@@ -461,13 +461,13 @@ main {
     margin: 0;
 	color:#0f0f10;
 }
-.btn-ia:hover {
+.btn-ia:hover, .btn-ia-libros:hover {
     opacity: 1;
 	background: #fde047;
 	color:#0f0f10;
 }
 /* Emoji ℹ️ dentro del círculo */
-.btn-ia::before {
+.btn-ia::before, .btn-ia-libros::before {
     content: "\2139"; /* ℹ️ */
 }
 
