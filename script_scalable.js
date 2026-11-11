@@ -797,7 +797,7 @@ function iniciarEventosIndex() {
                 });
 				return;
 			}
-			const btnIAlibros = e.target.closest(".accion-ia-libros");
+			/*const btnIAlibros = e.target.closest(".accion-ia-libros");
 			if(btnIAlibros){
 				const item = datos.find(
 					d => String(d.Pos) === String(btnIAlibros.dataset.pos)
@@ -805,7 +805,7 @@ function iniciarEventosIndex() {
 				if(!item) return;
 				cargarIA_libros(item);
 				return;
-			}
+			}*/
 		});
 	}
 
@@ -1344,7 +1344,7 @@ async function cargarIA_libros(item) {
     `);
 	
     const autor = item.Autor;
-    const titulo = item.Disco;
+    const titulo = item.Titulo;
 
     const prompt = `
 Actúa exactamente como el asistente oficial de Gemini Web.
@@ -1437,7 +1437,7 @@ Reglas:
 
     abrirPanelNotify(`
         <h2>${autor} – ${titulo}</h2>
-		<p>${info.autori}</p>
+		<p>${info.autor}</p>
 		
         <h3>Estilo</h3>
         <p>${info.estilo}</p>
@@ -1448,10 +1448,10 @@ Reglas:
 		<h3>Autores similares</h3>
 		<p>${info.autores_similares}</p>
 		
-		<h3>Calificación Libro</h3>
+		<h3>Curiosidades</h3>
 		<p>${info.curiosidades}</p>
 		
-		<h3>Curiosidades</h3>
+		<h3>Calificación Libro</h3>
 		<p>${info.clasificacion_libro}</p>
 		
         <h3>Nivel de certeza</h3>
