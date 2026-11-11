@@ -95,7 +95,7 @@ function claseEstado(estado) {
         case "Ok":      return "pill-estado-ok";
         case "No":      return "pill-estado-no";
         case "Disp":    return "pill-estado-disp";
-		case "Leido":   return "pill-estado-ok";
+		case "Leido":   return "pill-estado-disp";
         default:        return "pill-estado---";
     }
 }
@@ -753,7 +753,7 @@ function generarTarjetasLibros(filtrados) {
 		if(esAdmin){
 			// Botón IA
 			const btnIA = document.createElement("button");
-			btnIA.className = "btn-ia-libros";
+			btnIA.className = "btn-ia accion-ia-libros";
 			btnIA.textContent = "";
 
 			// Disparador: envía banda y disco
