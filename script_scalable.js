@@ -301,45 +301,7 @@ function ordenarGenerico(filtrados) {
 
     if (!campo) return filtrados;
     if (!CFG.campos.includes(campo)) return filtrados;
-/*
-    if (campo === "Pos") {
-        return filtrados.sort((a, b) => {
-            const A = Number(a.Pos);
-            const B = Number(b.Pos);
-            return dir === "asc" ? A - B : B - A;
-        });
-    }
 
-    // EXCEPCIÓN: Fecha (Emision Disco)
-    if (campo === "Emision Disco") {
-        return filtrados.sort((a, b) => {
-            const A = parseFechaISO(a["Emision Disco"]);
-            const B = parseFechaISO(b["Emision Disco"]);
-
-            // Fechas nulas al final
-            if (!A && !B) return 0;
-            if (!A) return 1;
-            if (!B) return -1;
-
-            return dir === "asc" ? A - B : B - A;
-        });
-    }
-	
-    return filtrados.sort((a, b) => {
-        let A = (a[campo] || "").toString().toLowerCase();
-        let B = (b[campo] || "").toString().toLowerCase();
-		
-		// Si ambos son números → ordenar como números
-        if (!isNaN(a[campo]) && !isNaN(b[campo])) {
-            A = Number(a[campo]);
-            B = Number(b[campo]);
-        }
-
-        if (A < B) return dir === "asc" ? -1 : 1;
-        if (A > B) return dir === "asc" ? 1 : -1;
-        return 0;
-    });
-*/
 //----------------------------------------
 //     Opcion escalabe por tipo de datos
 //----------------------------------------
@@ -758,10 +720,7 @@ function generarTarjetasLibros(filtrados) {
 
 			// Disparador: envía banda y disco
 			btnIA.onclick = () => {
-				cargarIA_mp3h({
-					Banda: item.Banda,
-					Disco: item.Disco || null
-				});
+				cargarIA_libros(item);
 			};
 			card.appendChild(btnIA);
 		};
