@@ -95,7 +95,7 @@ function claseEstado(estado) {
         case "Ok":      return "pill-estado-ok";
         case "No":      return "pill-estado-no";
         case "Disp":    return "pill-estado-disp";
-		case "Leido":   return "pill-estado---";
+		case "Leido":   return "pill-estado-disp";
         default:        return "pill-estado---";
     }
 }
@@ -667,12 +667,12 @@ function generarTarjetasLibros(filtrados) {
         //const comentarios = item.Comentarios || "";
 
         const card = document.createElement("div");
-        card.className = "card";
+        card.className = "card estado---";
 
-        const clase = claseEstado(estado);
-        if (clase) card.classList.add(clase.replace("pill-", ""));
-
-                card.innerHTML = `
+        //const clase = claseEstado(estado);
+        //if (clase) card.classList.add(clase.replace("pill-", ""));
+		
+        card.innerHTML = `
             <div class="card-header">
                 <div>
 					<div class="card-subtitle score-none">${item.Pos}  </div>
