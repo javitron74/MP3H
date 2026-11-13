@@ -672,7 +672,129 @@ function generarTablaNuevos(filtrados) {
     grid.innerHTML = html;
 }
 
+function crearTarjetaLibroHTML(item, ocultarAutor = false) {
+    const estado = item.Estado || "---";
+    const genero = item.Genero || "";
+
+    const card = document.createElement("div");
+    card.className = "card estado---";
+
+    card.innerHTML = `
+        <div class="card-header">
+            <div>
+                <div class="card-subtitle score-none">${item.Pos}</div>
+                ${
+                    ocultarAutor
+                        ? `<div class="card-title">${item.Titulo || ""}</div>`
+                        : `<div class="card-title">${item.Autor || ""}</div>
+                           <div class="card-subtitle">${item.Titulo || ""}</div>`
+                }
+            </div>
+            ${
+                esAdmin
+                    ? `
+                    <div class="delete-btn accion-eliminar" data-pos="${item.Pos}" onclick="eliminar('${item.Pos}')">
+                        <svg viewBox="0 0 24 24" class="delete-icon">
+                            <path d="M6 7h12l-1 12H7L6 7zm5-3h2l1 1h5v2H4V5h5l1-1z"/>
+                        </svg>
+                    </div>
+                    `
+                    : ""
+            }
+            <div>
+                <span class="pill pill-genero">${genero}</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <span class="pill ${claseEstado(estado)}">
+                ${estado || "---"}
+            </span>
+            <br><br>
+            <span class="card-body-comment">${item.Resumen || ""}</span>
+        </div>
+        <div class="card-footer">
+            <span>
+                ${item["Calificacion (1-5)"] !== null ? item["Calificacion (1-5)"] : "-"}
+            </span>
+            <span class="score-source">
+                ${item.Saga || ""}
+            </span>
+        </div>
+    `;
+
+    if (esAdmin) {
+        const btnIA = document.createElement("button");
+        btnIA.className = "btn-ia accion-ia-libros";
+        btnIA.textContent = "";
+        btnIA.onclick = () => cargarIA_libros(item);
+        card.appendChild(btnIA);
+    }
+
+    return card;
+}
+
 function generarTarjetasLibros(filtrados) {
+    grid.innerHTML = "";
+    if (filtrados.length === 0) return;
+
+    const groupFieldEl = document.getElementById("groupField");
+    const campoAgrupacion = groupFieldEl
+        ? groupFieldEl.value
+        : (CFG.defaultGroupField || "");
+
+    // CASO: Sin agrupación (vacío) -> Renderizado plano de tarjetas
+    if (!campoAgrupacion || !CFG.campos.includes(campoAgrupacion)) {
+        filtrados.forEach(item => {
+            grid.appendChild(crearTarjetaLibroHTML(item, false));
+        });
+        return;
+    }
+
+    // CASO: Con agrupación por el campo seleccionado
+    const etiquetaVacio = `Sin ${campoAgrupacion.toLowerCase()}`;
+    const agrupados = filtrados.reduce((acc, item) => {
+        const valorRaw = (item[campoAgrupacion] || "").toString().trim();
+        const clave = valorRaw !== "" ? valorRaw : etiquetaVacio;
+        if (!acc[clave]) acc[clave] = [];
+        acc[clave].push(item);
+        return acc;
+    }, {});
+
+    const clavesOrdenadas = Object.keys(agrupados).sort((a, b) => {
+        if (a === etiquetaVacio) return 1;
+        if (b === etiquetaVacio) return -1;
+        return a.localeCompare(b, "es", { sensitivity: "accent" });
+    });
+
+    const ocultarAutorEnCard = campoAgrupacion === "Autor";
+
+    clavesOrdenadas.forEach(grupo => {
+        const itemsGrupo = agrupados[grupo];
+
+        const seccionGrupo = document.createElement("div");
+        seccionGrupo.className = "grupo-container";
+
+        const headerGrupo = document.createElement("div");
+        headerGrupo.className = "grupo-header";
+        headerGrupo.innerHTML = `
+            <span>${grupo}</span>
+            <span class="grupo-count">${itemsGrupo.length}</span>
+        `;
+        seccionGrupo.appendChild(headerGrupo);
+
+        const gridGrupo = document.createElement("div");
+        gridGrupo.className = "grupo-grid";
+
+        itemsGrupo.forEach(item => {
+            gridGrupo.appendChild(crearTarjetaLibroHTML(item, ocultarAutorEnCard));
+        });
+
+        seccionGrupo.appendChild(gridGrupo);
+        grid.appendChild(seccionGrupo);
+    });
+}
+
+function OLD_generarTarjetasLibros(filtrados) {
     grid.innerHTML = "";
     filtrados.forEach(item => {
         const estado = item.Estado || "---";
