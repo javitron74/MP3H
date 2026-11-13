@@ -198,7 +198,16 @@ async function cargarDatos() {
         const data = await res.json();
 
         datos = Array.isArray(data) ? data : [];
-        datos.sort((a, b) => Number(b.Pos) - Number(a.Pos));
+// Sincronizar selectores con los valores por defecto de CFG si existen
+        const sortFieldEl = document.getElementById("sortField");
+        const sortDirEl = document.getElementById("sortDir");
+
+        if (sortFieldEl && CFG.defaultSortField) {
+            sortFieldEl.value = CFG.defaultSortField;
+        }
+        if (sortDirEl && CFG.defaultSortDir) {
+            sortDirEl.value = CFG.defaultSortDir;
+        }
 
         cargarFiltrosGenericos();
         render();
@@ -295,9 +304,13 @@ function filtrarGenerico() {
 }
 
 function ordenarGenerico(filtrados) {
-    const campoUI = document.getElementById("sortField")?.value || "";
-	const campo = MAPA_CAMPOS[campoUI] || campoUI;
-    const dir = document.getElementById("sortDir")?.value || "asc";
+	const sortFieldEl = document.getElementById("sortField");
+    const sortDirEl = document.getElementById("sortDir");
+
+    const campoUI = sortFieldEl ? (sortFieldEl.value || CFG.defaultSortField || "") : (CFG.defaultSortField || "");
+    const dir = sortDirEl ? (sortDirEl.value || CFG.defaultSortDir || "asc") : (CFG.defaultSortDir || "asc");
+
+    const campo = MAPA_CAMPOS[campoUI] || campoUI;
 
     if (!campo) return filtrados;
     if (!CFG.campos.includes(campo)) return filtrados;
