@@ -208,7 +208,11 @@ async function cargarDatos() {
         if (sortDirEl && CFG.defaultSortDir) {
             sortDirEl.value = CFG.defaultSortDir;
         }
-
+		
+		const groupFieldEl = document.getElementById("groupField");
+		if (groupFieldEl && CFG.defaultGroupField !== undefined) {
+			groupFieldEl.value = CFG.defaultGroupField;
+		}
         cargarFiltrosGenericos();
         render();
     } catch (err) {
@@ -907,6 +911,9 @@ function iniciarEventosIndex() {
 	//Para el menu navegacion
 	const btnNavMenu = document.getElementById("btnNavMenu");
     const navDropdownMenu = document.getElementById("navDropdownMenu");
+	const groupField = document.getElementById("groupField");
+	
+	if (groupField) groupField.addEventListener("change", render);
 
     // ==========================
     // ACCIONES CARD / TABLE
