@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Libros – Formulario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="form-container">
+		<div class="header">
+			<div class="title" id="formTitle">Grupo</div>
+		</div>
+        <div class="form-grid">
+		
+			<div class="form-group">
+                <label>Pos</label>
+                <input id="Pos" type="text">
+            </div>
+            <div class="form-group">
+                <label>Autor</label>
+                <input id="autor" type="text">
+            </div>
+            <div class="form-group">
+                <label>Titulo</label>
+                <input id="titulo" type="text">
+            </div>
+			<div class="form-group">
+                <label>Saga</label>
+                <input id="saga" type="text">
+            </div>
+			<div class="form-group">
+                <label>Volumen</label>
+                <input id="volumen" type="text">
+            </div>
+			<div class="form-group">
+                <label>Genero</label>
+                <input id="genero" type="text">
+            </div>
+            <div class="form-group">
+                <label>Estado</label>
+                <select id="estado">
+                    <option value="">---</option>
+                    <option value="Leido">Leido</option>
+                </select>
+            </div>
+
+            <div class="form-group form-group-full">
+                <label>Resumen</label>
+                <textarea id="resumen"></textarea>
+            </div>
+
+        </div>
+		<!-- Escritorio: botones normales -->
+		<div class="action-desktop">
+			<button class="btn-save" id="btnGuardar">Guardar</button>
+			<a href="nuevosgrupos.html" class="back">Cancelar / Volver</a>
+		</div>
+    </div>
+
+	<!-- Móvil: barra fija -->
+	<div class="action-bar">
+		<button class="btn-save" id="btnGuardarMobile">Guardar</button>
+		<a href="nuevosgrupos.html" class="back">Cancelar</a>
+	</div>
+
+	<script>
+	window.MP3H_FORM = {
+		dataset: "librosjjtl",
+		campos: [
+			"Pos", "Autor","Titulo","Saga","Volumen","Genero","Calificacion (1-5)","Resumen","Estado"
+		]
+	};
+	</script>
+
+	<script type="module" src="script_scalable.js"></script>
+
+</body>
+</html>
