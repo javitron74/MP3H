@@ -489,11 +489,11 @@ main {
 /* =========================================================
    AGRUPACIONES (EJ. LIBROS POR AUTOR)
    ========================================================= */
-.grupo-autor-container {
+.grupo-container {
     display: contents; /* Permite que las tarjetas fluyan correctamente en el grid principal */
 }
 
-.grupo-autor-header {
+.grupo-header {
     grid-column: 1 / -1; /* Ocupa todo el ancho de la pantalla/grid */
     font-size: 1.25rem;
     font-weight: 600;
@@ -506,11 +506,11 @@ main {
     gap: 10px;
 }
 
-.grupo-autor-header:first-of-type {
+.grupo-header:first-of-type {
     margin-top: 0.5rem;
 }
 
-.grupo-autor-grid {
+.grupo-grid {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
