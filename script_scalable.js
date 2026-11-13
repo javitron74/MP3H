@@ -718,10 +718,10 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
         </div>
         <div class="card-footer">
             <span>
-                ${item["Calificacion (1-5)"] !== null ? item["Calificacion (1-5)"] : "-"}
+                ${item["Calificacion (1-5)"] !== null ? item["Calificacion (1-5)"] : "-"} ⭐
             </span>
             <span class="score-source">
-                ${item.Saga || ""}
+                ${item.Saga || ""} (${item.Volumen || ""})
             </span>
         </div>
     `;
