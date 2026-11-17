@@ -95,7 +95,7 @@ function claseEstado(estado) {
         case "Ok":      return "pill-estado-ok";
         case "No":      return "pill-estado-no";
         case "Disp":    return "pill-estado-disp";
-		case "Leido":   return "pill-estado--- libro-leido";
+		case "Leido":   return "libro-leido";
         default:        return "pill-estado---";
     }
 }
@@ -681,10 +681,10 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
     const genero = item.Genero || "";
 
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "card estado---";
 	
 	const clase = claseEstado(estado);
-    if (clase) card.classList.add(clase.replace("pill-", ""));
+    if (clase) card.classList.add(clase);
 
     card.innerHTML = `
         <div class="card-header">
