@@ -683,8 +683,7 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
     const card = document.createElement("div");
     card.className = "card estado---";
 	
-	const clase = claseEstado(estado);
-    if (clase="Leido") card.classList.add("libro-leido");
+    if (estado="Leido") card.classList.add("libro-leido");
 
     card.innerHTML = `
         <div class="card-header">
