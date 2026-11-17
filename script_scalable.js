@@ -95,7 +95,7 @@ function claseEstado(estado) {
         case "Ok":      return "pill-estado-ok";
         case "No":      return "pill-estado-no";
         case "Disp":    return "pill-estado-disp";
-		case "Leido":   return "libro-leido";
+		case "Leido":   return "pill-estado-disp";
         default:        return "pill-estado---";
     }
 }
@@ -684,7 +684,7 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
     card.className = "card estado---";
 	
 	const clase = claseEstado(estado);
-    if (clase) card.classList.add(clase);
+    if (clase="Leido") card.classList.add("libro-leido");
 
     card.innerHTML = `
         <div class="card-header">
