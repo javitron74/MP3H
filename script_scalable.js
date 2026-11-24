@@ -877,15 +877,15 @@ function OLD_generarTarjetasLibros(filtrados) {
 
 const RENDERERS = {
     discos: {
-        card: generarTarjetasDiscos,
+        cards: generarTarjetasDiscos,
         table: generarTablaDiscos
     },
     nuevosgrupos: {
-        card: generarTarjetasNuevos,
+        cards: generarTarjetasNuevos,
         table: generarTablaNuevos
     },
 	librosjjtl: {
-		card: generarTarjetasLibros,
+		cards: generarTarjetasLibros,
         table: generarTarjetasLibros
 	}
 };
@@ -1003,6 +1003,15 @@ function iniciarEventosIndex() {
     if (filterGenero) filterGenero.addEventListener("change", render);
     if (sortField) sortField.addEventListener("change", render);
     if (sortDir) sortDir.addEventListener("change", render);
+/*
+
+const texto ="update?dataset=nuevosgrupos";
+const querystring= texto.includes("?") ? texto.split("?")[1] : texto;
+const parametros = new URLSearchParams(querystring);
+//const parametros = New URLSearchParams(querystring);
+const dataset=parametros.get('dataset');
+
+*/
 
     if (btnReset && CFG.tipo === "discos") {
         btnReset.onclick = async () => {
