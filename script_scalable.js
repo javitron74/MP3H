@@ -738,8 +738,8 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
             </span>
             ${
 				textoSinopsis
-					? `<p class="card-body-comment sinopsis-preview">${textoSinopsis}<\p>
-					  <button type ="buttom" class = "btn-ver-sinopsis">Leer siposis</button>`
+					? `<span class="card-body-comment sinopsis-preview">${textoSinopsis}<\span>
+					  <div type ="buttom" class = "btn-ver-sinopsis">Leer siposis</div>`
 					: ""
 			}
         </div>
@@ -763,7 +763,8 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
         btnIA.onclick = () => cargarIA_libros(item);
         card.appendChild(btnIA);
     }
-	const btnSinopsis = card.querySelector("btn-ver-sinopsis");
+	
+	const btnSinopsis = card.querySelector(".btn-ver-sinopsis");
 	if (btnSinopsis) {
 		btnSinopsis.onclick = (e) => {
 			e.stopPropagation();
