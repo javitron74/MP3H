@@ -189,7 +189,7 @@ function cerrarPanelNotify() {
 function abrirSinopsisLibro (item) {
 	const sinopsis = item.Sinopsis || item.Resumen || "Sin sinopsis disponible.";
 	const datoslibro = item.Titulo 
-		? `<h2>${item.Autor ? item.Autor & " - " : ""}${item.Titulo}<\h2`
+		? `<h2>${item.Autor ? item.Autor + " - " : ""}${item.Titulo}<\h2`
 		: "";
 	abrirPanelNotify (`
 		${datoslibro}
