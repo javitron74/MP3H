@@ -738,7 +738,7 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
             </span>
             ${
 				textoSinopsis
-					? `<span class="card-body-comment sinopsis-preview">${textoSinopsis}<\span>
+					? `<span class="card-body-comment sinopsis-preview">${textoSinopsis}</span>
 					  <div type ="buttom" class = "btn-ver-sinopsis">Leer siposis</div>`
 					: ""
 			}
