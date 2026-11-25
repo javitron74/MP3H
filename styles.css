@@ -360,6 +360,38 @@ main {
     color: white;
 }
 
+/* Sinopsis recortada en la tarjeta */
+.sinopsis-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Muestra máximo 3 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+.btn-ver-sinopsis {
+    background: none;
+    border: none;
+    color: var(--accent, #2563eb);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 0 0 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-ver-sinopsis:hover {
+    text-decoration: underline;
+}
+
+/* Texto completo dentro del panelNotify */
+.panel-sinopsis-texto {
+    white-space: pre-line;
+    line-height: 1.6;
+    margin-top: 12px;
+}
 
 /* HEADER GENERAL */
 .top-header {
