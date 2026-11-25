@@ -186,6 +186,19 @@ function cerrarPanelNotify() {
     document.getElementById("panelNotify").classList.remove("open");
 }
 
+function abrirSinopsisLibro (item) {
+	const sinopsis = item.Sinopsis || item.Resumen || "Sin sinopsis disponible.";
+	const datoslibro = item.Titulo 
+		? `<h2>${item.autor ? item.autor & " - " : ""}${item.Titulo}<\h2`
+		: ""
+	abrirPanelNotify (`
+		${datoslibro}
+		<br>
+		<h3>Sinopsis<\h3>
+		<div class="panel-sinopsis-texto">${sinopsis}<\div>
+	`);
+}
+
 // =====================
 // Carga de datos
 // =====================
@@ -684,6 +697,8 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
     card.className = "card estado---";
 	
     if (estado==="Leido") card.classList.add("libro-leido");
+	
+	const textoSinopsis = item.Sinopsis || item.Resumen || "";
 
     card.innerHTML = `
         <div class="card-header">
@@ -721,8 +736,12 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
             <span class="pill ${claseEstado(estado)}">
                 ${estado || "---"}
             </span>
-            <br><br>
-            <span class="card-body-comment">${item.Resumen || ""}</span>
+            ${
+				textoSinopsis
+					? `<p class="card-body-comment sinopsis-preview">${textoSinopsis}<\p>
+					  <button type ="buttom" class = "btn-ver-sinopsis">Leer siposis</button>
+					: ""
+			}
         </div>
         <div class="card-footer">
             <span>
@@ -733,7 +752,10 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
             </span>
         </div>
     `;
-
+/*
+<br><br>
+<span class="card-body-comment">${item.Resumen || ""}</span>
+*/
     if (esAdmin) {
         const btnIA = document.createElement("button");
         btnIA.className = "btn-ia accion-ia-libros";
@@ -741,7 +763,14 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
         btnIA.onclick = () => cargarIA_libros(item);
         card.appendChild(btnIA);
     }
-
+	const btnSinopsis = card.querySelector("btn-ver-sinopsis");
+	if (btnSinopsis) {
+		btnSinopsis.onclick = (e) => {
+			e.stopPropagation();
+			abrirSinopsisLibro(item);
+		}
+	}
+	
     return card;
 }
 
