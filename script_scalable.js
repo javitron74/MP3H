@@ -190,7 +190,7 @@ function abrirSinopsisLibro (item) {
 	const sinopsis = item.Sinopsis || item.Resumen || "Sin sinopsis disponible.";
 	const datoslibro = item.Titulo 
 		? `<h2>${item.autor ? item.autor & " - " : ""}${item.Titulo}<\h2`
-		: ""
+		: "";
 	abrirPanelNotify (`
 		${datoslibro}
 		<br>
@@ -739,7 +739,7 @@ function crearTarjetaLibroHTML(item, ocultarAutor = false) {
             ${
 				textoSinopsis
 					? `<p class="card-body-comment sinopsis-preview">${textoSinopsis}<\p>
-					  <button type ="buttom" class = "btn-ver-sinopsis">Leer siposis</button>
+					  <button type ="buttom" class = "btn-ver-sinopsis">Leer siposis</button>`
 					: ""
 			}
         </div>
