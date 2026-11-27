@@ -302,7 +302,7 @@ function normalizarValorPropuestaIA(campo, rawTexto) {
 }
 
 function inyectarPanelPropuestaCampoIA(campo, valorPropuesto, { esError = false } = {}) {
-    const btnIA = document.querySelector(`.btn-ia-campo[data-campo="${campo}"]`);
+    const btnIA = document.querySelector(`.btn-ia-field[data-campo="${campo}"]`);
     const group = btnIA?.closest(".form-group");
     const header = group?.querySelector(".field-header");
     const inputEl = resolverInputCampoIA(campo);
@@ -1339,7 +1339,7 @@ async function iniciarFormulario() {
 	if(esAdmin && !iniciarFormulario._iaVinculada){
 		iniciarFormulario._iaVinculada=true;
 		document.addEventListener("click", async (event) => {
-			const btn = event.target.closest(".btn-ia-campo");
+			const btn = event.target.closest(".btn-ia-field");
 			if(!btn) return;
 			
 			const campo = btn.dataset.campo;
