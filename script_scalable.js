@@ -1533,29 +1533,31 @@ const panel = document.getElementById("panelFiltros");
 const btnPanel = document.getElementById("btnPanel");
 const closePanel = document.getElementById("closePanel");
 
-btnPanel.addEventListener("click", (e) => {
-    e.stopPropagation(); // evita que el click cierre el panel inmediatamente
-    panel.classList.toggle("open");
-    btnPanel.classList.toggle("active");
-});
+if (btnPanel && panel) {
 
-// Cerrar al hacer clic fuera
-document.addEventListener("click", (e) => {
-    if (!panel.contains(e.target) && !btnPanel.contains(e.target)) {
-        panel.classList.remove("open");
-        btnPanel.classList.remove("active");
-    }
-});
+	btnPanel.addEventListener("click", (e) => {
+		e.stopPropagation(); // evita que el click cierre el panel inmediatamente
+		panel.classList.toggle("open");
+		btnPanel.classList.toggle("active");
+	});
 
-closePanel.addEventListener("click", () => {
-    panel.classList.remove("open");
-    btnPanel.classList.remove("active");
-});
+	// Cerrar al hacer clic fuera
+	document.addEventListener("click", (e) => {
+		if (!panel.contains(e.target) && !btnPanel.contains(e.target)) {
+			panel.classList.remove("open");
+			btnPanel.classList.remove("active");
+		}
+	});
 
-document.getElementById("panelNotifyClose").addEventListener("click", () => {
-    cerrarPanelNotify();
-});
+	closePanel.addEventListener("click", () => {
+		panel.classList.remove("open");
+		btnPanel.classList.remove("active");
+	});
 
+	document.getElementById("panelNotifyClose").addEventListener("click", () => {
+		cerrarPanelNotify();
+	});
+}
 // =====================
 // Peticiones IA
 // =====================
