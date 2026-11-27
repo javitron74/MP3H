@@ -231,12 +231,15 @@ function resolverInputCampoIA(campo) {
 
 function construirPromptCampoLibro(campo, { Titulo, Autor, Saga, Volumen }) {
     const baseLibro = `
-		Devuelve ÚNICAMENTE el texto  en plano. NO devuelvas JSON, NO uses llaves {}, NO pongas el título ni el autor ni el volumen ni la saga.
+		
 		Libro:
 		- Título: "${Titulo}"
 		- Autor: "${Autor}"
 		- Saga: "${Saga}"
 		- Volumen: "${Volumen}"
+		
+		Devuelve ÚNICAMENTE el texto en plano. NO devuelvas JSON, NO uses llaves {}, NO pongas el título ni el autor ni el volumen ni la saga.
+		
 		`.trim();
 
     switch (campo) {
@@ -276,13 +279,55 @@ function construirPromptCampoLibro(campo, { Titulo, Autor, Saga, Volumen }) {
             return "";
     }
 }
+function extraerCampoDeJSON(texto, campo) {
+    // 1. Intentar parsear directamente si el texto empieza por {
+    try {
+        const obj = JSON.parse(texto);
+        if (obj && typeof obj === "object") {
+            // Buscar clave coincidente ignorando mayúsculas/minúsculas o acentos básicos
+            const claves = Object.keys(obj);
+            const matchClave = claves.find(k =>
+                k.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") ===
+                campo.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            );
+            if (matchClave && obj[matchClave] != null) {
+                return String(obj[matchClave]);
+            }
+            // Fallback común si pide sinopsis y viene como resumen, o viceversa
+            if (campo === "sinopsis" && obj.resumen) return String(obj.resumen);
+            if (campo === "resumen" && obj.sinopsis) return String(obj.sinopsis);
+        }
+    } catch {
+        // Si JSON.parse falla (por ejemplo, hay texto antes/después o saltos de línea sin escapar),
+        // intentamos extraer el valor de "sinopsis" con regex como respaldo
+        const regex = new RegExp(`"${campo}"\\s*:\\s*"((?:\\\\.|[^"\\\\])*)"`, "i");
+        const match = texto.match(regex);
+        if (match && match[1]) {
+            try {
+                return JSON.parse(`"${match[1]}"`);
+            } catch {
+                return match[1].replace(/\\"/g, '"').replace(/\\n/g, "\n");
+            }
+        }
+    }
+
+    return null;
+}
 
 function normalizarValorPropuestaIA(campo, rawTexto) {
     let limpio = String(rawTexto || "")
         .replace(/^```[a-z]*\s*/i, "")
         .replace(/```$/i, "")
         .trim();
-
+		
+	// Si parece un objeto JSON, extraer el valor del campo solicitado
+    if (limpio.startsWith("{") || limpio.includes(`"${campo}"`)) {
+        const extraido = extraerCampoDeJSON(limpio, campo);
+        if (extraido !== null) {
+            limpio = extraido.trim();
+        }
+    }
+	
     if (
         (limpio.startsWith('"') && limpio.endsWith('"')) ||
         (limpio.startsWith("'") && limpio.endsWith("'"))
