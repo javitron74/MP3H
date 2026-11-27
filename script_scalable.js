@@ -1338,7 +1338,7 @@ async function iniciarFormulario() {
     // ===============================
 	if(esAdmin && !iniciarFormulario._iaVinculada){
 		iniciarFormulario._iaVinculada=true;
-		document.addEventListener("click",async (event) => {
+		document.addEventListener("click", async (event) => {
 			const btn = event.target.closest(".btn-ia-campo");
 			if(!btn) return;
 			
