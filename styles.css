@@ -1358,6 +1358,7 @@ select:disabled {
 .btn-ia-autocompletar, .btn-ia-descartar {
 	size: 0.75px;
 	padding: 4px 10px;
+	font-size:0.75rem;
 }
 
 /* =========================================================
