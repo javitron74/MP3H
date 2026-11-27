@@ -1308,6 +1308,51 @@ select:disabled {
 	margin:0;
 }
 
+.field-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.btn-ia-field {
+    font-size: 0.78rem;
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--panel-light);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.btn-ia-field:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+.ia-proposal-box {
+    margin: 6px 0 8px 0;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent, #3b82f6);
+    background: var(--panel-light);
+    font-size: 0.9rem;
+}
+
+.ia-proposal-content {
+    white-space: pre-line;
+    max-height: 160px;
+    overflow-y: auto;
+    line-height: 1.45;
+    margin-bottom: 8px;
+}
+
+.ia-proposal-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
 /* =========================================================
    LINKS
    ========================================================= */
