@@ -1356,9 +1356,20 @@ async function iniciarFormulario() {
             btn.disabled = true;
             btn.textContent = "⏳";
 			
+			try {
+				const valorPropuesto = await solicitarPropuestaCampoIA(campo,contexto);
+				inyectarPanelPropuestaCampoIA(campo, valorPropuesto, {esError: false});
+			} catch (err) {
+                inyectarPanelPropuestaCampoIA(campo, err.message || "Error inesperado", {
+                    esError: true
+                });
+            } finally {
+                btn.disabled = false;
+                btn.textContent = textoOriginal || "✨";
+            }
 			
 		
-		}
+		});
 	}
 	
 	
