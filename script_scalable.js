@@ -231,6 +231,7 @@ function resolverInputCampoIA(campo) {
 
 function construirPromptCampoLibro(campo, { Titulo, Autor, Saga, Volumen }) {
     const baseLibro = `
+		Devuelve ÚNICAMENTE el texto  en plano. NO devuelvas JSON, NO uses llaves {}, NO pongas el título ni el autor ni el volumen ni la saga.
 		Libro:
 		- Título: "${Titulo}"
 		- Autor: "${Autor}"
