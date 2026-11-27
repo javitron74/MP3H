@@ -1336,7 +1336,7 @@ select:disabled {
     border-radius: 8px;
     border-left: 3px solid var(--accent, #3b82f6);
     background: var(--panel-light);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
 }
 
 .ia-proposal-content {
@@ -1344,13 +1344,20 @@ select:disabled {
     max-height: 160px;
     overflow-y: auto;
     line-height: 1.45;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+	font-style: italic;
+    Color: var(--accent);
 }
 
 .ia-proposal-actions {
     display: flex;
     gap: 8px;
     justify-content: flex-end;
+}
+
+.btn-ia-autocompletar, .btn-ia-descartar {
+	size: 0.75px;
+	padding: 4px 10px;
 }
 
 /* =========================================================
