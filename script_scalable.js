@@ -51,6 +51,8 @@ const CFG = window.MP3H_CONFIG || {
 };
 
 let modoVista = CFG.defaultModoVista // cards | table
+
+const CAMPOS_IA_FORMULARIO_LIBROS = new Set(["genero", "calificacion", "sinopsis", "resumen"]);
 // =====================
 // Utilidades
 // =====================
@@ -197,6 +199,196 @@ function abrirSinopsisLibro (item) {
 		<h3>Sinopsis</h3>
 		<div class="panel-sinopsis-texto">${sinopsis}</div>
 	`);
+}
+
+function obtenerContextoLibroFormulario() {
+    return {
+        Titulo: document.getElementById("titulo")?.value.trim() || "",
+        Autor: document.getElementById("autor")?.value.trim() || "",
+        Saga: document.getElementById("saga")?.value.trim() || "",
+        Volumen: document.getElementById("volumen")?.value.trim() || ""
+    };
+}
+
+function escaparHTMLIA(texto = "") {
+    return String(texto)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+}
+
+function resolverInputCampoIA(campo) {
+    // Soporta tanto el ID normalizado de "Calificacion (1-5)" como un id="calificacion" directo
+    if (campo === "calificacion") {
+        return (
+            document.getElementById(normalizarId("Calificacion (1-5)")) ||
+            document.getElementById("calificacion")
+        );
+    }
+    return document.getElementById(campo) || document.getElementById(normalizarId(campo));
+}
+
+function construirPromptCampoLibro(campo, { Titulo, Autor, Saga, Volumen }) {
+    const baseLibro = `
+		Libro:
+		- Título: "${Titulo}"
+		- Autor: "${Autor}"
+		- Saga: "${Saga}"
+		- Volumen: "${Volumen}"
+		`.trim();
+
+    switch (campo) {
+        case "sinopsis":
+            return `
+				Eres un editor literario. 
+				Escribe una sinopsis clara y atractiva en español (de 3 a 5 oraciones, sin spoilers) para el siguiente libro. Devuelve ÚNICAMENTE el texto de la sinopsis, sin títulos ni comillas envolventes.
+
+				${baseLibro}
+				`.trim();
+
+        case "resumen":
+            return `
+				Eres un analista literario. 
+				Redacta un resumen conciso y estructurado en español (ideas clave, tono y planteamiento general, sin spoilers finales) para el siguiente libro. Devuelve ÚNICAMENTE el texto del resumen, sin introducciones ni markdown innecesario.
+
+				${baseLibro}
+				`.trim();
+
+        case "genero":
+            return `
+				Eres un catalogador bibliográfico. 
+				Indica el género literario principal (o como máximo dos separados por coma, ej. "Fantasía épica" o "Ciencia ficción, Thriller") para el siguiente libro. Devuelve ÚNICAMENTE el género en texto plano.
+
+				${baseLibro}
+				`.trim();
+
+        case "calificacion":
+            return `
+				Eres un crítico literario. 
+				Estima una calificación numérica del 1 al 5 (con un decimal como máximo, por ejemplo 4.3) según la recepción crítica y de lectores habitual para el siguiente libro. Devuelve ÚNICAMENTE el número (ej. 4.2).
+
+				${baseLibro}
+				`.trim();
+
+        default:
+            return "";
+    }
+}
+
+function normalizarValorPropuestaIA(campo, rawTexto) {
+    let limpio = String(rawTexto || "")
+        .replace(/^```[a-z]*\s*/i, "")
+        .replace(/```$/i, "")
+        .trim();
+
+    if (
+        (limpio.startsWith('"') && limpio.endsWith('"')) ||
+        (limpio.startsWith("'") && limpio.endsWith("'"))
+    ) {
+        limpio = limpio.slice(1, -1).trim();
+    }
+
+    if (campo === "calificacion") {
+        const match = limpio.replace(",", ".").match(/\d+(\.\d+)?/);
+        if (!match) return "";
+        const num = Number(match[0]);
+        if (!Number.isFinite(num)) return "";
+        const clamped = Math.min(5, Math.max(1, num));
+        return String(Math.round(clamped * 10) / 10);
+    }
+
+    return limpio;
+}
+
+function inyectarPanelPropuestaCampoIA(campo, valorPropuesto, { esError = false } = {}) {
+    const btnIA = document.querySelector(`.btn-ia-campo[data-campo="${campo}"]`);
+    const group = btnIA?.closest(".form-group");
+    const header = group?.querySelector(".field-header");
+    const inputEl = resolverInputCampoIA(campo);
+
+    if (!group || !header || !inputEl) return;
+
+    let panel = group.querySelector(".ia-proposal-box");
+    if (!panel) {
+        panel = document.createElement("div");
+        panel.className = "ia-proposal-box";
+        panel.dataset.campo = campo;
+        header.insertAdjacentElement("afterend", panel);
+    }
+
+    const tieneValorActual = Boolean(String(inputEl.value || "").trim());
+    const textoSeguro = escaparHTMLIA(valorPropuesto ?? "");
+
+    panel.innerHTML = `
+        <div class="ia-proposal-header">
+            <span>${esError ? "Error al consultar IA" : "Propuesta de IA (valida antes de autocompletar)"}</span>
+            ${
+                !esError && tieneValorActual
+                    ? `<small class="ia-aviso-sobrescribir">El campo ya contiene datos</small>`
+                    : ""
+            }
+        </div>
+        <div class="ia-proposal-content">${
+            textoSeguro ? textoSeguro : "<em>No se obtuvo una sugerencia válida.</em>"
+        }</div>
+        <div class="ia-proposal-actions">
+            ${
+                !esError && String(valorPropuesto ?? "").trim() !== ""
+                    ? `<button type="button" class="btn-ia-autocompletar">Autocompletar</button>`
+                    : ""
+            }
+            <button type="button" class="btn-ia-descartar">Descartar</button>
+        </div>
+    `;
+
+    panel.querySelector(".btn-ia-descartar")?.addEventListener("click", () => {
+        panel.remove();
+    });
+
+    const btnAutocompletar = panel.querySelector(".btn-ia-autocompletar");
+    if (btnAutocompletar) {
+        btnAutocompletar.addEventListener("click", () => {
+            const valorActual = String(inputEl.value || "").trim();
+            if (
+                valorActual &&
+                !confirm(
+                    `El campo "${campo}" ya tiene contenido ("${valorActual.slice(0, 60)}${
+                        valorActual.length > 60 ? "..." : ""
+                    }"). ¿Quieres reemplazarlo por la propuesta de la IA?`
+                )
+            ) {
+                return;
+            }
+
+            inputEl.value = String(valorPropuesto);
+            inputEl.dispatchEvent(new Event("input", { bubbles: true }));
+            inputEl.dispatchEvent(new Event("change", { bubbles: true }));
+            inputEl.focus();
+            panel.remove();
+            mostrarMensaje(`Propuesta aplicada en ${campo}`, "ok");
+        });
+    }
+}
+
+async function solicitarPropuestaCampoIA(campo, contexto) {
+    const prompt = construirPromptCampoLibro(campo, contexto);
+    const data = await enviarIA(prompt);
+
+    if (data?.error) {
+        throw new Error(data.message || "Error al consultar la IA.");
+    }
+
+    const textoIA =
+        data?.response ??
+        data?.result?.response ??
+        data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!textoIA) {
+        throw new Error("La IA no devolvió contenido.");
+    }
+
+    return normalizarValorPropuestaIA(campo, textoIA);
 }
 
 // =====================
@@ -1141,7 +1333,35 @@ async function iniciarFormulario() {
         slider.addEventListener("input", () => actualizarValorPuntuacion(slider.value));
         sliderEnabled.addEventListener("change", actualizarEstadoPuntuacion);
     }
-
+    // ===============================
+    //  BOTONES IA
+    // ===============================
+	if(esAdmin && !iniciarFormulario._iaVinculada){
+		iniciarFormulario._iaVinculada=true;
+		document.addEventListener("click",async (event) => {
+			const btn = event.target.closest(".btn-ia-campo");
+			if(!btn) return;
+			
+			const campo = btn.dataset.campo;
+			if(!CAMPOS_IA_FORMULARIO_LIBROS.has(campo)) return;
+			
+			const contexto = obtenerContextoLibroFormulario();
+			if(!contexto.Titulo){
+				alert("Escribe primero el Título del libro para pedir una propuesta a la IA.");
+                document.getElementById("titulo")?.focus();
+                return;
+			}
+		
+			const textoOriginal = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = "⏳";
+			
+			
+		
+		}
+	}
+	
+	
     // ===============================
     //  MODO EDICIÓN
     // ===============================
@@ -1276,7 +1496,7 @@ async function iniciarFormulario() {
 	};
 	
 	if (!esAdmin) {
-
+		
 		if (btnGuardar) btnGuardar.style.display = "none";
 		if (btnGuardarMobile) btnGuardarMobile.style.display = "none";
 	}
@@ -1324,15 +1544,6 @@ closePanel.addEventListener("click", () => {
 document.getElementById("panelNotifyClose").addEventListener("click", () => {
     cerrarPanelNotify();
 });
-
-/*PANEL DE NOTIFICACION PULSAR FUERA*/
-/*document.addEventListener("click", (e) => {
-    const panel = document.getElementById("panelNotify");
-    if (!panel.contains(e.target) && panel.classList.contains("open")) {
-        cerrarPanelNotify();
-    }
-});*/
-
 
 // =====================
 // Peticiones IA
@@ -1536,69 +1747,69 @@ async function cargarIA_libros(item) {
     const titulo = item.Titulo;
 
     const prompt = `
-Actúa exactamente como el asistente oficial de Gemini Web.
+		Actúa exactamente como el asistente oficial de Gemini Web.
 
-Tu estilo debe ser:
-- claro, ordenado y fácil de leer
-- conversacional pero profesional
-- explicativo sin ser redundante
-- estructurado en secciones cuando sea útil
-- con contexto adicional relevante
-- con ejemplos cuando mejoren la comprensión
-- evitando frases robóticas o demasiado técnicas
-- evitando respuestas excesivamente breves
-- evitando respuestas excesivamente largas
-- corrigiendo ambigüedades del usuario de forma natural
-- añadiendo detalles útiles aunque no se pidan explícitamente
-- manteniendo un tono amable, seguro y confiado
+		Tu estilo debe ser:
+		- claro, ordenado y fácil de leer
+		- conversacional pero profesional
+		- explicativo sin ser redundante
+		- estructurado en secciones cuando sea útil
+		- con contexto adicional relevante
+		- con ejemplos cuando mejoren la comprensión
+		- evitando frases robóticas o demasiado técnicas
+		- evitando respuestas excesivamente breves
+		- evitando respuestas excesivamente largas
+		- corrigiendo ambigüedades del usuario de forma natural
+		- añadiendo detalles útiles aunque no se pidan explícitamente
+		- manteniendo un tono amable, seguro y confiado
 
-IMPORTANTE:
-- Si el usuario pide datos, ofrécelos con claridad.
-- Si el usuario pide análisis, razona paso a paso.
-- Si el usuario pide opinión, ofrece una opinión equilibrada y razonada.
-- Si el usuario pide estructura, usa listas y subtítulos.
-- Si el usuario pide texto para mostrar en UI, devuélvelo limpio y sin ruido.
-- Si el usuario pide JSON, devuélvelo como JSON válido sin texto adicional.
+		IMPORTANTE:
+		- Si el usuario pide datos, ofrécelos con claridad.
+		- Si el usuario pide análisis, razona paso a paso.
+		- Si el usuario pide opinión, ofrece una opinión equilibrada y razonada.
+		- Si el usuario pide estructura, usa listas y subtítulos.
+		- Si el usuario pide texto para mostrar en UI, devuélvelo limpio y sin ruido.
+		- Si el usuario pide JSON, devuélvelo como JSON válido sin texto adicional.
 
-Nunca digas que eres un modelo de lenguaje.  
-Nunca digas que no tienes acceso a internet.  
-Nunca digas “como IA”.  
-Responde como Gemini Web: natural, útil y directo.
+		Nunca digas que eres un modelo de lenguaje.  
+		Nunca digas que no tienes acceso a internet.  
+		Nunca digas “como IA”.  
+		Responde como Gemini Web: natural, útil y directo.
 
-Ahora responde a esta petición del usuario:
-Eres un asistente que devuelve SIEMPRE JSON válido.
-Eres un experto literario.
+		Ahora responde a esta petición del usuario:
+		Eres un asistente que devuelve SIEMPRE JSON válido.
+		Eres un experto literario.
 
-Quiero información sobreel siguiente autor de libro y el titulo:
-- Autor: "${autor}"
-- Disco: "${titulo}"
+		Quiero información sobreel siguiente autor de libro y el titulo:
+		- Autor: "${autor}"
+		- Disco: "${titulo}"
 
-Devuélveme:
-1) Resumen breve del autor del libro (4-6 frases). Incluir genero preferido
-2) Mejores libros del autor indicando si hay algun libro premiado (lista de 3–5 libros u obras reales).
-3) Bandas similares (lista de 3–6 nombres con relación de estilo).
-4) Nivel de certeza de la información.
-5) Clasificacion o calificación del libro (de 1-10).
-6) Curiosidades sobre el autor o el libro(2–4 datos interesantes y relevantes).
+		Devuélveme:
+		1) Resumen breve del autor del libro (4-6 frases). Incluir genero preferido
+		2) Mejores libros del autor indicando si hay algun libro premiado (lista de 3–5 libros u obras reales).
+		3) Bandas similares (lista de 3–6 nombres con relación de estilo).
+		4) Nivel de certeza de la información.
+		5) Clasificacion o calificación del libro (de 1-10).
+		6) Curiosidades sobre el autor o el libro(2–4 datos interesantes y relevantes).
 
-Formato de salida SIEMPRE en JSON:
+		Formato de salida SIEMPRE en JSON:
 
-{
-  "autor": "",
-  "mejores_libros": "",
-  "autores_similares": "",
-  "estilo": "",
-  "certeza": "",
-  "clasificacion_libro":"",
-  "curiosidades": ""
-}
+		{
+		  "autor": "",
+		  "mejores_libros": "",
+		  "autores_similares": "",
+		  "estilo": "",
+		  "certeza": "",
+		  "clasificacion_libro":"",
+		  "curiosidades": ""
+		}
 
-Reglas:
-- Detras de una coma dejar siempre un espacio
-- Si no tienes datos fiables, usa valores como "No disponible" o listas vacías.
-- NO añadas texto fuera del JSON.
-- El JSON debe ser siempre válido.
-`;
+		Reglas:
+		- Detras de una coma dejar siempre un espacio
+		- Si no tienes datos fiables, usa valores como "No disponible" o listas vacías.
+		- NO añadas texto fuera del JSON.
+		- El JSON debe ser siempre válido.
+		`;
 	
 	const data = await enviarIA(prompt);
 		
